@@ -62,7 +62,7 @@ public class MeasurementsService implements IMeasurementsService {
     private Map<String, Object> obtainNonRelatedData(Map<String, Object> attrMap, String... attrToExclude){
         HashMap <String,Object> nonRelateData = new HashMap<>();
         for(String attr : attrToExclude){
-            if(attrMap.containsKey(attr) && attrMap.get(attr) instanceof String){
+            if(attrMap.containsKey(attr)){
                 nonRelateData.put(attr, attrMap.remove(attr));
             }
         }
@@ -72,57 +72,56 @@ public class MeasurementsService implements IMeasurementsService {
     private Map<String,Object> insertNonRelatedData(Map<String, Object> inputMap){
         Map<String, Object> attrMap = new HashMap<>(inputMap);
 
-        attrMap.forEach((key,value) -> {
+        for(Map.Entry<String, Object>entry : attrMap.entrySet()){
             Map<String, Object> data = new HashMap<>();
             List<String> attr = new ArrayList<>();
             EntityResult toret, query;
 
-            if(key.equalsIgnoreCase(MeasurementsDao.ATTR_ID_DEV)) {
-                data.put(DevicesDao.ATTR_DEVICE_NAME, value);
+            if(entry.getKey().equalsIgnoreCase(MeasurementsDao.ATTR_ID_DEV)) {
+                data.put(DevicesDao.ATTR_DEVICE_NAME, entry.getValue());
                 attr.add(DevicesDao.ATTR_ID_DEV);
                 query = this.devicesService.deviceQuery(data,attr);
                 if(query.calculateRecordNumber() > 0 ) {
-                    value = query.getRecordValues(0).get(DevicesDao.ATTR_ID_DEV);
+                    entry.setValue(query.getRecordValues(0).get(DevicesDao.ATTR_ID_DEV));
                 } else {
                     toret = this.devicesService.deviceInsert(data);
-                    value = toret.get(DevicesDao.ATTR_ID_DEV);
+                    entry.setValue(toret.get(DevicesDao.ATTR_ID_DEV));
                 }
             }
-            if(key.equalsIgnoreCase(MeasurementsDao.ATTR_ID_PLATE)) {
-                data.put(PlatesDao.ATTR_PLATE_NUMBER, value);
+            if(entry.getKey().equalsIgnoreCase(MeasurementsDao.ATTR_ID_PLATE)) {
+                data.put(PlatesDao.ATTR_PLATE_NUMBER, entry.getValue());
                 attr.add(PlatesDao.ATTR_ID_PLATE);
                 query = this.platesService.plateQuery(data, attr);
                 if(query.calculateRecordNumber() > 0 ) {
-                    value = query.getRecordValues(0).get(PlatesDao.ATTR_ID_PLATE);
+                    entry.setValue(query.getRecordValues(0).get(PlatesDao.ATTR_ID_PLATE));
                 }else{
                     toret = this.platesService.plateInsert(data);
-                    value = toret.get(PlatesDao.ATTR_ID_PLATE);
+                    entry.setValue(toret.get(PlatesDao.ATTR_ID_PLATE));
                 }
             }
-            if(key.equalsIgnoreCase(MeasurementsDao.ATTR_ID_TRAILER_PLATE)) {
-                data.put(TrailerPlatesDao.ATTR_TRAILER_PLATE_NUMBER, value);
+            if(entry.getKey().equalsIgnoreCase(MeasurementsDao.ATTR_ID_TRAILER_PLATE)) {
+                data.put(TrailerPlatesDao.ATTR_TRAILER_PLATE_NUMBER, entry.getValue());
                 attr.add(TrailerPlatesDao.ATTR_ID_TRAILER_PLATE);
                 query = this.trailerPlatesService.trailerPlateQuery(data, attr);
                 if(query.calculateRecordNumber() > 0 ) {
-                    value = query.getRecordValues(0).get(TrailerPlatesDao.ATTR_ID_TRAILER_PLATE);
+                    entry.setValue(query.getRecordValues(0).get(TrailerPlatesDao.ATTR_ID_TRAILER_PLATE));
                 } else {
                     toret = this.trailerPlatesService.trailerPlateInsert(data);
-                    value = toret.get(TrailerPlatesDao.ATTR_ID_TRAILER_PLATE);
+                    entry.setValue(toret.get(TrailerPlatesDao.ATTR_ID_TRAILER_PLATE));
                 }
             }
-            if(key.equalsIgnoreCase(MeasurementsDao.ATTR_ID_DELIVERY_NOTE)) {
-                data.put(DeliveryNotesDao.ATTR_DELIVERY_NAME, value);
+            if(entry.getKey().equalsIgnoreCase(MeasurementsDao.ATTR_ID_DELIVERY_NOTE)) {
+                data.put(DeliveryNotesDao.ATTR_DELIVERY_NAME, entry.getValue());
                 attr.add(DeliveryNotesDao.ATTR_ID_DELIVERY_NOTE);
                 query = this.deliverynotesService.deliverynotesQuery(data, attr);
                 if(query.calculateRecordNumber() > 0){
-                    value = query.getRecordValues(0).get(DeliveryNotesDao.ATTR_ID_DELIVERY_NOTE);
+                    entry.setValue(query.getRecordValues(0).get(DeliveryNotesDao.ATTR_ID_DELIVERY_NOTE));
                 }else {
                     toret = this.deliverynotesService.deliverynotesInsert(data);
-                    value = toret.get(DeliveryNotesDao.ATTR_ID_DELIVERY_NOTE);
+                    entry.setValue(toret.get(DeliveryNotesDao.ATTR_ID_DELIVERY_NOTE));
                 }
             }
-            attrMap.put(key,value);
-        });
+        }
 
         return attrMap;
     }

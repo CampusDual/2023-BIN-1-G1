@@ -12,7 +12,7 @@ import java.util.Arrays;
 public class DevicesDao extends OntimizeJdbcDaoSupport {
 
     public static final String ATTR_ID_DEV = "id_dev";
-    public static final String ATTR_DEVICE_NAME = "valor";
+    public static final String ATTR_DEVICE_NAME = "device_name";
 
     public static final List<String> ALL_COLUMNS = Arrays.asList(
             DevicesDao.ATTR_ID_DEV,

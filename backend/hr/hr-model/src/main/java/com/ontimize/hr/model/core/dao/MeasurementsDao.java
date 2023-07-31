@@ -15,9 +15,9 @@ public class MeasurementsDao extends OntimizeJdbcDaoSupport {
 
     public static final String ATTR_ID_MEASUREMENT = "id_measurement";
     public static final String ATTR_ID_DEV = "id_dev";
-    public static final String ATTR_DATETIME = "id_dev";
-    public static final String ATTR_SCAN_VOLUME = "id_dev";
-    public static final String ATTR_CALCULATED_VOLUME = "id_dev";
+    public static final String ATTR_DATETIME = "datetime";
+    public static final String ATTR_SCAN_VOLUME = "scan_volume";
+    public static final String ATTR_CALCULATED_VOLUME = "calculated_volume";
     public static final String ATTR_HEIGHT = "height";
     public static final String ATTR_WIDTH = "width";
     public static final String ATTR_LENGTH = "length";
