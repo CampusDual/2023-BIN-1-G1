@@ -1,7 +1,10 @@
 package com.ontimize.hr.ws.core.rest;
 
 
+import com.ontimize.hr.api.core.service.IDeliveryNotesService;
 import com.ontimize.hr.model.core.dao.TravelsDao;
+import com.ontimize.hr.model.core.dao.DeliveryNotesDao;
+import com.ontimize.hr.model.core.service.DeliveryNotesService;
 import com.ontimize.jee.common.dto.EntityResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,6 +28,8 @@ public class TravelsRestController extends ORestController<ITravelsService> {
 
     @Autowired
     private ITravelsService travelService;
+    @Autowired
+    private IDeliveryNotesService deliveryNotesService;
 
     @Override
     public ITravelsService getService() {
@@ -41,7 +46,7 @@ public class TravelsRestController extends ORestController<ITravelsService> {
         Timestamp datetime = new Timestamp(dateFormat.parse(timestampString).getTime());
 
         Object scan_volume = data.remove("scan_volume");
-        Object id_dev = data.remove("id_dev");
+        Object id_dev = data.remove("dev");
         if(calculated_volume == null){
             data.put(TravelsDao.ATTR_ID_DEV_IN, id_dev);
             data.put("scan_volume_in",scan_volume);
@@ -63,7 +68,15 @@ public class TravelsRestController extends ORestController<ITravelsService> {
         data.put(TravelsDao.ATTR_ID_DELIVERY_NOTE, deliveryNote);
 
         if(calculated_volume != null){
-            //EntityResult et = travelService.travelUpdate(data,);
+            HashMap<String, Object> keyMap = new HashMap<>();
+            List<String> attr = new ArrayList<>();
+            keyMap.put(DeliveryNotesDao.ATTR_DELIVERY_NAME, deliveryNote);
+            attr.add(DeliveryNotesDao.ATTR_ID_DELIVERY_NOTE);
+            EntityResult et = deliveryNotesService.deliverynotesQuery(keyMap, attr);
+            keyMap.clear();
+            attr.clear();
+            keyMap.put(DeliveryNotesDao.ATTR_ID_DELIVERY_NOTE, et.getRecordValues(0).get(DeliveryNotesDao.ATTR_ID_DELIVERY_NOTE));
+            travelService.travelUpdate(data,keyMap);
         }else{
             EntityResult et = travelService.travelInsert(data);
         }

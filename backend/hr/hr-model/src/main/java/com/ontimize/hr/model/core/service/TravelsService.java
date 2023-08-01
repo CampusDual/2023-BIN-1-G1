@@ -49,14 +49,14 @@ public class TravelsService implements ITravelsService {
     @Transactional(rollbackFor = Exception.class)
     public EntityResult travelInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException {
         attrMap.get("calculated_volume");
-        Map <String, Object> nonMeasurementData = obtainNonRelatedData(attrMap,
+        Map <String, Object> nonTravelData = obtainNonRelatedData(attrMap,
                 TravelsDao.ATTR_ID_DEV_IN,
                 TravelsDao.ATTR_ID_PLATE,
                 TravelsDao.ATTR_ID_TRAILER_PLATE,
                 TravelsDao.ATTR_ID_DELIVERY_NOTE
         );
         //Introducimos los campos modificados con los ids en el attrMap.
-        attrMap.putAll(this.insertNonRelatedData(nonMeasurementData));
+        attrMap.putAll(this.insertNonRelatedData(nonTravelData));
         return this.daoHelper.insert(this.travelsDao, attrMap);
     }
 
