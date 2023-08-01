@@ -5,18 +5,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ontimize.hr.api.core.service.IEjemploService;
+import com.ontimize.hr.api.core.service.ITrailerPlatesService;
 import com.ontimize.jee.server.rest.ORestController;
 
 @RestController
-@RequestMapping("/ejemplos")
-public class EjemploRestController extends ORestController<IEjemploService> {
+@RequestMapping("/trailerplates")
+public class TrailerPlatesController extends ORestController<ITrailerPlatesService> {
 
     @Autowired
-    private IEjemploService ejemploService;
+    private ITrailerPlatesService trailerplateService;
 
     @Override
-    public IEjemploService getService() {
-        return this.ejemploService;
+    public ITrailerPlatesService getService() {
+        return this.trailerplateService;
     }
 }
+

@@ -15,10 +15,14 @@ public class DeliveryNotesDao extends OntimizeJdbcDaoSupport {
 
     public static final String ATTR_ID_DELIVERY_NOTE = "id_delivery_note";
     public static final String ATTR_DELIVERY_NAME = "delivery_name";
+    public static final String ATTR_MID_IN = "mId_in";
+    public static final String ATTR_MID_OUT = "mId_out";
 
     public static final List<String> ALL_COLUMNS = Arrays.asList(
             DeliveryNotesDao.ATTR_ID_DELIVERY_NOTE,
-            DeliveryNotesDao.ATTR_DELIVERY_NAME
+            DeliveryNotesDao.ATTR_DELIVERY_NAME,
+            DeliveryNotesDao.ATTR_MID_IN,
+            DeliveryNotesDao.ATTR_MID_OUT
     );
 }
 
