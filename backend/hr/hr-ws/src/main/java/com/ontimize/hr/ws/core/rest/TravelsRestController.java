@@ -6,6 +6,7 @@ import com.ontimize.hr.model.core.dao.TravelsDao;
 import com.ontimize.hr.model.core.dao.DeliveryNotesDao;
 import com.ontimize.hr.model.core.service.DeliveryNotesService;
 import com.ontimize.jee.common.dto.EntityResult;
+import org.bouncycastle.util.Times;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -67,22 +68,36 @@ public class TravelsRestController extends ORestController<ITravelsService> {
         Object deliveryNote = data.remove("delivery_note");
         data.put(TravelsDao.ATTR_ID_DELIVERY_NOTE, deliveryNote);
 
-        if(calculated_volume != null){
-            HashMap<String, Object> keyMap = new HashMap<>();
-            List<String> attr = new ArrayList<>();
-            keyMap.put(DeliveryNotesDao.ATTR_DELIVERY_NAME, deliveryNote);
-            attr.add(DeliveryNotesDao.ATTR_ID_DELIVERY_NOTE);
-            EntityResult et = deliveryNotesService.deliverynotesQuery(keyMap, attr);
+        HashMap<String, Object> keyMap = new HashMap<>();
+        List<String> attr = new ArrayList<>();
+        keyMap.put(DeliveryNotesDao.ATTR_DELIVERY_NAME, deliveryNote);
+        attr.add(DeliveryNotesDao.ATTR_ID_DELIVERY_NOTE);
+
+        EntityResult et = deliveryNotesService.deliverynotesQuery(keyMap, attr);
+        if(et.isEmpty() && calculated_volume == null) {
+            travelService.travelInsert(data);
+            re = new ResponseEntity<String>("Travel Insert OK",  HttpStatus.CREATED);
+        } else if(calculated_volume != null) {
             keyMap.clear();
             attr.clear();
-            keyMap.put(DeliveryNotesDao.ATTR_ID_DELIVERY_NOTE, et.getRecordValues(0).get(DeliveryNotesDao.ATTR_ID_DELIVERY_NOTE));
-            travelService.travelUpdate(data,keyMap);
-        }else{
-            EntityResult et = travelService.travelInsert(data);
+            Object idDeliveryNote = et.getRecordValues(0).get(DeliveryNotesDao.ATTR_ID_DELIVERY_NOTE);
+            keyMap.put(DeliveryNotesDao.ATTR_ID_DELIVERY_NOTE, idDeliveryNote);
+            attr.add(TravelsDao.ATTR_ID_TRAVEL);
+
+            EntityResult travelResult = travelService.travelQuery(keyMap, attr);
+
+            if (!travelResult.isEmpty()) {
+                Object idTravel = travelResult.getRecordValues(0).get(TravelsDao.ATTR_ID_TRAVEL);
+                keyMap.clear();
+                keyMap.put(TravelsDao.ATTR_ID_TRAVEL, idTravel);
+                EntityResult et1 = travelService.travelUpdate(data, keyMap);
+            } else {
+                re =  new ResponseEntity<String>("¡Hola mundo, soy una tetera!",  HttpStatus.I_AM_A_TEAPOT);
+            }
+        }else {
+            re = new ResponseEntity<String>("Bug! Ya existe ese delivery note!!!", HttpStatus.BAD_REQUEST);
         }
-
-
-        return  new ResponseEntity<String>("Travel Insert OK",  HttpStatus.CREATED);
+        return re;
     }
 
     public Timestamp stringToTimestamp(String timestampString){

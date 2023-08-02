@@ -12,4 +12,26 @@
         <Column>id_travel</Column>
     </UpdateKeys>
     <GeneratedKey>id_travel</GeneratedKey>
+    <Queries>
+        <Query id="delivery_notes">
+            <Sentence>
+                <![CDATA[
+                SELECT
+                 #COLUMNS#
+                FROM
+                 PUBLIC.travels T
+                INNER JOIN PUBLIC.delivery_notes DN ON
+                T.id_delivery_note = DN.id_delivery_note
+                INNER JOIN PUBLIC.devices DV ON
+                T.id_device = DV.id_device
+                INNER JOIN PUBLIC.plates P on
+                T.id_plate = P.id_plate
+                INNER JOIN PUBLIC.trailer_plates TP on
+                T.id_trailer_plate = TP.id_trailer_plate
+                 #WHERE#
+                ]]>
+            </Sentence>
+        </Query>
+    </Queries>
+
 </JdbcEntitySetup>
