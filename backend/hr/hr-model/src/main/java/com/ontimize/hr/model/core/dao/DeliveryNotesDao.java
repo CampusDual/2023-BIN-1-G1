@@ -19,6 +19,8 @@ public class DeliveryNotesDao extends OntimizeJdbcDaoSupport {
             DeliveryNotesDao.ATTR_ID_DELIVERY_NOTE,
             DeliveryNotesDao.ATTR_DELIVERY_NAME
     );
+
+        public static final String QUERY_DELIVERY_NOTES = "delivery_notes";
 }
 
 

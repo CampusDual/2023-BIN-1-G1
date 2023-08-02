@@ -23,7 +23,7 @@ public class DeliveryNotesService implements IDeliveryNotesService {
     @Override
     public EntityResult deliverynotesQuery(Map<String, Object> keyMap, List<String> attrList)
             throws OntimizeJEERuntimeException {
-        return this.daoHelper.query(this.deliverynotesDao, keyMap, attrList);
+        return this.daoHelper.query(this.deliverynotesDao, keyMap, attrList, DeliveryNotesDao.QUERY_DELIVERY_NOTES);
     }
 
     @Override
