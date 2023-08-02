@@ -38,12 +38,12 @@ public class TravelsRestController extends ORestController<ITravelsService> {
 
     @RequestMapping( value="/insert", method = RequestMethod.POST)
     public ResponseEntity<String> insertData(@RequestBody Map<String,Object> body) throws ParseException {
+        ResponseEntity re = null;
         Map <String, Object> data = new HashMap<>(body);
         Object calculated_volume = data.getOrDefault("calculated_volume", null);
 
         String timestampString = (String) data.remove("date"); // Aquí debes poner tu timestamp en formato de cadena
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-        Timestamp datetime = new Timestamp(dateFormat.parse(timestampString).getTime());
+        Timestamp datetime = stringToTimestamp(timestampString);
 
         Object scan_volume = data.remove("scan_volume");
         Object id_dev = data.remove("dev");
@@ -83,6 +83,17 @@ public class TravelsRestController extends ORestController<ITravelsService> {
 
 
         return  new ResponseEntity<String>("Travel Insert OK",  HttpStatus.CREATED);
+    }
+
+    public Timestamp stringToTimestamp(String timestampString){
+        Timestamp datetime = null;
+        try{
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+            datetime = new Timestamp(dateFormat.parse(timestampString).getTime());
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return datetime;
     }
 }
 
