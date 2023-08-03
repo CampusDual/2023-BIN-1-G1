@@ -13,9 +13,10 @@
     </UpdateKeys>
     <GeneratedKey>id_travel</GeneratedKey>
     <Queries>
-        <Query id="delivery_notes">
+        <Query id="query_get">
             <Sentence>
                 <![CDATA[
+                WITH t as(
                 SELECT
                  #COLUMNS#
                 FROM
@@ -31,6 +32,12 @@
                  #WHERE#
                 ]]>
             </Sentence>
+        </Query>
+        <Query id="query_entradas">
+            <Sentence></Sentence>
+        </Query>
+        <Query id="query_salidas">
+            <Sentence></Sentence>
         </Query>
     </Queries>
 
