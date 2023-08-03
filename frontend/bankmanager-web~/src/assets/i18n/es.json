@@ -22,7 +22,7 @@
   "datetime_in": "fecha entrada",
   "datetime_out": "fecha salida",
   "id_travel": "id viaje",
-  "id_delivery_note": "nota de envío",
-  "id_plate": "matrícula",
+  "delivery_name": "nota de envío",
+  "plate_number": "matrícula",
   "TRAVELS": "Viajes"
 }

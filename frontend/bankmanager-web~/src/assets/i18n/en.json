@@ -22,7 +22,7 @@
   "datetime_in": "date in",
   "datetime_out": "date out",
   "id_travel": "travel id",
-  "id_delivery_note": "delivery note",
-  "id_plate": "plate",
+  "delivery_name": "delivery note",
+  "plate_number": "plate",
   "TRAVELS": "Travels"
 }

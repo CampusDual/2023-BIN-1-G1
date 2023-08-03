@@ -4,31 +4,28 @@
         service="travels" 
         entity="travel"
         keys="id_travel"
-        columns="id_travel;datetime_in;datetime_out;id_delivery_note;id_plate; delivery_name"
-        visible-columns="id_travel;datetime_in;datetime_out;id_delivery_note;id_plate; delivery_name"
+        columns="id_travel;datetime_in;datetime_out;plate_number;delivery_name"
+        visible-columns="delivery_name;datetime_in;datetime_out;plate_number;"
         query-rows="20">
         <o-table-column 
             content-align="center"
             attr="datetime_in"
+            orderable="yes"
             type="date" 
-            format="MM/DD/YYYY HH:mm:ss.SSS">
+            format="DD/MM/YYYY HH:mm:ss.SSS">
         </o-table-column>
         <o-table-column 
             content-align="center"
             attr="datetime_out" 
             type="date" 
-            format="MM/DD/YYYY HH:mm:ss.SSS">
+            format="DD/MM/YYYY HH:mm:ss.SSS">
         </o-table-column>
         <o-table-column
-            attr="id_travel"
+            attr="delivery_name"
             content-align="center"
         ></o-table-column>
         <o-table-column
-            attr="id_delivery_note"
-            content-align="center"
-        ></o-table-column>
-        <o-table-column
-            attr="id_plate"
+            attr="plate_number"
             content-align="center"
         ></o-table-column>
     </o-table>
