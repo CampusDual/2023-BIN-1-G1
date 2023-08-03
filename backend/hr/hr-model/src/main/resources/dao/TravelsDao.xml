@@ -18,17 +18,24 @@
                 <![CDATA[
                 WITH t as(
                 SELECT
-                 #COLUMNS#
-                FROM
-                 PUBLIC.travels T
-                INNER JOIN PUBLIC.delivery_notes DN ON
-                T.id_delivery_note = DN.id_delivery_note
-                INNER JOIN PUBLIC.devices DV ON
-                T.id_device = DV.id_device
-                INNER JOIN PUBLIC.plates P on
-                T.id_plate = P.id_plate
-                INNER JOIN PUBLIC.trailer_plates TP on
-                T.id_trailer_plate = TP.id_trailer_plate
+                    T.*,
+                    dv1.device_name as device_in, dv2.device_name as device_out,
+                    P.plate_number,
+                    TP.trailer_plate_number,
+                    DN.delivery_name
+                    FROM PUBLIC.travels T
+                        INNER JOIN PUBLIC.delivery_notes DN ON
+                        T.id_delivery_note = DN.id_delivery_note
+                        INNER JOIN PUBLIC.devices DV1 ON
+                        T.id_dev_in = DV1.id_dev
+                        INNER JOIN PUBLIC.devices DV2 ON
+                        T.id_dev_out = DV2.id_dev
+                        INNER JOIN PUBLIC.plates P on
+                        T.id_plate = P.id_plate
+                        INNER JOIN PUBLIC.trailer_plates TP on
+                        T.id_trailer_plate = TP.id_trailer_plate
+                )
+                SELECT #COLUMNS# FROM t
                  #WHERE#
                 ]]>
             </Sentence>
