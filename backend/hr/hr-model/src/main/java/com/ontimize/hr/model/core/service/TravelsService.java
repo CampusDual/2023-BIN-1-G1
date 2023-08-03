@@ -31,7 +31,8 @@ public class TravelsService implements ITravelsService {
     @Override
     public EntityResult travelQuery(Map<String, Object> keyMap, List<String> attrList)
             throws OntimizeJEERuntimeException {
-        return this.daoHelper.query(this.travelsDao, keyMap, attrList);
+        EntityResult et =  this.daoHelper.query(this.travelsDao, keyMap, attrList, TravelsDao.QUERY_GET);
+        return et;
     }
 
     @Override
