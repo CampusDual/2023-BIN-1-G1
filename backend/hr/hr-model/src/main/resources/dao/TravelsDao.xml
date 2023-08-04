@@ -40,11 +40,23 @@
                 ]]>
             </Sentence>
         </Query>
-        <Query id="query_entradas">
-            <Sentence></Sentence>
+        <Query id="query_ejer1">
+            <Sentence>
+                <![CDATA[
+
+
+                ]]>
+
+            </Sentence>
         </Query>
-        <Query id="query_salidas">
-            <Sentence></Sentence>
+        <Query id="query_ejer2">
+            <Sentence>
+                <![CDATA[
+
+
+                ]]>
+            </Sentence
+            >
         </Query>
     </Queries>
 

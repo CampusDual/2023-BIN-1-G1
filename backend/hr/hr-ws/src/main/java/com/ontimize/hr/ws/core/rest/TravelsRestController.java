@@ -172,22 +172,3 @@ delivery_note
     10000012811
  */
 
-/*{
-    "dev": "OUT_SCAN_1",
-    "date": "2023-03-01 07:25:15.211",
-    "scan_volume": 0.7155306144571006,
-    "calculated_volume": 70.94168090820312,
-    "plate": "BCY8356",
-    "height": 2.4196081161499023,
-    "width": 2.9600000381469727,
-    "length": 13.75999927520752,
-    "trailer_plate": "RDTB2218",
-    "delivery_note": 10000012806
-}*/
-
-/*
-{"dev": "IN_SCAN_1",
- "date": "2023-03-01 07:25:15.211",
- "scan_volume": 1.0372519493103027,
-        "plate": "BCY8356", "height": 2.4196081161499023, "width": 2.9600000381469727, "length": 13.75999927520752, "trailer_plate": "RDTB2218", "delivery_note": 10000012806}
-*/
