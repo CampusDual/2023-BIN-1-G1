@@ -58,6 +58,13 @@
             </Sentence
             >
         </Query>
+        <Query id="query_ejer3">
+            <Sentence>
+                <![CDATA[
+
+                ]]>
+            </Sentence>
+        </Query>
     </Queries>
 
 </JdbcEntitySetup>
