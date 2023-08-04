@@ -6,9 +6,11 @@ import com.ontimize.hr.model.core.dao.TravelsDao;
 import com.ontimize.hr.model.core.dao.DeliveryNotesDao;
 import com.ontimize.hr.model.core.service.DeliveryNotesService;
 import com.ontimize.jee.common.dto.EntityResult;
+import com.ontimize.jee.common.dto.EntityResultMapImpl;
 import org.bouncycastle.util.Times;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ontimize.hr.api.core.service.ITravelsService;
 import com.ontimize.jee.server.rest.ORestController;
+
+import com.ontimize.jee.common.db.SQLStatementBuilder;
+import com.ontimize.jee.common.db.SQLStatementBuilder.BasicExpression;
+import com.ontimize.jee.common.db.SQLStatementBuilder.BasicField;
+import com.ontimize.jee.common.db.SQLStatementBuilder.BasicOperator;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -110,7 +117,60 @@ public class TravelsRestController extends ORestController<ITravelsService> {
         }
         return datetime;
     }
+
+
+
+
+
+
+    /*EJERCICIOS BACK EXPRESIONES COMPLEJAS */
+    @RequestMapping(value = "ejercicio1/search", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public EntityResult entranSalenVacios() {
+        try {
+            List<String> columns = TravelsDao.ALL_COLUMNS;
+            Map<String, Object> key = new HashMap<String, Object>();
+            key.put(SQLStatementBuilder.ExtendedSQLConditionValuesProcessor.EXPRESSION_KEY,
+                    searchLessThanOne(TravelsDao.ATTR_SCAN_VOLUME_IN, TravelsDao.ATTR_SCAN_VOLUME_OUT));
+            EntityResult toret = travelService.travelQuery(key, columns);
+            return toret;
+        } catch (Exception e) {
+            e.printStackTrace();
+            EntityResult res = new EntityResultMapImpl();
+            res.setCode(EntityResult.OPERATION_WRONG);
+            return res;
+        }
+    }
+
+    private BasicExpression searchLessThanOne(String param1, String param2) {
+        BasicField field1 = new BasicField(param1);
+        BasicField field2 = new BasicField(param2);
+        BasicExpression bexp1 = new BasicExpression(field1, BasicOperator.LESS_OP, 1);
+        BasicExpression bexp2 = new BasicExpression(field2, BasicOperator.LESS_OP, 1);
+        return new BasicExpression(bexp1, BasicOperator.OR_OP, bexp2);
+    }
 }
+
+/*
+Caso 1
+volumen entrada < 1 or
+volumen salida <1
+
+
+
+Caso 2
+volumen entrada > 1 and
+volumen salida > 1
+
+
+
+Caso 3
+delivery_note
+    307999
+    308266
+    307950
+    307979
+    10000012811
+ */
 
 /*{
     "dev": "OUT_SCAN_1",
