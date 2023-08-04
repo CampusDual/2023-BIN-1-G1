@@ -28,13 +28,23 @@ public class TravelsService implements ITravelsService {
     @Autowired private DefaultOntimizeDaoHelper daoHelper;
 
 
+
+    public EntityResult travelFullQuery(Map<String, Object> keyMap, List<String> attrList)
+            throws OntimizeJEERuntimeException {
+        EntityResult et =  this.daoHelper.query(this.travelsDao, keyMap, attrList);
+        return et;
+    }
+    public EntityResult travelGetStockQuery(Map<String, Object> keyMap, List<String> attrList)
+            throws OntimizeJEERuntimeException {
+        EntityResult et =  this.daoHelper.query(this.travelsDao, keyMap, attrList, TravelsDao.QUERY_GET_STOCK);
+        return et;
+    }
     @Override
     public EntityResult travelQuery(Map<String, Object> keyMap, List<String> attrList)
             throws OntimizeJEERuntimeException {
-        EntityResult et =  this.daoHelper.query(this.travelsDao, keyMap, attrList, TravelsDao.QUERY_GET);
+        EntityResult et =  this.daoHelper.query(this.travelsDao, keyMap, attrList);
         return et;
     }
-
     @Override
     public EntityResult travelUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap)
             throws OntimizeJEERuntimeException {

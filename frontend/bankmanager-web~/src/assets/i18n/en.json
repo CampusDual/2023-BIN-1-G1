@@ -24,5 +24,6 @@
   "id_travel": "travel id",
   "delivery_name": "delivery note",
   "plate_number": "plate",
-  "TRAVELS": "Travels"
+  "TRAVELS": "Travels",
+  "WAREHOUSE": "Warehouse"
 }

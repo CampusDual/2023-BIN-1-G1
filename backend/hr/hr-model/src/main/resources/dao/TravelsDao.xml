@@ -13,7 +13,7 @@
     </UpdateKeys>
     <GeneratedKey>id_travel</GeneratedKey>
     <Queries>
-        <Query id="query_get">
+        <Query id="default">
             <Sentence>
                 <![CDATA[
                 WITH t as(
@@ -40,13 +40,11 @@
                 ]]>
             </Sentence>
         </Query>
-        <Query id="query_ejer1">
+        <Query id="query_get_stock">
             <Sentence>
                 <![CDATA[
-
-
+                    select (sum(scan_volume_in) - sum(scan_volume_out)) as stock from travels;
                 ]]>
-
             </Sentence>
         </Query>
         <Query id="query_ejer2">
@@ -66,5 +64,4 @@
             </Sentence>
         </Query>
     </Queries>
-
 </JdbcEntitySetup>
