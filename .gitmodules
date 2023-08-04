@@ -1,0 +1,3 @@
+[submodule "truck_moves_simulator"]
+	path = truck_moves_simulator
+	url = https://github.com/CampusDual/truck_moves_simulator.git
