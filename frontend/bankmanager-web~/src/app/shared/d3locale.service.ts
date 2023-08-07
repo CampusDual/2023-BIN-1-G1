@@ -12,4 +12,8 @@ export class D3localeService {
   constructor(
     private translateService: OTranslateService
   ) { }
+
+  public getD3LocaleConfiguration(): any {
+    return d3.locale(D3Locales[this.translateService.getCurrentLang().toUpperCase()]);
+  }
 }
