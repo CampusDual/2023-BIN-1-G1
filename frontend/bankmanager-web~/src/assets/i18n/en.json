@@ -19,14 +19,14 @@
   "FORGOT_PWD": "Forgot your password?",
   "FOOTER_CREATED_BY": "Created by Imatia Innovation",
   "FOOTER_RIGHTS": "All rights reserved",
-  "datetime_in": "date in",
-  "datetime_out": "date out",
-  "id_travel": "travel id",
-  "delivery_name": "delivery note",
-  "plate_number": "plate",
+  "datetime_in": "Date in",
+  "datetime_out": "Date out",
+  "id_travel": "Travel id",
+  "delivery_name": "Delivery note",
+  "plate_number": "Plate",
   "TRAVELS": "Travels",
   "WAREHOUSE": "Warehouse",
-  "stock": "stock",
-  "max_stock": "max stock",
-  "percentage": "percentage"
+  "stock": "Stock (m3)",
+  "max_stock": "Max stock (m3)",
+  "percentage": "Percentage (%)"
 }

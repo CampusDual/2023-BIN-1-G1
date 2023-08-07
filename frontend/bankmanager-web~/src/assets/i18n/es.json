@@ -19,13 +19,14 @@
   "FORGOT_PWD": "¿Has olvidado tu contraseña?",
   "FOOTER_CREATED_BY": "Creado por Imatia Innovation",
   "FOOTER_RIGHTS": "Todos los derechos reservados",
-  "datetime_in": "fecha entrada",
-  "datetime_out": "fecha salida",
-  "id_travel": "id viaje",
-  "delivery_name": "nota de envío",
-  "plate_number": "matrícula",
+  "datetime_in": "Fecha de entrada",
+  "datetime_out": "Fecha de salida",
+  "id_travel": "Id viaje",
+  "delivery_name": "Nota de envío",
+  "plate_number": "Matrícula",
   "TRAVELS": "Viajes",
   "WAREHOUSE":"Almacén",
-  "max_stock": "maximo stock",
-  "percentage": "porcentaje"
+  "stock": "Stock (m3)",
+  "max_stock": "Stock máximo (m3)",
+  "percentage": "Porcentaje (%)"
 }

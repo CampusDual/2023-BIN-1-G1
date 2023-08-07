@@ -14,8 +14,33 @@
     [static-data]="table_data" query-on-init="false"
     quick-filter="yes" insert-button="no" delete-button="no"
     refresh-button="no" pagination-controls="no" export-button="no">
-    <o-table-column attr="stock" content-align="center"></o-table-column>
-    <o-table-column attr="max_stock" content-align="center"></o-table-column>
-    <o-table-column attr="percentage" content-align="center"></o-table-column>
+    <o-table-column 
+    attr="stock" 
+    content-align="center"
+    type="real"
+    grouping="yes"
+    thousand-separator="."
+    decimal-separator=","
+    max-decimal-digits="2"
+    ></o-table-column>
+    <o-table-column 
+    attr="max_stock" 
+    content-align="center"
+    type="real"
+    grouping="yes"
+    thousand-separator="."
+    decimal-separator=","
+    max-decimal-digits="2"
+    ></o-table-column>
+    <o-table-column 
+    attr="percentage" 
+    content-align="center" 
+    type="currency" 
+    currency-symbol="%" 
+    currency-symbol-position="rigth"
+    grouping="yes"
+    thousand-separator="."
+    decimal-separator=","
+    max-decimal-digits="2"></o-table-column>
   </o-table>
 </div>

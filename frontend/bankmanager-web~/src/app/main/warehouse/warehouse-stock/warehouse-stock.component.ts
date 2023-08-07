@@ -9,7 +9,7 @@ export class WarehouseStockComponent implements OnInit {
   table_data = [{
     "stock": 0,
     "max_stock": 0,
-    "percentage": ""
+    "percentage": 0
   }];
   constructor() { }
 
@@ -20,7 +20,7 @@ export class WarehouseStockComponent implements OnInit {
     console.log(event);
     this.table_data[0].stock = event[0].stock;
     this.table_data[0].max_stock = event[1].stock;
-    this.table_data[0].percentage = ((event[0].stock/event[1].stock)*100).toFixed(2);
+    this.table_data[0].percentage = (event[0].stock/event[1].stock)*100;
 
   }
 
