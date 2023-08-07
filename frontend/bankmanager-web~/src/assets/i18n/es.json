@@ -25,5 +25,7 @@
   "delivery_name": "nota de envío",
   "plate_number": "matrícula",
   "TRAVELS": "Viajes",
-  "WAREHOUSE":"Almacén"
+  "WAREHOUSE":"Almacén",
+  "max_stock": "maximo stock",
+  "percentage": "porcentaje"
 }

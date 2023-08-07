@@ -3,12 +3,13 @@
 
 // ******* @angular/material predefined themes. *******
 // Choose one of the following imports
-// @import 'node_modules/ontimize-web-ngx-theming/src/themes/mat-indigo-pink.scss';
+//@import 'node_modules/ontimize-web-ngx-theming/src/themes/mat-indigo-pink.scss';
 // @import 'node_modules/ontimize-web-ngx-theming/src/themes/mat-deeppurple-amber.scss';
 // @import 'node_modules/ontimize-web-ngx-theming/src/themes/mat-pink-bluegrey.scss';
 // @import 'node_modules/ontimize-web-ngx-theming/src/themes/mat-purple-green.scss';
+//@import "node_modules/ontimize-web-ngx-theming/src/themes/ontimize-black-yellow.scss";
 @import 'node_modules/ontimize-web-ngx-theming/src/themes/ontimize.scss';
-
+//@import "my-custom-app-theme.scss";
 // Include ontimize theme
 @include ontimize-theme-styles($theme);
 // Include ontimize-lite theme

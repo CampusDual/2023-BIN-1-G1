@@ -43,7 +43,9 @@
         <Query id="query_get_stock">
             <Sentence>
                 <![CDATA[
-                    select (sum(scan_volume_in) - sum(scan_volume_out)) as stock from travels;
+                    SELECT (sum(scan_volume_in) - sum(scan_volume_out)) AS stock FROM travels
+                    UNION
+                    SELECT max_stock FROM warehouse;
                 ]]>
             </Sentence>
         </Query>

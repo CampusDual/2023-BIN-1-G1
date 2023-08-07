@@ -1,1 +1,21 @@
-<p>warehouse-stock works!</p>
+<div style="display: none;">
+    <o-table 
+        attr="travels" 
+        service="travels" 
+        entity="travelGetStock"
+        columns="stock;max_stock"
+        visible-columns="stock;max_stock"
+        query-rows="20"
+        (onDataLoaded)="ondataloaded($event)">
+    </o-table>
+</div>
+<div>
+    <o-table attr="data" columns="stock;max_stock;percentage" visible-columns="stock;max_stock;percentage"
+    [static-data]="table_data" query-on-init="false"
+    quick-filter="yes" insert-button="no" delete-button="no"
+    refresh-button="no" pagination-controls="no" export-button="no">
+    <o-table-column attr="stock" content-align="center"></o-table-column>
+    <o-table-column attr="max_stock" content-align="center"></o-table-column>
+    <o-table-column attr="percentage" content-align="center"></o-table-column>
+  </o-table>
+</div>

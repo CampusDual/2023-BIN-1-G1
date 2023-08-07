@@ -25,5 +25,8 @@
   "delivery_name": "delivery note",
   "plate_number": "plate",
   "TRAVELS": "Travels",
-  "WAREHOUSE": "Warehouse"
+  "WAREHOUSE": "Warehouse",
+  "stock": "stock",
+  "max_stock": "max stock",
+  "percentage": "percentage"
 }

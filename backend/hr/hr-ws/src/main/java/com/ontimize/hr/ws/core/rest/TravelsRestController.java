@@ -4,6 +4,7 @@ package com.ontimize.hr.ws.core.rest;
 import com.ontimize.hr.api.core.service.IDeliveryNotesService;
 import com.ontimize.hr.model.core.dao.TravelsDao;
 import com.ontimize.hr.model.core.dao.DeliveryNotesDao;
+import com.ontimize.hr.model.core.service.TravelsService;
 import com.ontimize.jee.common.dto.EntityResult;
 import com.ontimize.jee.common.dto.EntityResultMapImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -140,35 +141,6 @@ public class TravelsRestController extends ORestController<ITravelsService> {
 
         EntityResult et = deliveryNotesService.deliverynotesQuery(keyMap, attr);
         return et.getRecordValues(0).get(DeliveryNotesDao.ATTR_ID_DELIVERY_NOTE);
-    }
-
-    @RequestMapping(value = "calculateStock", method = RequestMethod.GET)
-    public EntityResult calculaStock() {
-        try {
-            HashMap<String, Object> keyMap = new HashMap<>();
-            List<String> attr = new ArrayList<>();
-            attr.add(TravelsDao.ATTR_SCAN_VOLUME_IN);
-            attr.add(TravelsDao.ATTR_SCAN_VOLUME_OUT);
-            EntityResult allScannedVolumes = travelService.travelQuery(keyMap, attr);
-
-            ArrayList<Double> scanned_in = (ArrayList<Double>) allScannedVolumes.get("scan_volume_in");
-            ArrayList<Double> scanned_out = (ArrayList<Double>) allScannedVolumes.get("scan_volume_out");
-            scanned_in = scanned_in.stream().map(value -> {
-                return (value == null)? 0 : value;
-            }).collect(Collectors.toCollection(ArrayList<Double>::new));
-            scanned_out =  scanned_out.stream().map(value -> {
-                return (value == null)? 0 : value*-1;
-            }).collect(Collectors.toCollection(ArrayList<Double>::new));
-
-            //scanned_in.
-            //EntityResult
-        } catch (Exception e) {
-            e.printStackTrace();
-            EntityResult res = new EntityResultMapImpl();
-            res.setCode(EntityResult.OPERATION_WRONG);
-            return res;
-        }
-        return null;
     }
 }
 

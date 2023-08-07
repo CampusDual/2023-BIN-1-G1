@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TravelsTableComponent implements OnInit {
 
+  stock:number;  
   constructor() { }
 
   ngOnInit() {
