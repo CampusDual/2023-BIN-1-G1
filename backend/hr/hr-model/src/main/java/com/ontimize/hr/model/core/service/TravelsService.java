@@ -31,8 +31,7 @@ public class TravelsService implements ITravelsService {
 
     public EntityResult travelFullQuery(Map<String, Object> keyMap, List<String> attrList)
             throws OntimizeJEERuntimeException {
-        EntityResult et =  this.daoHelper.query(this.travelsDao, keyMap, attrList);
-        return et;
+        return this.daoHelper.query(this.travelsDao, keyMap, attrList);
     }
     public EntityResult travelGetStockQuery(Map<String, Object> keyMap, List<String> attrList)
             throws OntimizeJEERuntimeException {
@@ -41,8 +40,7 @@ public class TravelsService implements ITravelsService {
     @Override
     public EntityResult travelQuery(Map<String, Object> keyMap, List<String> attrList)
             throws OntimizeJEERuntimeException {
-        EntityResult et =  this.daoHelper.query(this.travelsDao, keyMap, attrList);
-        return et;
+        return this.daoHelper.query(this.travelsDao, keyMap, attrList);
     }
 
     @Override
@@ -67,7 +65,6 @@ public class TravelsService implements ITravelsService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public EntityResult travelInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException {
-        attrMap.get("calculated_volume");
         Map <String, Object> nonTravelData = obtainNonRelatedData(attrMap,
                 TravelsDao.ATTR_ID_DEV_IN,
                 TravelsDao.ATTR_ID_PLATE,
@@ -89,13 +86,15 @@ public class TravelsService implements ITravelsService {
         return nonRelateData;
     }
 
+
     private Map<String,Object> insertNonRelatedData(Map<String, Object> inputMap){
         Map<String, Object> attrMap = new HashMap<>(inputMap);
 
         for(Map.Entry<String, Object>entry : attrMap.entrySet()){
             Map<String, Object> data = new HashMap<>();
             List<String> attr = new ArrayList<>();
-            EntityResult toret, query;
+            EntityResult toret;
+            EntityResult query;
 
             if(entry.getKey().equalsIgnoreCase(TravelsDao.ATTR_ID_DEV_IN)) {
                 data.put(DevicesDao.ATTR_DEVICE_NAME, entry.getValue());
@@ -152,7 +151,8 @@ public class TravelsService implements ITravelsService {
         for(Map.Entry<String, Object>entry : attrMap.entrySet()){
             Map<String, Object> data = new HashMap<>();
             List<String> attr = new ArrayList<>();
-            EntityResult toret, query;
+            EntityResult toret;
+            EntityResult query;
 
             if(entry.getKey().equalsIgnoreCase(TravelsDao.ATTR_ID_DEV_OUT)) {
                 data.put(DevicesDao.ATTR_DEVICE_NAME, entry.getValue());

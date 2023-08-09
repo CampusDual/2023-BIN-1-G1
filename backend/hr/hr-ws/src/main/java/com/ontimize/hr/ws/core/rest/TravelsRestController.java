@@ -50,17 +50,17 @@ public class TravelsRestController extends ORestController<ITravelsService> {
             //es una entrada
             travelService.travelInsert(data);
             re = new ResponseEntity<String>("Travel Insert OK",
-                                            HttpStatus.CREATED);
+                    HttpStatus.CREATED);
 
         }else if(id_delivery_note == null && !esEntrada(data)) {
             //Un camión sale sin entrar
             re = new ResponseEntity<String>("El camión no pasó por el sensor de entrada",
-                                            HttpStatus.BAD_REQUEST);
+                    HttpStatus.BAD_REQUEST);
 
         }else if(id_delivery_note != null && esEntrada(data)) {
             //Ya existe este delivery note para otra entrada y es un error. 2 Id_delivery_note iguales.
             re = new ResponseEntity<String>("Ya existe ese delivery note para otra entrada!!!",
-                                            HttpStatus.BAD_REQUEST);
+                    HttpStatus.BAD_REQUEST);
 
         } else {
             //El delivery note existe y es una salida. Actualiza el registro en travels.
@@ -126,11 +126,11 @@ public class TravelsRestController extends ORestController<ITravelsService> {
             return new ResponseEntity<String>("Travel actualizado correctamente", HttpStatus.OK);
         } else {
             return  new ResponseEntity<String>("¡No existe ningun travel con ese delivery note!",
-                                              HttpStatus.BAD_REQUEST);
+                    HttpStatus.BAD_REQUEST);
         }
     }
 
-   public boolean esEntrada(Map<String, Object> data){
+    public boolean esEntrada(Map<String, Object> data){
         return data.get("calculated_volume") == null;
     }
     public Object getDeliveryNote(Object deliveryNote){

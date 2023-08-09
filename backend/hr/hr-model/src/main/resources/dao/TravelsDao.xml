@@ -24,15 +24,15 @@
                     TP.trailer_plate_number,
                     DN.delivery_name
                     FROM PUBLIC.travels T
-                        INNER JOIN PUBLIC.delivery_notes DN ON
+                        LEFT JOIN PUBLIC.delivery_notes DN ON
                         T.id_delivery_note = DN.id_delivery_note
-                        INNER JOIN PUBLIC.devices DV1 ON
+                        LEFT JOIN PUBLIC.devices DV1 ON
                         T.id_dev_in = DV1.id_dev
-                        INNER JOIN PUBLIC.devices DV2 ON
+                        LEFT JOIN PUBLIC.devices DV2 ON
                         T.id_dev_out = DV2.id_dev
-                        INNER JOIN PUBLIC.plates P on
+                        LEFT JOIN PUBLIC.plates P on
                         T.id_plate = P.id_plate
-                        INNER JOIN PUBLIC.trailer_plates TP on
+                        LEFT JOIN PUBLIC.trailer_plates TP on
                         T.id_trailer_plate = TP.id_trailer_plate
                 )
                 SELECT #COLUMNS# FROM t
@@ -46,6 +46,19 @@
                     SELECT (sum(scan_volume_in) - sum(scan_volume_out)) AS stock FROM travels
                     UNION
                     SELECT max_stock FROM warehouse;
+<<<<<<< HEAD
+=======
+                ]]>
+            </Sentence>
+        </Query>
+        <Query id="query_get_volDiary">
+            <Sentence>
+                <![CDATA[
+                    select date_trunc('day', datetime_in) as dia, sum(scan_volume_in) - sum(scan_volume_out) as vol_dia
+                        from travels
+                        group by dia
+                        order by dia;
+>>>>>>> a199345 (Filtros de delivery y fecha de entrada/salida)
                 ]]>
             </Sentence>
         </Query>

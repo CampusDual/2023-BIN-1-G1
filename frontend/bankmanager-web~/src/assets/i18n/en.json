@@ -28,5 +28,10 @@
   "WAREHOUSE": "Warehouse",
   "stock": "Stock (m3)",
   "max_stock": "Max stock (m3)",
-  "percentage": "Percentage (%)"
+  "percentage": "Percentage (%)",
+  "travels_filters": "Travels Filters",
+  "INIT": "Initial",
+  "END": "End",
+  "CLEAR": "Clear",
+  "SEARCH_DELIVERY_NAME": "Search Delivery Note"  
 }
