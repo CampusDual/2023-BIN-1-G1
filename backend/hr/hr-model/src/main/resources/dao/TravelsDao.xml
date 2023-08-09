@@ -46,19 +46,6 @@
                     SELECT (sum(scan_volume_in) - sum(scan_volume_out)) AS stock FROM travels
                     UNION
                     SELECT max_stock FROM warehouse;
-<<<<<<< HEAD
-=======
-                ]]>
-            </Sentence>
-        </Query>
-        <Query id="query_get_volDiary">
-            <Sentence>
-                <![CDATA[
-                    select date_trunc('day', datetime_in) as dia, sum(scan_volume_in) - sum(scan_volume_out) as vol_dia
-                        from travels
-                        group by dia
-                        order by dia;
->>>>>>> a199345 (Filtros de delivery y fecha de entrada/salida)
                 ]]>
             </Sentence>
         </Query>
