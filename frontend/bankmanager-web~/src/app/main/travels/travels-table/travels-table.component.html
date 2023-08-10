@@ -3,15 +3,18 @@
         <!--<o-column-collapsible title="{{'travels_filters' | oTranslate }}" appearance="outline"></o-column-collapsible>-->
         <o-row fxFlex="100 100">
             <o-column fxFlex="50" title="{{'datetime_in' | oTranslate }}">
-                <o-row></o-row>
-                <o-time-input date-locale="es" attr="startInit" label="INIT" read-only="no" required="no"></o-time-input>
-                <o-time-input date-locale="es" attr="endInit" label="END" read-only="no" required="no"></o-time-input>
+                <o-row>
+                    <o-time-input date-locale="es" attr="startInit" label="INIT" read-only="no" required="no"></o-time-input>
+                    <o-time-input date-locale="es" attr="endInit" label="END" read-only="no" required="no"></o-time-input>
+                    <o-combo attr="combo-searchable" label="Select plate" entity="plate" service="plates"
+                    value-column="plate_number" searchable="yes" columns="id_plate;plate_number"
+                    visible-columns="plate_number" multiple="yes">
+                    </o-combo>
+                </o-row>
+                
             </o-column>
             <o-column fxFlex="30" title="{{'plate_number' | oTranslate}}">
-                <o-combo attr="combo-searchable" label="Select plate" entity="plate" service="plates"
-                value-column="plate_number" searchable="yes" columns="id_plate;plate_number"
-                visible-columns="plate_number" multiple="yes">
-                </o-combo>
+                
             </o-column>                
             <o-column fxFlex="30">
                 <o-row fxFlex="100" layout-align="bottom end"  layout-gap="18px">
