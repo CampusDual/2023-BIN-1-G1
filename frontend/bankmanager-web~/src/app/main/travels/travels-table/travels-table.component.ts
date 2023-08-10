@@ -19,9 +19,8 @@ export class TravelsTableComponent implements OnInit {
     this.cd.detectChanges();
   }
 
-  createFilters(values: Array<{attr,value}>): Expression{
+  createFilters(values: Array<{attr: string,value: any[]}>): Expression{
     let filters = [];
-    
     values.forEach(fila => {
       if(fila.value){
         if(fila.attr === "STARTDATE_I"){
