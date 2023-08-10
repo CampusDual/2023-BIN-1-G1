@@ -17,22 +17,23 @@
             <Sentence>
                 <![CDATA[
                 WITH t as(
-                SELECT
-                    T.*,
-                    dv1.device_name as device_in, dv2.device_name as device_out,
-                    P.plate_number,
-                    TP.trailer_plate_number,
-                    DN.delivery_name
+                    SELECT
+                        T.*,
+                        dv1.device_name as device_in,
+                        dv2.device_name as device_out,
+                        P.plate_number,
+                        TP.trailer_plate_number,
+                        DN.delivery_name
                     FROM PUBLIC.travels T
-                        LEFT JOIN PUBLIC.delivery_notes DN ON
+                    LEFT JOIN PUBLIC.delivery_notes DN ON
                         T.id_delivery_note = DN.id_delivery_note
-                        LEFT JOIN PUBLIC.devices DV1 ON
+                    LEFT JOIN PUBLIC.devices DV1 ON
                         T.id_dev_in = DV1.id_dev
-                        LEFT JOIN PUBLIC.devices DV2 ON
+                    LEFT JOIN PUBLIC.devices DV2 ON
                         T.id_dev_out = DV2.id_dev
-                        LEFT JOIN PUBLIC.plates P on
+                    LEFT JOIN PUBLIC.plates P on
                         T.id_plate = P.id_plate
-                        LEFT JOIN PUBLIC.trailer_plates TP on
+                    LEFT JOIN PUBLIC.trailer_plates TP on
                         T.id_trailer_plate = TP.id_trailer_plate
                 )
                 SELECT #COLUMNS# FROM t

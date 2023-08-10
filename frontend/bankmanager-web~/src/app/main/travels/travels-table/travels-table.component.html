@@ -13,12 +13,12 @@
         <o-row layout-gap="18px">    
             <o-combo attr="combo-searchable" label="Select plate" entity="plate" service="plates"
              value-column="plate_number" searchable="yes" columns="id_plate;plate_number"
-            visible-columns="plate_number" multiple="yes" fxFlex>
+            visible-columns="plate_number" multiple="yes">
             </o-combo>
         </o-row>
         <o-row layout-gap="18px" layout-align="END">
             <o-button attr="filter" [oFilterBuilderQuery]="filterBuilder" type="RAISED" label="FILTER" class="filter-button"></o-button>
-            <o-button attr="clear" [oFilterBuilderClear]="filterBuilder" type="RAISED" label="Clear" (onClick)="reloadAll()"></o-button>
+            <o-button attr="clear" [oFilterBuilderClear]="filterBuilder" type="RAISED" label="Clear"></o-button>
         </o-row>
     </o-column-collapsible>
 

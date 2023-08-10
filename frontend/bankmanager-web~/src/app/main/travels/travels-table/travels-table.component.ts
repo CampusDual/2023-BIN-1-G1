@@ -1,5 +1,5 @@
 import { Expression } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FilterExpressionUtils } from 'ontimize-web-ngx';
 
 @Component({
@@ -9,58 +9,53 @@ import { FilterExpressionUtils } from 'ontimize-web-ngx';
 })
 export class TravelsTableComponent implements OnInit {
   stock:number;  
-  constructor() { }
+  constructor(private cd: ChangeDetectorRef) { }
 
   ngOnInit() {
+
+  }
+
+  ngAfterViewInit() {
+    this.cd.detectChanges();
   }
 
   createFilters(values: Array<{attr,value}>): Expression{
     let filters = [];
-    console.log(values);
+    
     values.forEach(fila => {
       if(fila.value){
         if(fila.attr === "STARTDATE_I"){
           filters.push(FilterExpressionUtils.buildExpressionMoreEqual("datetime_in", fila.value));
-        
-        }if(fila.attr === "STARTDATE_E"){
+        } else if(fila.attr === "STARTDATE_E"){
           filters.push(FilterExpressionUtils.buildExpressionLessEqual("datetime_in", fila.value));
-        
-        }if(fila.attr === "ENDDATE_I"){
+        } else if(fila.attr === "ENDDATE_I"){
           filters.push(FilterExpressionUtils.buildExpressionMoreEqual("datetime_out", fila.value));
-        
-        }if(fila.attr === "ENDDATE_E"){
+        } else if(fila.attr === "ENDDATE_E"){
           filters.push(FilterExpressionUtils.buildExpressionLessEqual("datetime_out", fila.value));
-        
-        }if(fila.attr === "PLATENUMBER"){
-          filters.push(FilterExpressionUtils.buildExpressionEquals("plate_number", fila.value));
+        } else if(fila.attr === "PLATENUMBER"){
+          let filters_matricula = []
+          if(fila.value.length > 0){       
+            fila.value.forEach((plate:any) => {
+              filters_matricula.push( FilterExpressionUtils.buildExpressionEquals("plate_number", plate))
+            });
+            filters.push(
+              filters_matricula.reduce(
+                (exp1, exp2) => FilterExpressionUtils.buildComplexExpression(exp1,exp2, FilterExpressionUtils.OP_OR)
+              )              
+            );          
+          }
           
         }
       }
     });
-
+    
     if(filters.length > 0){
-      let expression = filters.reduce((exp1, exp2) => FilterExpressionUtils.buildComplexExpression(exp1, exp2, FilterExpressionUtils.OP_AND)); 
-      console.log(expression);
+      let expression = filters.reduce(
+        (exp1, exp2) => FilterExpressionUtils.buildComplexExpression(exp1, exp2, FilterExpressionUtils.OP_AND)
+      ); 
       return expression;
     }else return null;
   
   }
-
-  reloadAll(){
-    console.log("hola");
-    window.location.reload();
-  }
-  /*filterByPlates(values){
-    let filters = [];
-    let plates = values.attr
-    if(plates){
-      plates.forEach( plate => {
-        filters.push(FilterExpressionUtils.buildExpressionEquals("plate_number", plate));
-      });
-    }
-    if(filters.length > 0){
-      return filters.reduce((exp1, exp2) => FilterExpressionUtils.buildComplexExpression(exp1, exp2, FilterExpressionUtils.OP_OR));
-    }else return null;
-  }*/
-
+  
 }
