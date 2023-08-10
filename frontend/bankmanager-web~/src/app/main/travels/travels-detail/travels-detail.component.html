@@ -1,0 +1,30 @@
+<o-form service="travels" entity="travel" keys="id_travel"  show-header-navigation="no">
+    <o-text-input attr="id_travel" sql-type="INTEGER"  enabled="no" hidden="true"></o-text-input> 
+    <o-column tittle-label="delivery_name">
+        <o-row title-label="TRAVEL_DETAIL" fxFlex>
+            <o-column>
+                <o-text-input class="input-padding"  read-only="yes" attr="delivery_name" enabled="yes"></o-text-input>
+            </o-column>
+            <o-column>
+                <o-text-input class="input-padding" read-only="yes" attr="plate_number" enabled="yes"></o-text-input>
+            </o-column>
+            <o-column>
+                <o-date-input attr="datetime_in" format="DD/MM/YYYY HH:mm" read-only="yes" enabled="yes"></o-date-input>
+            </o-column>
+            <o-column>
+                <o-date-input attr="datetime_out" format="DD/MM/YYYY HH:mm" read-only="yes" enabled="yes"></o-date-input>
+            </o-column>
+        </o-row>
+        <o-row title-label="MEASUREMENTS_INFO">
+            <o-column enabled="no">
+                <o-text-input class="input-padding" label="scan_volume_in" attr="scan_volume_in" read-only="yes" enabled="yes"></o-text-input>
+            </o-column>
+            <o-column enabled="no">
+                <o-text-input class="input-padding" label="scan_volume_out" attr="scan_volume_out" read-only="yes" enabled="yes"></o-text-input>
+            </o-column>
+            <o-column enabled="no">
+                <o-text-input class="input-padding" label="calculated_volume" attr="calculated_volume" read-only="yes" ></o-text-input>
+            </o-column>
+        </o-row>
+    </o-column>
+</o-form>

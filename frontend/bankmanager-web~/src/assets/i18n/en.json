@@ -33,5 +33,10 @@
   "INIT": "Initial",
   "END": "End",
   "CLEAR": "Clear",
-  "SEARCH_DELIVERY_NAME": "Search Delivery Note"  
+  "SEARCH_DELIVERY_NAME": "Search Delivery Note",
+  "travels_list": "Travels List",
+  "TRAVEL_DETAIL": "Travel Detail",
+  "scan_volume_in": "Scan Volume In (m3)",
+  "scan_volume_out": "Scan Volume Out (m3)",
+  "calculated_volume": "Calculated Volume (m3)"
 }

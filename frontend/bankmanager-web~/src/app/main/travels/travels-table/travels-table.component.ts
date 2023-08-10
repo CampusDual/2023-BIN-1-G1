@@ -22,18 +22,14 @@ export class TravelsTableComponent implements OnInit {
   createFilters(values: Array<{attr: string,value: any[]}>): Expression{
     let filters = [];
     values.forEach(fila => {
-      if(fila.value){
-        if(fila.attr === "STARTDATE_I"){
+      if (fila.value) {
+        if (fila.attr === "STARTDATE_I") {
           filters.push(FilterExpressionUtils.buildExpressionMoreEqual("datetime_in", fila.value));
-        } else if(fila.attr === "STARTDATE_E"){
+        } else if (fila.attr === "STARTDATE_E") {
           filters.push(FilterExpressionUtils.buildExpressionLessEqual("datetime_in", fila.value));
-        } else if(fila.attr === "ENDDATE_I"){
-          filters.push(FilterExpressionUtils.buildExpressionMoreEqual("datetime_out", fila.value));
-        } else if(fila.attr === "ENDDATE_E"){
-          filters.push(FilterExpressionUtils.buildExpressionLessEqual("datetime_out", fila.value));
-        } else if(fila.attr === "PLATENUMBER"){
+        } else if (fila.attr === "PLATENUMBER") {
           let filters_matricula = []
-          if(fila.value.length > 0){       
+          if (fila.value.length > 0){       
             fila.value.forEach((plate:any) => {
               filters_matricula.push( FilterExpressionUtils.buildExpressionEquals("plate_number", plate))
             });
@@ -48,7 +44,7 @@ export class TravelsTableComponent implements OnInit {
       }
     });
     
-    if(filters.length > 0){
+    if (filters.length > 0) {
       let expression = filters.reduce(
         (exp1, exp2) => FilterExpressionUtils.buildComplexExpression(exp1, exp2, FilterExpressionUtils.OP_AND)
       ); 

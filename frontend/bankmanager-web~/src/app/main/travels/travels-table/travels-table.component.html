@@ -1,73 +1,71 @@
-<o-form show-header="no">
-    <o-column-collapsible title="{{'travels_filters' | oTranslate }}" appearance="outline">
-        <o-row layout-gap="18px">
+<o-form-layout-manager mode="tab" title="{{'travels_list' | oTranslate }}" separator=" " label-columns="delivery_name">
+    <o-form show-header="no">
+        <!--<o-column-collapsible title="{{'travels_filters' | oTranslate }}" appearance="outline"></o-column-collapsible>-->
+        <o-row fxFlex="100 100">
             <o-column fxFlex="50" title="{{'datetime_in' | oTranslate }}">
+                <o-row></o-row>
                 <o-time-input date-locale="es" attr="startInit" label="INIT" read-only="no" required="no"></o-time-input>
                 <o-time-input date-locale="es" attr="endInit" label="END" read-only="no" required="no"></o-time-input>
             </o-column>
-            <o-column title="{{'datetime_out' | oTranslate }}">
-                <o-time-input date-locale="es" attr="startEnd" label="INIT" read-only="no" required="no"></o-time-input>
-                <o-time-input date-locale="es" attr="endEnd" label="END" read-only="no" required="no"></o-time-input>
+            <o-column fxFlex="30" title="{{'plate_number' | oTranslate}}">
+                <o-combo attr="combo-searchable" label="Select plate" entity="plate" service="plates"
+                value-column="plate_number" searchable="yes" columns="id_plate;plate_number"
+                visible-columns="plate_number" multiple="yes">
+                </o-combo>
+            </o-column>                
+            <o-column fxFlex="30">
+                <o-row fxFlex="100" layout-align="bottom end"  layout-gap="18px">
+                <o-button attr="filter" [oFilterBuilderQuery]="filterBuilder" type="RAISED" label="FILTER" class="filter-button" icon="search" color="accent"></o-button>
+                <o-button attr="clear" [oFilterBuilderClear]="filterBuilder" type="RAISED" label="Clear" class="clear-button" icon="refresh"></o-button>
+                </o-row>
             </o-column>
         </o-row>
-        <o-row layout-gap="18px">    
-            <o-combo attr="combo-searchable" label="Select plate" entity="plate" service="plates"
-             value-column="plate_number" searchable="yes" columns="id_plate;plate_number"
-            visible-columns="plate_number" multiple="yes">
-            </o-combo>
-        </o-row>
-        <o-row layout-gap="18px" layout-align="END">
-            <o-button attr="filter" [oFilterBuilderQuery]="filterBuilder" type="RAISED" label="FILTER" class="filter-button"></o-button>
-            <o-button attr="clear" [oFilterBuilderClear]="filterBuilder" type="RAISED" label="Clear"></o-button>
-        </o-row>
-    </o-column-collapsible>
-
-    <o-filter-builder columns="datetime_in;datetime_out" 
-    #filterBuilder attr="thefilter"
-    filters="STARTDATE_I:startInit;STARTDATE_E:endInit;ENDDATE_I:startEnd;ENDDATE_E:endEnd;PLATENUMBER:combo-searchable"
-    [target]="travelsTable"
-    query-on-change="no" query-on-change-delay="500"
-    [expression-builder]="createFilters">
-    </o-filter-builder>
-    
-</o-form>
-<div fxFill fxLayout="column" fxLayoutAlign="start">
-    <o-table 
-        #travelsTable
-        attr="travels" 
-        service="travels" 
-        entity="travelFull"
-        keys="id_travel"
-        columns="id_travel;datetime_in;datetime_out;plate_number;delivery_name"
-        visible-columns="delivery_name;datetime_in;datetime_out;plate_number"
-        delete-button='no'
-        insert-button='no'
-        query-rows="20">
-        <o-table-column 
-            content-align="center"
-            attr="datetime_in"
-            orderable="yes"
-            searchable="no"
-            type="date" 
-            format="DD/MM/YYYY HH:mm:ss.SSS">
-        </o-table-column>
-        <o-table-column 
-            content-align="center"
-            attr="datetime_out"
-            searchable="no" 
-            type="date" 
-            format="DD/MM/YYYY HH:mm:ss.SSS">
-        </o-table-column>
-        <o-table-column
-            attr="delivery_name"
-            content-align="center"
-            serchable="yes"
-        ></o-table-column>
-        <o-table-column
-            attr="plate_number"
-            searchable="no"
-            content-align="center"
-        ></o-table-column>        
-    </o-table>
-  
-</div>
+        
+        <o-filter-builder columns="datetime_in" 
+        #filterBuilder attr="thefilter"
+        filters="STARTDATE_I:startInit;STARTDATE_E:endInit;PLATENUMBER:combo-searchable"
+        [target]="travelsTable"
+        query-on-change="no" query-on-change-delay="500"
+        [expression-builder]="createFilters">
+        </o-filter-builder>        
+    </o-form>
+    <div fxFill fxLayout="column" fxLayoutAlign="start">
+        <o-table 
+            #travelsTable
+            attr="travels" 
+            service="travels" 
+            entity="travelFull"
+            keys="id_travel"
+            columns="id_travel;datetime_in;datetime_out;plate_number;delivery_name"
+            visible-columns="delivery_name;datetime_in;datetime_out;plate_number"
+            delete-button='no'
+            insert-button='no'
+            query-rows="20">
+            <o-table-column 
+                content-align="center"
+                attr="datetime_in"
+                orderable="yes"
+                searchable="no"
+                type="date" 
+                format="DD/MM/YYYY HH:mm">
+            </o-table-column>
+            <o-table-column 
+                content-align="center"
+                attr="datetime_out"
+                searchable="no" 
+                type="date" 
+                format="DD/MM/YYYY HH:mm">
+            </o-table-column>
+            <o-table-column
+                attr="delivery_name"
+                content-align="center"
+                serchable="yes"
+            ></o-table-column>
+            <o-table-column
+                attr="plate_number"
+                searchable="no"
+                content-align="center"
+            ></o-table-column>        
+        </o-table>
+    </div>
+</o-form-layout-manager>

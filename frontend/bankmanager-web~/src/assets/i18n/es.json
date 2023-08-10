@@ -33,5 +33,11 @@
   "INIT": "Inicio",
   "END": "Fin",
   "CLEAR": "Limpiar",
-  "SEARCH_DELIVERY_NAME": "Buscar Nota de Envío"
+  "SEARCH_DELIVERY_NAME": "Buscar Nota de Envío",
+  "travels_list": "Lista de Viajes",
+  "TRABEL_DETAIL": "Detalles del Viaje",
+  "scan_volume_in": "Volumen Entrada (m3)",
+  "scan_volume_out": "Volumen Salida (m3)",
+  "calculated_volume": "Volumen Calculado (m3)",
+  "select plate": "Elegir Matrícula"
 }

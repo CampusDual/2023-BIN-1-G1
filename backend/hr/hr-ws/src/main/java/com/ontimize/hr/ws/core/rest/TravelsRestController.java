@@ -143,26 +143,3 @@ public class TravelsRestController extends ORestController<ITravelsService> {
         return et.getRecordValues(0).get(DeliveryNotesDao.ATTR_ID_DELIVERY_NOTE);
     }
 }
-
-/*
-Caso 1
-volumen entrada < 1 or
-volumen salida <1
-
-
-
-Caso 2
-volumen entrada > 1 and
-volumen salida > 1
-
-
-
-Caso 3
-delivery_note
-    307999
-    308266
-    307950
-    307979
-    10000012811
- */
-
