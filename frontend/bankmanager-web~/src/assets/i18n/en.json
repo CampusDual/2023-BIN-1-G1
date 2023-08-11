@@ -38,5 +38,15 @@
   "TRAVEL_DETAIL": "Travel Detail",
   "scan_volume_in": "Scan Volume In (m3)",
   "scan_volume_out": "Scan Volume Out (m3)",
-  "calculated_volume": "Calculated Volume (m3)"
+  "calculated_volume": "Calculated Volume (m3)",
+  "scan_volume_in2": "Scan Volume In",
+  "scan_volume_out2": "Scan Volume Out",
+  "calculated_volume2": "Calculated Volume",
+  "trailer_plate_number":"Trailer Plate",
+  "length":"Length",
+  "width":"Width",
+  "height":"Height",
+  "SELECT_PLATE": "Select Plate",
+  "TRAVEL_INFO": "Travel Info",
+  "MEASURE_INFO": "Measure Info"
 }

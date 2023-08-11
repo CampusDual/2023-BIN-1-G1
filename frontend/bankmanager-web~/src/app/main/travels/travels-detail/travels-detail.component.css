@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Press+Start+2P&display=swap');
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.main-section{
+    padding: 10px;
+    display:flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    /*width: 80vw;
+    justify-content: space-around;
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(26vmin, 1fr)); 
+    gap: 50px;*/
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .container {
+    width: 25vmin;
+    height: 25vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 1em 0;
+    position: relative;
+    font-size: 16px;
+    border-radius: 0.5em;
+    /*background-color: #21242b;*/
+    background-color: #ffff;
+    border-bottom: 10px solid #18f98f;
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards; 
+    box-shadow: 5px 0px 20px grey;
+  }
+
+  mat-icon {
+    width: 100%;
+    height: 2.5rem;
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to bottom, #18f98f, #0a2f58);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    /*color: linear-gradient(to bottom, #1464a5, #0a2f58);*/
+    /*color: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(9,9,121,1) 42%, rgba(2,0,36,1) 97%);*/
+    font-size: 2.5em;
+    text-align: center;
+  }
+
+  span.num {
+    color: #333333;
+    display: grid;
+    font-family: 'Poppins', sans-serif;
+    place-items: center;
+    font-weight: 600;
+    font-size: 3em;
+  }
+
+  span.num.travel {
+    color: #333333;
+    display: grid;
+    font-family: 'Poppins', sans-serif;
+    place-items: center;
+    font-weight: 600;
+    font-size: 2.1em;
+    text-align: center;
+  }
+
+  span.text {
+    /*color: #e0e0e0;*/
+    color: #292929;
+    font-size: 1em;
+    text-align: center;
+    pad: 0.7em 0;
+    font-weight: 400;
+    line-height: 0;
+  }
+
+  span.m::after{
+    content: 'm';
+    font-size: 0.5em;
+  }
+
+  span.m3::after{
+    content: "m³";
+    font-size: 0.5em;
+  }
+  
+  @media screen and (max-width: 1024px) {
+    .wrapper {
+      width: 85vw;
+    }
+    .container {
+      height: 26vmin;
+      width: 26vmin;
+      font-size: 12px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .wrapper {
+      width: 90vw;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    .container {
+      width: calc(50% - 40px);
+      height: 30vmin;
+      font-size: 14px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .wrapper {
+      gap: 15px;
+    }
+    .container {
+      width: 100%;
+      height: 25vmin;
+      font-size: 8px;
+    }
+  }

@@ -39,5 +39,15 @@
   "scan_volume_in": "Volumen Entrada (m3)",
   "scan_volume_out": "Volumen Salida (m3)",
   "calculated_volume": "Volumen Calculado (m3)",
-  "select plate": "Elegir Matrícula"
+  "scan_volume_in2": "Volumen Entrada",
+  "scan_volume_out2": "Volumen Salida",
+  "calculated_volume2": "Volumen Calculado",
+  "length":"Largo",
+  "width":"Ancho",
+  "height":"Alto",
+  "trailer_plate_number": "Matrícula del Trailer",
+  "SELECT_PLATE": "Elegir Matrícula",
+  "TRAVEL_INFO": "Info del Viaje",
+  "MEASURE_INFO": "Info de Medida"
+
 }

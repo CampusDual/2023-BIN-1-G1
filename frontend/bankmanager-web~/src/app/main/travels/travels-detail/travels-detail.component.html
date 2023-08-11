@@ -1,30 +1,174 @@
-<o-form service="travels" entity="travel" keys="id_travel"  show-header-navigation="no">
-    <o-text-input attr="id_travel" sql-type="INTEGER"  enabled="no" hidden="true"></o-text-input> 
-    <o-column tittle-label="delivery_name">
-        <o-row title-label="TRAVEL_DETAIL" fxFlex>
-            <o-column>
-                <o-text-input class="input-padding"  read-only="yes" attr="delivery_name" enabled="yes"></o-text-input>
-            </o-column>
-            <o-column>
-                <o-text-input class="input-padding" read-only="yes" attr="plate_number" enabled="yes"></o-text-input>
-            </o-column>
-            <o-column>
-                <o-date-input attr="datetime_in" format="DD/MM/YYYY HH:mm" read-only="yes" enabled="yes"></o-date-input>
-            </o-column>
-            <o-column>
-                <o-date-input attr="datetime_out" format="DD/MM/YYYY HH:mm" read-only="yes" enabled="yes"></o-date-input>
-            </o-column>
-        </o-row>
-        <o-row title-label="MEASUREMENTS_INFO">
-            <o-column enabled="no">
-                <o-text-input class="input-padding" label="scan_volume_in" attr="scan_volume_in" read-only="yes" enabled="yes"></o-text-input>
-            </o-column>
-            <o-column enabled="no">
-                <o-text-input class="input-padding" label="scan_volume_out" attr="scan_volume_out" read-only="yes" enabled="yes"></o-text-input>
-            </o-column>
-            <o-column enabled="no">
-                <o-text-input class="input-padding" label="calculated_volume" attr="calculated_volume" read-only="yes" ></o-text-input>
-            </o-column>
-        </o-row>
-    </o-column>
-</o-form>
+<div style="display: none">
+  <o-form
+    service="travels"
+    entity="travel"
+    keys="id_travel"
+    show-header-navigation="no"
+    (onDataLoaded)="getData($event)"
+  >
+    <o-text-input
+      attr="id_travel"
+      sql-type="INTEGER"
+      enabled="no"
+      hidden="true"
+    ></o-text-input>
+    <o-text-input
+      class="input-padding"
+      read-only="yes"
+      attr="delivery_name"
+      enabled="yes"
+    ></o-text-input>
+    <o-text-input
+      class="input-padding"
+      read-only="yes"
+      attr="plate_number"
+      enabled="yes"
+    ></o-text-input>
+    <o-date-input
+      attr="datetime_in"
+      format="DD/MM/YYYY HH:mm"
+      read-only="yes"
+      enabled="yes"
+    ></o-date-input>
+    <o-date-input
+      attr="datetime_out"
+      format="DD/MM/YYYY HH:mm"
+      read-only="yes"
+      enabled="yes"
+    ></o-date-input>
+    <o-text-input
+      class="input-padding"
+      label="scan_volume_in"
+      attr="scan_volume_in"
+      read-only="yes"
+      enabled="yes"
+    ></o-text-input>
+    <o-text-input
+      class="input-padding"
+      label="scan_volume_out"
+      attr="scan_volume_out"
+      read-only="yes"
+      enabled="yes"
+    ></o-text-input>
+    <o-text-input
+      class="input-padding"
+      label="calculated_volume"
+      attr="calculated_volume"
+      read-only="yes"
+    ></o-text-input>
+    <o-text-input
+      class="input-padding"
+      label="trailer_plate_number"
+      attr="trailer_plate_number"
+      read-only="yes"
+    ></o-text-input>
+    <o-text-input
+      class="input-padding"
+      label="length"
+      attr="length"
+      read-only="yes"
+    ></o-text-input>
+    <o-text-input
+      class="input-padding"
+      label="width"
+      attr="width"
+      read-only="yes"
+    ></o-text-input>
+    <o-text-input
+      class="input-padding"
+      label="height"
+      attr="height"
+      read-only="yes"
+    ></o-text-input>
+  </o-form>
+</div>
+<!--
+
+    <div class="contanier-display-info">
+        <div class="container-travel-info">
+            <h1>travel_info</h1>
+            <p *ngFor="let clave of data[dataKeys[0]]">
+                {{data['travel_info'][clave]}} 
+            </p>
+        </div>
+        <div class="container-measure-info">
+            <h1>measure_info</h1>        
+            <p *ngFor="let clave of this.measure_info_keys">
+                {{data['measure_info'][clave]}} 
+            </p>
+        </div>
+    </div>
+    
+-->
+<div class="main-section">
+  <h2>{{ "TRAVEL_INFO" | oTranslate }}</h2>
+  <div class="wrapper">
+    <div class="container">
+      <mat-icon class="material-symbols-outlined">local_shipping</mat-icon>
+      <span class="num travel">{{ this.data["travel_info"]["delivery_name"] }}</span>
+      <span class="text">{{ "delivery_name" | oTranslate }}</span>
+    </div>
+
+    <div class="container">
+      <mat-icon class="icon">12mp</mat-icon>
+      <span class="num travel">{{ this.data["travel_info"]["plate_number"] }}</span>
+      <span class="text">{{ "plate_number" | oTranslate }}</span>
+    </div>
+
+    <div class="container">
+      <mat-icon class="icon">input</mat-icon>
+      <span class="num travel">{{ this.data["travel_info"]["datetime_in"] }}</span>
+      <span class="text">{{ "datetime_in" | oTranslate }}</span>
+    </div>
+
+    <div class="container">
+      <mat-icon class="icon">output</mat-icon>
+      <span class="num travel">{{ this.data["travel_info"]["datetime_out"] }}</span>
+      <span class="text"> {{ "datetime_out" | oTranslate }}</span>
+    </div>
+
+    <div class="container">
+      <mat-icon class="icon">20mp</mat-icon>
+      <span class="num travel">{{ this.data["travel_info"]["trailer_plate_number"] }}</span>
+      <span class="text"> {{ "trailer_plate_number" | oTranslate }}</span>
+    </div>
+  </div>
+  <h2>{{ "MEASURE_INFO" | oTranslate }}</h2>
+  <div class="wrapper">
+    <div class="container">
+      <mat-icon class="icon">sensors</mat-icon>
+      <span #num class="num m3" data-val="scan_volume_in">000</span>
+      <span class="text"> {{ "scan_volume_in2" | oTranslate }}</span>
+    </div>
+
+    <div class="container">
+      <mat-icon class="icon">sensors</mat-icon>
+      <span #num class="num m3" data-val="scan_volume_out">000</span>
+      <span class="text">{{ "scan_volume_out2" | oTranslate }}</span>
+    </div>
+
+    <div class="container">
+      <mat-icon class="icon">calculate</mat-icon>
+      <span #num class="num m3" data-val="calculated_volume">000</span>
+      <span class="text">{{ "calculated_volume2" | oTranslate }}</span>
+    </div>
+
+    <div class="container">
+      <mat-icon class="icon">straighten</mat-icon>
+      <span #num class="num m" data-val="length">000</span>
+      <span class="text">{{ "length" | oTranslate }}</span>
+    </div>
+
+    <div class="container">
+      <mat-icon class="icon">straighten</mat-icon>
+      <span #num class="num m" data-val="width">000</span>
+      <span class="text">{{ "width" | oTranslate }}</span>
+    </div>
+
+    <div class="container">
+      <mat-icon class="icon">straighten</mat-icon>
+      <span #num class="num m" data-val="height">000</span>
+      <span class="text">{{ "height" | oTranslate }}</span>
+    </div>
+  </div>
+</div>
