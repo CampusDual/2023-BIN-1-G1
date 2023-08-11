@@ -48,6 +48,10 @@
   "trailer_plate_number": "Matrícula del Trailer",
   "SELECT_PLATE": "Elegir Matrícula",
   "TRAVEL_INFO": "Info del Viaje",
-  "MEASURE_INFO": "Info de Medida"
+  "MEASURE_INFO": "Info de Medida",
+  "duration": "Duración",
+  "occupation": "Ocupación",
+  "error": "Error",
+  "difference": "Diferencia" 
 
 }

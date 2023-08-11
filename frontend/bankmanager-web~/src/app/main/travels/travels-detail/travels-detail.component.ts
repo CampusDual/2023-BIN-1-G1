@@ -14,10 +14,12 @@ export class TravelsDetailComponent implements OnInit {
       "travel_info": {
         "datetime_in": null,
         "datetime_out": null,
+        "duration":null,
         "delivery_name": null,
         "id_travel": null,
         "plate_number": null,
         "trailer_plate_number": null,
+        "occupation": null,
       },
       "measure_info": {
         "scan_volume_in": null,
@@ -26,6 +28,8 @@ export class TravelsDetailComponent implements OnInit {
         "width": null,
         "height": null,
         "calculated_volume" : null,
+        "difference" : null,
+        "error": null
       }
   };
   travel_info_keys = [];
@@ -49,9 +53,11 @@ export class TravelsDetailComponent implements OnInit {
         id_travel : event.id_travel,
         datetime_in : this.getDateInFormat(new Date(event.datetime_in)),
         datetime_out : this.getDateInFormat(new Date(event.datetime_out)),
+        duration: `${event.duration.hours}:${event.duration.minutes}:${Math.round(event.duration.seconds)}`,
         delivery_name : event.delivery_name,
         plate_number : event.plate_number,
         trailer_plate_number : event.trailer_plate_number,
+        occupation: Math.round(event.occupation * 100)/100
       }, 
       measure_info:{
         scan_volume_in: Math.round(event.scan_volume_in * 100) / 100,
@@ -60,9 +66,12 @@ export class TravelsDetailComponent implements OnInit {
         length: Math.round(event.length * 100) / 100,
         height: Math.round(event.height * 100) / 100,
         width: Math.round(event.width * 100) / 100,
-
+        difference: Math.round(event.difference * 100)/100,
+        error: Math.round(event.error * 100)/100
       }
     }
+    console.log(this.data.travel_info.duration);
+    console.log(typeof event.duration);
     this.measure_info_keys = Object.keys(this.data.measure_info);
     this.travel_info_keys = Object.keys(this.data.travel_info);
     this.animateCounterNumbers();
@@ -89,10 +98,23 @@ export class TravelsDetailComponent implements OnInit {
     const minutes = String(date.getMinutes()).padStart(2,'0');
     return `${day}/${month}/${year} ${hour}:${minutes}`;
   }
+
+  convertMillisecondsToHoursMinutesSeconds(milliseconds) {
+    // Convertimos los milisegundos a segundos
+    let seconds = (milliseconds / 1000);
+  
+    // Dividimos los segundos en horas, minutos y segundos
+    let hours = Math.floor(seconds / 3600);
+    let minutes = Math.floor((seconds % 3600) / 60);
+    seconds = seconds % 60;
+  
+    // Devolvemos los resultados
+    return `${hours}:${minutes}:${seconds}`
+  }
   
   animateCounterNumbers(){
     console.log("HE ENTRADO");
-    const animationDuration = [500, 1000, 2000]; // Duración total de la animación en milisegundos
+    const animationDuration = [200, 700, 1200]; // Duración total de la animación en milisegundos
   
     this.numElements.forEach((elementRef: ElementRef) => {
       const element = elementRef.nativeElement;

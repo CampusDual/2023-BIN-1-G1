@@ -48,5 +48,9 @@
   "height":"Height",
   "SELECT_PLATE": "Select Plate",
   "TRAVEL_INFO": "Travel Info",
-  "MEASURE_INFO": "Measure Info"
+  "MEASURE_INFO": "Measure Info",
+  "duration": "Duration",
+  "occupation": "Occupation",
+  "error": "Error",
+  "difference": "Diference" 
 }

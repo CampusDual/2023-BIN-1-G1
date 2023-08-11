@@ -23,7 +23,11 @@
                         dv2.device_name as device_out,
                         P.plate_number,
                         TP.trailer_plate_number,
-                        DN.delivery_name
+                        DN.delivery_name,
+                        t.scan_volume_in - t.scan_volume_out as difference,
+                        t.datetime_out - t.datetime_in as duration,
+                        (t.calculated_volume/(t.length*t.width*t.height))*100 as occupation,
+                        (abs(abs(t.scan_volume_in - t.scan_volume_out) - t.calculated_volume)/t.calculated_volume)*100 as error                        
                     FROM PUBLIC.travels T
                     LEFT JOIN PUBLIC.delivery_notes DN ON
                         T.id_delivery_note = DN.id_delivery_note

@@ -80,6 +80,30 @@
       attr="height"
       read-only="yes"
     ></o-text-input>
+    <o-text-input
+      class="input-padding"
+      label="difference"
+      attr="difference"
+      read-only="yes"
+    ></o-text-input>
+    <o-text-input
+      class="input-padding"
+      label="error"
+      attr="error"
+      read-only="yes"
+    ></o-text-input>
+    <o-text-input
+      class="input-padding"
+      label="occupation"
+      attr="occupation"
+      read-only="yes"
+    ></o-text-input>
+    <o-text-input
+      class="input-padding"
+      label="duration"
+      attr="duration"
+      read-only="yes"
+    ></o-text-input>
   </o-form>
 </div>
 <!--
@@ -128,9 +152,19 @@
     </div>
 
     <div class="container">
-      <mat-icon class="icon">20mp</mat-icon>
+      <mat-icon class="icon">23mp</mat-icon>
       <span class="num travel">{{ this.data["travel_info"]["trailer_plate_number"] }}</span>
       <span class="text"> {{ "trailer_plate_number" | oTranslate }}</span>
+    </div>
+    <div class="container">
+      <mat-icon class="icon">timer</mat-icon>
+      <span class="num travel">{{ this.data["travel_info"]["duration"] }}</span>
+      <span class="text"> {{ "duration" | oTranslate }}</span>
+    </div>
+    <div class="container">
+      <mat-icon class="icon">inventory_2</mat-icon>
+      <span class="num travel">{{ this.data["travel_info"]["occupation"] }} %</span>
+      <span class="text"> {{ "occupation" | oTranslate }}</span>
     </div>
   </div>
   <h2>{{ "MEASURE_INFO" | oTranslate }}</h2>
@@ -143,7 +177,9 @@
 
     <div class="container">
       <mat-icon class="icon">sensors</mat-icon>
-      <span #num class="num m3" data-val="scan_volume_out">000</span>
+      <div>
+        <span #num class="num m3" data-val="scan_volume_out">000</span>
+      </div>
       <span class="text">{{ "scan_volume_out2" | oTranslate }}</span>
     </div>
 
@@ -170,5 +206,15 @@
       <span #num class="num m" data-val="height">000</span>
       <span class="text">{{ "height" | oTranslate }}</span>
     </div>
+    <div class="container">
+      <mat-icon class="icon">difference</mat-icon>
+      <span class="num travel">{{ this.data["measure_info"]["difference"] }} %</span>
+      <span class="text"> {{ "difference" | oTranslate }}</span>
+    </div>  
+    <div class="container">
+      <mat-icon class="icon">warning</mat-icon>
+      <span class="num travel">{{ this.data["measure_info"]["error"] }} %</span>
+      <span class="text"> {{ "error" | oTranslate }}</span>
+    </div>    
   </div>
 </div>
