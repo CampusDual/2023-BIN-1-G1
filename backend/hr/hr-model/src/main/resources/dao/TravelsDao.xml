@@ -25,7 +25,7 @@
                         TP.trailer_plate_number,
                         DN.delivery_name,
                         t.scan_volume_in - t.scan_volume_out as difference,
-                        t.datetime_out - t.datetime_in as duration,
+                        TO_CHAR((t.datetime_out  - t.datetime_in), 'HH24:MI:SS' ) AS duration,
                         (t.calculated_volume/(t.length*t.width*t.height))*100 as occupation,
                         (abs(abs(t.scan_volume_in - t.scan_volume_out) - t.calculated_volume)/t.calculated_volume)*100 as error                        
                     FROM PUBLIC.travels T
@@ -51,6 +51,21 @@
                     SELECT (sum(scan_volume_in) - sum(scan_volume_out)) AS stock FROM travels
                     UNION
                     SELECT max_stock FROM warehouse;
+                ]]>
+            </Sentence>
+        </Query>
+        <Query id="query_get_balance">
+            <Sentence>
+                <![CDATA[
+                    SELECT
+                        DATE_TRUNC('day', datetime_in) AS dia,
+                        sum(scan_volume_in) AS volume_in,
+                        sum(scan_volume_out) AS volume_out,
+                        sum(scan_volume_in) - sum(scan_volume_out) AS balance
+                    FROM travels
+                    GROUP BY dia
+                    ORDER BY dia;
+                    #WHERE#
                 ]]>
             </Sentence>
         </Query>

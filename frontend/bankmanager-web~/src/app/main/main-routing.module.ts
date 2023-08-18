@@ -10,9 +10,10 @@ export const routes: Routes = [
     component: MainComponent,
     canActivate: [AuthGuardService],
     children: [
-      { path: '', redirectTo: 'travels', pathMatch: 'full' },
+      { path: '', redirectTo: 'travels/travels-list', pathMatch: 'full' },
       { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
       { path: 'travels', loadChildren: () =>import('./travels/travels.module').then(m => m.TravelsModule)},
+      { path: 'balance-travels', loadChildren: () =>import('./balance-travels/balance-travels.module').then(m => m.BalanceTravelsModule)},
       { path: 'warehouse', loadChildren: () =>import('./warehouse/warehouse.module').then(m => m.WarehouseModule)}
     ]
   }

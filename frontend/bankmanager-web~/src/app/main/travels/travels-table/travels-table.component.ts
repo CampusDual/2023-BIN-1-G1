@@ -9,7 +9,10 @@ import { FilterExpressionUtils } from 'ontimize-web-ngx';
 })
 export class TravelsTableComponent implements OnInit {
   stock:number;  
+ 
   constructor(private cd: ChangeDetectorRef) { }
+
+
 
   ngOnInit() {
 
@@ -38,8 +41,7 @@ export class TravelsTableComponent implements OnInit {
                 (exp1, exp2) => FilterExpressionUtils.buildComplexExpression(exp1,exp2, FilterExpressionUtils.OP_OR)
               )              
             );          
-          }
-          
+          }    
         }
       }
     });
@@ -52,5 +54,51 @@ export class TravelsTableComponent implements OnInit {
     }else return null;
   
   }
+
+  convertDuration(rowData:any):any[]{
+    
+    let duracion = rowData.duration;
+    if(duracion){
+      //return `${duracion.hours}:${duracion.minutes}:${duracion.seconds}`
+      return ["5"];
+    }
+    else{
+      return [];
+    }
+  }
+
+  checkAnomalies(rowData, rowIndex){
+    const classes = {
+      RED : "background-red",
+      ORANGE: "background-orange",
+      YELLOW: "background-yellow"
+    };
+
+    const checkDuration = (duration) =>{
+      let duracion = duration.split(':');
+      return (parseInt(duracion[0])>=1)? true: false;
+    }
+
+
+    
+    if(rowData.hasOwnProperty('datetime_out')){
+      if(rowData.error > 10.0){
+        return classes.RED;        
+      }
+      if(checkDuration(rowData.duration)){
+        return classes.YELLOW
+      } 
+      
+    }else{
+      return classes.ORANGE;
+    }
+    
+  }
+
+  checkError(value){
+      
+  }
   
+  
+
 }

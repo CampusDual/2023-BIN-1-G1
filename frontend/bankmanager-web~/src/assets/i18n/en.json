@@ -47,10 +47,12 @@
   "width":"Width",
   "height":"Height",
   "SELECT_PLATE": "Select Plate",
-  "TRAVEL_INFO": "Travel Info",
-  "MEASURE_INFO": "Measure Info",
+  "TRAVEL_INFO": "Travel Information",
+  "MEASURE_INFO": "Measure Information",
   "duration": "Duration",
   "occupation": "Occupation",
   "error": "Error",
-  "difference": "Diference" 
+  "difference": "Diference",
+  "LEGEND": "Legend",
+  "travels_balance": "Travels Balance" 
 }

@@ -1,0 +1,31 @@
+<div style="display: none;">
+    <o-table 
+        attr="travels" 
+        service="travels" 
+        entity="travelGetBalance"
+        columns="dia;volume_in;volume_out;balance"
+        visible-columns="dia;volume_in;volume_out;balance"
+        query-rows="20"
+        (onDataLoaded)="onDataLoaded($event)">
+    </o-table>
+    <p>{{"volume_in" | oTranslate }}</p>
+    <p>{{"volume_out" | oTranslate }}</p>
+    <p>{{"balance" | oTranslate }}</p>
+</div>
+<o-chart title="{{ 'travels_balance' | oTranslate }}" #multiBarChart type="multiBar" attr="data"></o-chart>
+
+<!--
+    <o-chart #lineChart type="line" attr="data"></o-chart>
+
+    <o-chart type="multiBar" x-label="Time" y-label="Amount (€)" layout-fill entity="EMovementsGrouped"
+ x-axis="DATE_" y-axis="MOVEMENT;AVERAGE;BALANCE" x-data-type="time"></o-chart>
+    
+    
+    
+    <o-chart type="gaugeDashboardChart"
+    #gaugeDashboard
+    attr="data"
+    y-axis="value"
+    >
+</o-chart>
+-->

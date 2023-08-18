@@ -33,6 +33,10 @@ public class TravelsService implements ITravelsService {
             throws OntimizeJEERuntimeException {
         return this.daoHelper.query(this.travelsDao, keyMap, attrList);
     }
+    public EntityResult travelGetBalanceQuery(Map<String, Object> keyMap, List<String> attrList)
+            throws OntimizeJEERuntimeException {
+        return this.daoHelper.query(this.travelsDao, keyMap, attrList, TravelsDao.QUERY_GET_BALANCE);
+    }
     public EntityResult travelGetStockQuery(Map<String, Object> keyMap, List<String> attrList)
             throws OntimizeJEERuntimeException {
         return this.daoHelper.query(this.travelsDao, keyMap, attrList, TravelsDao.QUERY_GET_STOCK);

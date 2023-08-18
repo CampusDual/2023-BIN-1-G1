@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --orange: #e85d04;
+    --yellow: #ffeb3b;
+    --red: #ef476f;
+    --green: #06d6a0;
+    --blue: #118ab2;
+    --dark-blue: #073b4c;
+    --oranged-yellow:#fdb75c;
+    --fluorescent-yellow: #fffc3b;
+}
+  
+.background-orange{
+    background-color: var(--oranged-yellow);
+}
+
+.background-yellow{
+    background-color: var(--fluorescent-yellow);
+}
+
+.background-red{
+    background-color: var(--red);
+}

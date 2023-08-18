@@ -73,17 +73,32 @@
     </o-filter-builder>
   </o-form>
   <div fxFill fxLayout="column" fxLayoutAlign="start">
+    <fieldset class="legend">
+      <legend class="legend-title"><mat-icon class="icon">info</mat-icon>{{ "LEGEND" | oTranslate }}</legend>
+        <div class="data-info">
+        <div>
+          <span class="circulo background-red"></span>Error en la medida.
+        </div>
+        <div>
+          <span class="circulo background-orange"></span>El camión no ha salido.
+        </div>
+        <div>
+          <span class="circulo background-yellow"></span>La descarga ha tardado demasiado.
+        </div>
+      </div>
+    </fieldset>
     <o-table
       #travelsTable
       attr="travels"
       service="travels"
       entity="travelFull"
       keys="id_travel"
-      columns="id_travel;datetime_in;datetime_out;plate_number;delivery_name;calculated_volume"
-      visible-columns="delivery_name;calculated_volume;datetime_in;datetime_out;plate_number"
+      columns="id_travel;datetime_in;datetime_out;duration;plate_number;delivery_name;calculated_volume;error"
+      visible-columns="delivery_name;plate_number;duration;datetime_in;datetime_out;calculated_volume;error"
       delete-button="no"
       insert-button="no"
       query-rows="20"
+      [row-class]="checkAnomalies"
     >
       <o-table-column
         content-align="center"
@@ -91,12 +106,29 @@
         orderable="yes"
         searchable="no"
         type="date"
+        sql-type="timestamp"
         format="DD/MM/YYYY HH:mm"
       >
+      </o-table-column>
+      <o-table-column 
+        attr="duration"
+        type="string"  
+      >        
       </o-table-column>
       <o-table-column
         content-align="center"
         attr="calculated_volume"
+        orderable="no"
+        searchable="no"
+        type="real"
+        max-decimal-digits="3"
+        decimal-separator=","
+        thousand-separator="."
+      >
+      </o-table-column>
+      <o-table-column
+        content-align="center"
+        attr="error"
         orderable="no"
         searchable="no"
         type="real"

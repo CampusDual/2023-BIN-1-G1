@@ -18,3 +18,29 @@
     gap:10px;
     justify-content: flex-end;
 }
+
+fieldset{
+    width: 20%;
+}
+.legend-title {
+    display:flex;
+    align-items: center;
+    flex-direction: row;
+    
+}
+
+.circulo {
+  display: inline-block;
+  align-items: center;
+  transform: translateY(22%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.data-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}

@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {
-  OChartComponent, DataAdapterUtils, GaugeSlimChartConfiguration, GaugeSpaceChartConfiguration,
-  RadialPercentChartConfiguration, GaugeDashboardChartConfiguration
-} from 'ontimize-web-ngx-charts';
+  OChartComponent, DataAdapterUtils, GaugeDashboardChartConfiguration } from 'ontimize-web-ngx-charts';
 
 @Component({
   selector: 'app-warehouse-stock',

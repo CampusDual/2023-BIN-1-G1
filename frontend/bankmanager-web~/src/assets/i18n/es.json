@@ -47,11 +47,15 @@
   "height":"Alto",
   "trailer_plate_number": "Matrícula del Trailer",
   "SELECT_PLATE": "Elegir Matrícula",
-  "TRAVEL_INFO": "Info del Viaje",
-  "MEASURE_INFO": "Info de Medida",
+  "TRAVEL_INFO": "Información del Viaje",
+  "MEASURE_INFO": "Información de Medida",
   "duration": "Duración",
   "occupation": "Ocupación",
   "error": "Error",
-  "difference": "Diferencia" 
-
+  "difference": "Diferencia",
+  "LEGEND": "Leyenda",
+  "travels_balance": "Balance de Viajes",
+  "volume_in": "Volumen Entrada (m3)",
+  "volume_out": "Volumen Salida (m3)",
+  "balance": "Balance"
 }
