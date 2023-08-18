@@ -6,10 +6,6 @@ import { TravelsBalanceComponent } from '../balance-travels/travels-balance/trav
 
 const routes: Routes = [
   {
-    path: "travels-balance",
-    component: TravelsBalanceComponent
-  },
-  {
     path: 'travels-list',
     component: TravelsTableComponent
   },

@@ -5,7 +5,7 @@ import { TravelsBalanceComponent } from './travels-balance/travels-balance.compo
 
 const routes: Routes = [
   {
-    path: "travels-balance",
+    path: "",
     component: TravelsBalanceComponent
   }
 ];

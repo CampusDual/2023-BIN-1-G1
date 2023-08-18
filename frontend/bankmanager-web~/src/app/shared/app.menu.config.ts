@@ -15,7 +15,7 @@ export const MENU_CONFIG: MenuRootItem[] = [
         id: 'travels-balance', 
         name:'travels_balance', 
         tooltip:'TRAVELS_BALANCE_CONTENT', 
-        route:'main/balance-travels/travels-balance', 
+        route:'main/balance-travels/', 
         icon: 'balance'
       }
     ]

@@ -44,7 +44,6 @@ export class TravelsBalanceComponent  {
       return item;
     });
     */
-    console.log(this.data);
    //this._configureLineChart(this.data);
     this._configureMultiBarChart(this.data);
   }
