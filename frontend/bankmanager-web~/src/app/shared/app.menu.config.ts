@@ -2,7 +2,7 @@ import { MenuRootItem } from 'ontimize-web-ngx';
 
 export const MENU_CONFIG: MenuRootItem[] = [
   //{ id: 'home', name: 'HOME', icon: 'home', route: '/main/home' },
-  { id: 'travels-data', name:'TRAVELS', icon:'local_shipping', opened:true,
+  { id: 'travels-data', name:'TRAVELS', icon:'sync_alt', opened:true,
     items: [
       { 
         id:'travels-list', 
@@ -17,6 +17,13 @@ export const MENU_CONFIG: MenuRootItem[] = [
         tooltip:'TRAVELS_BALANCE_CONTENT', 
         route:'main/balance-travels/', 
         icon: 'balance'
+      },
+      { 
+        id: 'trucks', 
+        name:'trucks', 
+        tooltip:'TRUCKS_CONTENT', 
+        route:'main/trucks/', 
+        icon: 'local_shipping'
       }
     ]
   

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ChartService, DataAdapterUtils, LineChartConfiguration, MultiBarChartConfiguration, OChartComponent } from 'ontimize-web-ngx-charts';
+import { Expression, FilterExpressionUtils } from 'ontimize-web-ngx';
+import { ChartService, DataAdapterUtils, DonutChartConfiguration, LineChartConfiguration, MultiBarChartConfiguration, OChartComponent } from 'ontimize-web-ngx-charts';
 
 @Component({
   selector: 'app-travels-balance',
@@ -8,7 +9,8 @@ import { ChartService, DataAdapterUtils, LineChartConfiguration, MultiBarChartCo
 })
 export class TravelsBalanceComponent  {
   data = [];
-
+  movements = [];
+  values = {}
 
   @ViewChild('lineChart', {static:false})
   protected lineChart: OChartComponent;
@@ -16,9 +18,14 @@ export class TravelsBalanceComponent  {
   @ViewChild('multiBarChart', {static:false})
   protected multiBarChart: OChartComponent;
 
+  @ViewChild('donutChart', {static:false})
+  protected donutChart: OChartComponent;
 
   lineChartConf: LineChartConfiguration;
   lineChartBasic: any;
+
+  donutChartConf: DonutChartConfiguration;
+  donutChartBasic: any;
 
   multiBarChartConf: MultiBarChartConfiguration;
   multiChartBasic: any;
@@ -31,6 +38,7 @@ export class TravelsBalanceComponent  {
     
 
   }
+
   onDataLoaded(event){
     this.data = event.map(item => {
       item.volume_out *= 1
@@ -46,7 +54,39 @@ export class TravelsBalanceComponent  {
     */
    //this._configureLineChart(this.data);
     this._configureMultiBarChart(this.data);
+    this._configureDonutChart(this.data);
+
   }
+
+  private _configureDonutChart(data): void {
+    
+    this.movements = [ {
+      x: "in",
+      y: data.reduce((a,movement) =>( a += movement.volume_in), 0 )
+    },
+    {
+      x: "out",
+      y: data.reduce((a,movement) =>( a += movement.volume_out), 0 )
+    }
+    ];
+    this.values = {
+      volume_in : this.movements[0].y.toFixed(2),
+      volume_out : this.movements[1].y.toFixed(2)
+    }
+    this.donutChartConf = new DonutChartConfiguration();
+    this.donutChartConf.color = ["#06d6a0"," #ef476f","#0303b5"];
+    this.donutChartConf.legendPosition = "top";
+    this.donutChartConf.showLeyend = false;
+    this.donutChartConf.cornerRadius = 7;
+    this.donutChartConf.yAxis = ["y"];
+    this.donutChartConf.yLabel = "x";
+    this.donutChartConf.labelSunbeamLayout = false;
+    this.donutChartConf.labelsOutside = false;
+    this.donutChart.setDataArray(this.movements);
+    this.donutChart.setChartConfiguration(this.donutChartConf);
+
+  }
+
   private _configureMultiBarChart(data): void {
     this.multiBarChartConf = new MultiBarChartConfiguration();
     this.multiBarChartConf;
@@ -105,6 +145,27 @@ export class TravelsBalanceComponent  {
 
     */
 
+  }
+
+  createFilters(values: Array<{attr: string,value: any[]}>): Expression{
+    let filters = [];
+    values.forEach(fila => {
+      if (fila.value) {
+        if (fila.attr === "STARTDATE_I") {
+          filters.push(FilterExpressionUtils.buildExpressionMoreEqual("dia", fila.value));
+        } else if (fila.attr === "STARTDATE_E") {
+          filters.push(FilterExpressionUtils.buildExpressionLessEqual("dia", fila.value));
+        }
+      }
+    });
+    
+    if (filters.length > 0) {
+      let expression = filters.reduce(
+        (exp1, exp2) => FilterExpressionUtils.buildComplexExpression(exp1, exp2, FilterExpressionUtils.OP_AND)
+      ); 
+      return expression;
+    }else return null;
+  
   }
 }
 

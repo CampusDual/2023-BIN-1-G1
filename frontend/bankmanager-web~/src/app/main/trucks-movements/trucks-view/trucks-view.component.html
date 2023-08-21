@@ -1,0 +1,83 @@
+<h1>{{ 'trucks' | oTranslate }}</h1>
+<div class="card-box full-width">
+  <o-form show-header="no">
+    <o-column-collapsible title="{{ 'MOVEMENT_FILTERS' | oTranslate }}">
+      <div
+        id="container-movements-filters"
+        title="{{ 'movements_filters' | oTranslate }}"
+        fxFlex="100 1"
+      >
+        <div id="movements-filters">
+          <o-time-input 
+            date-locale="es"
+            attr="startInit"
+            label="INIT"
+            read-only="no"
+            required="no"
+          ></o-time-input>
+          <o-time-input 
+            date-locale="es"
+            attr="endInit"
+            label="END"
+            read-only="no"
+            required="no"
+          ></o-time-input>
+  
+        </div>
+        <div id="filter-buttons">
+          <o-button
+            attr="filter"
+            [oFilterBuilderQuery]="filterBuilder"
+            type="RAISED"
+            label="FILTER"
+            class="filter-button"
+            icon="search"
+            color="accent"
+          ></o-button>
+          <o-button
+            attr="clear"
+            [oFilterBuilderClear]="filterBuilder"
+            type="RAISED"
+            label="CLEAR"
+            class="clear-button"
+            icon="refresh"
+          ></o-button>
+        </div>
+      </div>
+  
+      <o-filter-builder
+        columns="dia"
+        #filterBuilder
+        attr="thefilter"
+        filters="STARTDATE_I:startInit;STARTDATE_E:endInit"
+        [target]="datesTable"
+        query-on-change="no"
+        query-on-change-delay="500"
+        [expression-builder]="createFilters"
+      >
+      </o-filter-builder>
+    </o-column-collapsible>
+    </o-form>
+</div>
+<div style="display: none;">
+  <o-table    
+      #datesTable
+      attr="travels" 
+      service="travels" 
+      entity="travelGetTrucks"
+      columns="dia;trucks"
+      visible-columns="dia;trucks"
+      query-rows="20"
+      (onDataLoaded)="onDataLoaded($event)">
+  </o-table>
+  <p>{{"volume_in" | oTranslate }}</p>
+  <p>{{"volume_out" | oTranslate }}</p>
+  <p>{{"balance" | oTranslate }}</p>
+</div>
+<div class="card-box">
+  <h2>{{ 'day_movements' | oTranslate}}</h2>
+  <div class="full-width">
+    <o-chart title="{{ 'travels_balance' | oTranslate }}" #multiBarChart type="multiBar" attr="data"></o-chart>
+  </div>
+</div>
+    

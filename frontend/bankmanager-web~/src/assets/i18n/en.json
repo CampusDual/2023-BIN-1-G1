@@ -54,5 +54,14 @@
   "error": "Error",
   "difference": "Diference",
   "LEGEND": "Legend",
-  "travels_balance": "Travels Balance" 
+  "travels_balance": "Travels Balance",
+  "volume_in": "Volume In",
+  "volume_out": "Volume Out",
+  "balance": "Balance",
+  "INvsOUT": "Volume In/Out",
+  "MOVEMENT_FILTERS": "Movement Filters",
+  "day_movements": "Day Movement",
+  "out": "Out",
+  "in": "In",
+  "trucks": "Trucks"
 }

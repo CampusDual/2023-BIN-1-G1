@@ -55,7 +55,13 @@
   "difference": "Diferencia",
   "LEGEND": "Leyenda",
   "travels_balance": "Balance de Viajes",
-  "volume_in": "Volumen Entrada (m3)",
-  "volume_out": "Volumen Salida (m3)",
-  "balance": "Balance"
+  "volume_in": "Volumen Entrada",
+  "volume_out": "Volumen Salida",
+  "balance": "Balance",
+  "INvsOUT": "Volumen Entrada/Salida",
+  "MOVEMENT_FILTERS": "Filtros de Movimientos",
+  "day_movements": "Movimientos Diarios",
+  "out": "Salida",
+  "in": "Entrada",
+  "trucks": "Camiones"
 }

@@ -1,0 +1,46 @@
+.donut-section {
+  display: grid; /* Utilizar Grid Layout */
+  grid-template-columns: 1fr 1fr 1fr; /* Dos columnas de igual anchura */
+  gap: 20px; /* Espacio entre las columnas */
+}
+.mbottom {
+    margin-bottom: 20px;
+}
+.movements {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 20px;
+}
+
+.card-box {
+  margin-top: 20px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 2px 2px 10px rgb(182, 181, 181);
+  border-radius: 10px;
+  background-color: white;
+}
+.values{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+span{
+    margin-top: -10px;
+    font-size: 2.5rem;    
+}
+
+h2{
+  padding: 10px;
+  text-align: left;  
+}
+
+.full-width{
+    display: block;
+    width: 100%;
+}
+

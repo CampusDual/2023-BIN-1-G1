@@ -57,14 +57,33 @@
         <Query id="query_get_balance">
             <Sentence>
                 <![CDATA[
-                    SELECT
-                        DATE_TRUNC('day', datetime_in) AS dia,
-                        sum(scan_volume_in) AS volume_in,
-                        sum(scan_volume_out) AS volume_out,
-                        sum(scan_volume_in) - sum(scan_volume_out) AS balance
-                    FROM travels
-                    GROUP BY dia
-                    ORDER BY dia;
+                    with t as(
+                        SELECT
+                            DATE_TRUNC('day', datetime_in) AS dia,
+                            sum(scan_volume_in) AS volume_in,
+                            sum(scan_volume_out) AS volume_out,
+                            sum(scan_volume_in) - sum(scan_volume_out) AS balance
+                        FROM travels
+                        GROUP BY dia
+                        ORDER BY dia
+                    )
+                    select #COLUMNS# from t
+                    #WHERE#
+                ]]>
+            </Sentence>
+        </Query>
+        <Query id="query_get_trucks">
+            <Sentence>
+                <![CDATA[
+                    with t as(
+                        SELECT
+                            DATE_TRUNC('day', datetime_in) AS dia,
+                            COUNT (id_delivery_note) as trucks
+                        FROM travels
+                        GROUP BY dia
+                        ORDER BY dia
+                    )
+                    select #COLUMNS# from t
                     #WHERE#
                 ]]>
             </Sentence>

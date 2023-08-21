@@ -29,6 +29,7 @@ public class TravelsDao extends OntimizeJdbcDaoSupport {
 
     public static final String QUERY_GET_STOCK = "query_get_stock";
     public static final String QUERY_GET_BALANCE = "query_get_balance";
+    public static final String QUERY_GET_TRUCKS = "query_get_trucks";
 
     public static final List<String> ALL_COLUMNS = Arrays.asList(
             TravelsDao.ATTR_ID_TRAVEL,
