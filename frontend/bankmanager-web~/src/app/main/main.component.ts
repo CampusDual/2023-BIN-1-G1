@@ -7,15 +7,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
-  public closedSidenavImage: string;
-  public openedSidenavImage: string;
-  constructor() {
-    this.checkSidenavImage();
-    
+
+
+  private reloadDone: boolean = false;
+  constructor(){
+    if (!localStorage.getItem('foo')) { 
+      localStorage.setItem('foo', 'no reload') 
+      location.reload() 
+    } else {
+      localStorage.removeItem('foo') 
+    }
   }
-  checkSidenavImage() {
-    let path = 'assets/images/';
-    this.closedSidenavImage = path + "logo-menu-claro.png";
-    this.openedSidenavImage = path + "icono-claro.png";
-  }
+  
+
 }

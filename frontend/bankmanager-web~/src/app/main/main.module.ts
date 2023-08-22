@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, OnInit } from '@angular/core';
 import { OntimizeWebModule } from 'ontimize-web-ngx';
 
 import { SharedModule } from '../shared/shared.module';
@@ -16,4 +16,6 @@ import { MainComponent } from './main.component';
     MainComponent
   ]
 })
-export class MainModule { }
+export class MainModule{ 
+  
+}
