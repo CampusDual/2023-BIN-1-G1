@@ -41,7 +41,7 @@ export class TrucksViewComponent implements OnInit {
   private _configureMultiBarChart(data): void {
     this.multiBarChartConf = new MultiBarChartConfiguration();
     this.multiBarChartConf;
-    this.multiBarChartConf.color = ["var(--dark-blue)"];
+    this.multiBarChartConf.color = ["var(--orange)"];
     this.multiBarChartConf.xAxis = "dia";
     this.multiBarChartConf.xDataType = "time";
     this.multiBarChartConf.yAxis = ["trucks"];

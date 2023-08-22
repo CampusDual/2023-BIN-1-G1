@@ -2,20 +2,20 @@
 
 /* Color definitions */
 $mat-custom-primary: (
-  50: #bdf5b3,
-  100: #82eb6f,
-  200: #57e53e,
-  300: #33c11a,
-  400: #2ca617,
-  500: #258b13,
-  600: #1e700f,
-  700: #17550c,
-  800: #103a08,
-  900: #081f04,
-  A100: #bdf5b3,
-  A200: #82eb6f,
-  A400: #2ca617,
-  A700: #17550c,
+  50: #f7efee,
+  100: #FFE0B2,
+  200: #FFCC80,
+  300: #FFB74D,
+  400: #FFA726,
+  500: #FF5722,
+  600: #F4511E,
+  700: #E64A19,
+  800: #ffcf98,
+  900: #BF360C,
+  A100: #FF9E80,
+  A200: #FF6E40,
+  A400: #FF3D00,
+  A700: #DD2C00,
 
   contrast: (
     50: $black-87-opacity,
@@ -38,9 +38,8 @@ $mat-custom-primary: (
 /* Define a theme for your theme using the Material Design palettes available in palette.scss
 * (imported above). For each palette, you can optionally specify a default, lighter, and darker
 * hue. Available color palettes: https://material.io/design/color/ */
-$primary: mat-palette($mat-custom-primary);
-$accent:  mat-palette($mat-amber, A200, A100, A400);
-
+$primary: mat-palette($mat-custom-primary, 50, A200, A200, 200);
+$accent:  mat-palette($mat-deep-orange, 900, 200, A200, A100);
 /* The warn palette is optional (defaults to red).*/
 $warn:    mat-palette($mat-red);
 
@@ -48,5 +47,9 @@ $warn:    mat-palette($mat-red);
 /* Light theme */
 $theme: o-mat-light-theme($primary, $accent, $warn);
 
-/* Dark theme */
-/*$theme: o-mat-dark-theme($primary, $accent, $warn);*/
+/* Dark theme 
+$theme: o-mat-dark-theme($primary, $accent, $warn);
+*/
+$background: map-get($theme,"background");
+$my-custom-bg-color: mat-color($background, level-1);
+

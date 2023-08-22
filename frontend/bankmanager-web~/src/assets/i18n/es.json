@@ -26,9 +26,9 @@
   "plate_number": "Matrícula",
   "TRAVELS": "Viajes",
   "WAREHOUSE":"Almacén",
-  "stock": "Stock (m3)",
-  "max_stock": "Stock máximo (m3)",
-  "percentage": "Porcentaje (%)",
+  "stock": "Stock",
+  "max_stock": "Stock Máximo",
+  "percentage": "Porcentaje",
   "travels_filters": "Filtros de Viaje",
   "INIT": "Inicio",
   "END": "Fin",
@@ -63,5 +63,9 @@
   "day_movements": "Movimientos Diarios",
   "out": "Salida",
   "in": "Entrada",
-  "trucks": "Camiones"
+  "trucks": "Camiones",
+  "occupation_percent": "Porcentaje de Ocupación",
+  "fail_measures": "Error en la medida.",
+  "fail_truck": "El camión no ha salido.",
+  "fail_download": "La descarga ha tardado demasiado."
 }

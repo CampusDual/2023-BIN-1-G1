@@ -3,63 +3,63 @@
   title="{{ 'travels_list' | oTranslate }}"
   separator=" "
   label-columns="delivery_name"
->
+  >
   <o-form show-header="no">
     
     <div
-      id="container-travel-filters"
-      title="{{ 'travels_filters' | oTranslate }}"
-      fxFlex="100 100"
+    id="container-travel-filters"
+    title="{{ 'travels_filters' | oTranslate }}"
+    fxFlex="100 100"
     >
-      <div id="travels-filters">
-        <o-time-input 
-          date-locale="es"
-          attr="startInit"
-          label="INIT"
-          read-only="no"
-          required="no"
-        ></o-time-input>
-        <o-time-input 
-          date-locale="es"
-          attr="endInit"
-          label="END"
-          read-only="no"
-          required="no"
-        ></o-time-input>
-        <o-combo 
-          attr="combo-searchable"
-          label="SELECT_PLATE"
-          entity="plate"
+    <div id="travels-filters">
+      <o-time-input 
+      date-locale="es"
+      attr="startInit"
+      label="INIT"
+      read-only="no"
+      required="no"
+      ></o-time-input>
+      <o-time-input 
+      date-locale="es"
+      attr="endInit"
+      label="END"
+      read-only="no"
+      required="no"
+      ></o-time-input>
+      <o-combo 
+      attr="combo-searchable"
+      label="SELECT_PLATE"
+      entity="plate"
           service="plates"
           value-column="plate_number"
           searchable="yes"
           columns="id_plate;plate_number"
           visible-columns="plate_number"
           multiple="yes"
-        >
+          >
         </o-combo>
       </div>
       <div id="filter-buttons">
         <o-button
-          attr="filter"
-          [oFilterBuilderQuery]="filterBuilder"
-          type="RAISED"
-          label="FILTER"
-          class="filter-button"
-          icon="search"
-          color="accent"
+        attr="filter"
+        [oFilterBuilderQuery]="filterBuilder"
+        type="RAISED"
+        label="FILTER"
+        class="filter-button"
+        icon="search"
+        color="accent"
         ></o-button>
         <o-button
-          attr="clear"
-          [oFilterBuilderClear]="filterBuilder"
-          type="RAISED"
+        attr="clear"
+        [oFilterBuilderClear]="filterBuilder"
+        type="RAISED"
           label="CLEAR"
           class="clear-button"
           icon="refresh"
         ></o-button>
       </div>
     </div>
-
+    
     <o-filter-builder
       columns="datetime_in"
       #filterBuilder
@@ -69,54 +69,56 @@
       query-on-change="no"
       query-on-change-delay="500"
       [expression-builder]="createFilters"
-    >
+      >
     </o-filter-builder>
   </o-form>
   <div fxFill fxLayout="column" fxLayoutAlign="start">
     <fieldset class="legend">
       <legend class="legend-title"><mat-icon class="icon">info</mat-icon>{{ "LEGEND" | oTranslate }}</legend>
-        <div class="data-info">
+      <div class="data-info">
         <div>
-          <span class="circulo background-red"></span>Error en la medida.
+          <span class="circulo background-red"></span>{{'fail_measures' | oTranslate }}
         </div>
         <div>
-          <span class="circulo background-orange"></span>El camión no ha salido.
+          <span class="circulo background-orange"></span>{{'fail_truck' | oTranslate }}
         </div>
         <div>
-          <span class="circulo background-yellow"></span>La descarga ha tardado demasiado.
+          <span class="circulo background-yellow"></span>{{'fail_download' | oTranslate }}
         </div>
       </div>
     </fieldset>
     <o-table
-      #travelsTable
-      attr="travels"
-      service="travels"
-      entity="travelFull"
-      keys="id_travel"
-      columns="id_travel;datetime_in;datetime_out;duration;plate_number;delivery_name;calculated_volume;error"
-      visible-columns="delivery_name;plate_number;duration;datetime_in;datetime_out;calculated_volume;error"
-      delete-button="no"
-      insert-button="no"
-      query-rows="20"
-      [row-class]="checkAnomalies"
+    #travelsTable
+    attr="travels"
+    service="travels"
+    entity="travelFull"
+    keys="id_travel"
+    columns="id_travel;datetime_in;datetime_out;duration;plate_number;delivery_name;calculated_volume;error"
+    visible-columns="delivery_name;plate_number;duration;datetime_in;datetime_out;calculated_volume;error"
+    delete-button="no"
+    insert-button="no"
+    query-rows="20"
+    [row-class]="checkAnomalies"
     >
-      <o-table-column
-        content-align="center"
+    <o-table-column
+    content-align="center"
         attr="datetime_in"
         orderable="yes"
         searchable="no"
         type="date"
         sql-type="timestamp"
         format="DD/MM/YYYY HH:mm"
-      >
+        >
       </o-table-column>
       <o-table-column 
         attr="duration"
-        type="string"  
+        type="string"
+        searchable="no"
+        content-align="center"  
       >        
       </o-table-column>
       <o-table-column
-        content-align="center"
+      content-align="center"
         attr="calculated_volume"
         orderable="no"
         searchable="no"
@@ -124,7 +126,7 @@
         max-decimal-digits="3"
         decimal-separator=","
         thousand-separator="."
-      >
+        >
       </o-table-column>
       <o-table-column
         content-align="center"
@@ -135,7 +137,7 @@
         max-decimal-digits="3"
         decimal-separator=","
         thousand-separator="."
-      >
+        >
       </o-table-column>
       <o-table-column
         content-align="center"
@@ -143,7 +145,7 @@
         searchable="no"
         type="date"
         format="DD/MM/YYYY HH:mm"
-      >
+        >
       </o-table-column>
       <o-table-column
         attr="delivery_name"

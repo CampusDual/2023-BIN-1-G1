@@ -68,7 +68,7 @@ export class TravelsTableComponent implements OnInit {
   }
 
   checkAnomalies(rowData, rowIndex){
-    console.log(rowData);
+    
     const classes = {
       RED : "background-red",
       ORANGE: "background-orange",

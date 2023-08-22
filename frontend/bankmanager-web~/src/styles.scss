@@ -8,6 +8,16 @@
     --dark-blue: #0b4988;
     --oranged-yellow:#fdb75c;
     --fluorescent-yellow: #fffc3b;
+    --grey: #b4b4b4;
+    --black: #1d1d1d;
+}
+
+.mat-drawer-container{
+    color: var(--black);
+    background-color: rgb(241, 215, 194);
+}
+.o-app-header{
+    background-color: #f7efee;
 }
 
 .background-orange{
@@ -20,4 +30,17 @@
 
 .background-red{
     background-color: var(--red);
+}
+
+.background-blue{
+    background-color: var(--blue);
+}
+.background-dark-blue{
+    background-color: var(--dark-blue);
+}
+.background-oranged-yellow{
+    background-color: var(--oranged-yellow);
+}
+.background-green{
+    background-color: var(--green);
 }

@@ -9,46 +9,49 @@
         (onDataLoaded)="ondataloaded($event)">
     </o-table>
 </div>
-<div>
-    <o-table attr="data" columns="stock;max_stock;percentage" visible-columns="stock;max_stock;percentage"
-    [static-data]="table_data" query-on-init="false"
-    quick-filter="yes" insert-button="no" delete-button="no"
-    refresh-button="no" pagination-controls="no" export-button="no">
-    <o-table-column 
-    attr="stock" 
-    content-align="center"
-    type="real"
-    grouping="yes"
-    thousand-separator="."
-    decimal-separator=","
-    max-decimal-digits="2"
-    ></o-table-column>
-    <o-table-column 
-    attr="max_stock" 
-    content-align="center"
-    type="real"
-    grouping="yes"
-    thousand-separator="."
-    decimal-separator=","
-    max-decimal-digits="2"
-    ></o-table-column>
-    <o-table-column 
-    attr="percentage" 
-    content-align="center" 
-    type="currency" 
-    currency-symbol="%" 
-    currency-symbol-position="rigth"
-    grouping="yes"
-    thousand-separator="."
-    decimal-separator=","
-    max-decimal-digits="2"></o-table-column>
-  </o-table>
-</div>
-<div>
-    <o-chart type="gaugeDashboardChart"
-    #gaugeDashboard
-    attr="data"
-    y-axis="value"
-    >
-    </o-chart>
+<div class="container">
+    <div class="donut-section">
+        <div *ngIf="table_data" class="card-box volume-card">
+            <div class="icon-container">
+                <div class="circle background-green">
+                    <mat-icon class="icon">inventory 2</mat-icon>
+                </div>
+            </div>
+            <div class="values">
+                <span class="value">{{table_data[0].stock.toFixed(2)}} m3</span>
+                <p>{{'stock' | oTranslate}}</p>
+            </div>
+        </div>
+        <div  *ngIf="table_data" class="card-box volume-card">
+            <div class="icon-container">
+                <div class="circle background-oranged-yellow">
+                    <mat-icon class="icon">inventory 2</mat-icon>
+                </div>
+            </div>
+            <div class="values">
+                <span class="value">{{table_data[0].max_stock.toFixed(2)}} m3</span>
+                <p>{{'max_stock' | oTranslate}}</p>
+            </div>
+        </div>
+        <div *ngIf="table_data" class="card-box volume-card">
+            <div class="icon-container">
+                <div class="circle background-red">
+                    <mat-icon class="icon">percentage</mat-icon>
+                </div>
+            </div>
+            <div class="values">
+                <span class="value">{{table_data[0].percentage.toFixed(2)}}%</span>
+                <p>{{ 'percentage' | oTranslate}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="card-box">
+        <h2>{{"occupation_percent" | oTranslate}}</h2>
+        <o-chart type="gaugeDashboardChart"
+        #gaugeDashboard
+        attr="data"
+        y-axis="value"
+        >
+        </o-chart>
+    </div>
 </div>

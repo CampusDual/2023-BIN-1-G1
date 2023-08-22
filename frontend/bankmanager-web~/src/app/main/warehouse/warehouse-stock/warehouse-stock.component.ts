@@ -53,8 +53,8 @@ export class WarehouseStockComponent implements OnInit {
     this.gaugeDashboardConf = new GaugeDashboardChartConfiguration();
     this.gaugeDashboardConf.title = data[0].y.toFixed(2) + "%";
     this.gaugeDashboardConf.yAxis = ['y'];
-    this.gaugeDashboardConf.color = ['#17A589', 'white'];
-
+    this.gaugeDashboardConf.color = ['#06d6a0', '#b4b4b4'];
+    this.gaugeDashboardConf.showLegend;
     let adapter = DataAdapterUtils.createDataAdapter(this.gaugeDashboardConf);
     let dataAdapt = adapter.adaptResult(data);
     this.gaugeDashboard.setDataArray(dataAdapt);

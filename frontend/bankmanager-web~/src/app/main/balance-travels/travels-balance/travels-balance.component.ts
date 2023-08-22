@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Expression, FilterExpressionUtils } from 'ontimize-web-ngx';
+import { Expression, FilterExpressionUtils, OTranslateService } from 'ontimize-web-ngx';
 import { ChartService, DataAdapterUtils, DonutChartConfiguration, LineChartConfiguration, MultiBarChartConfiguration, OChartComponent } from 'ontimize-web-ngx-charts';
+
 
 @Component({
   selector: 'app-travels-balance',
@@ -44,15 +45,7 @@ export class TravelsBalanceComponent  {
       item.volume_out *= 1
       return item;
     });
-    
-    /*
-    this.data = this.data.map(item => {
-      item.dia = new Date(item.dia);
-      item.dia = item.dia.toLocaleString("es-ES", {dateStyle: "medium"});
-      return item;
-    });
-    */
-   //this._configureLineChart(this.data);
+  
     this._configureMultiBarChart(this.data);
     this._configureDonutChart(this.data);
 
@@ -89,15 +82,10 @@ export class TravelsBalanceComponent  {
 
   private _configureMultiBarChart(data): void {
     this.multiBarChartConf = new MultiBarChartConfiguration();
-    this.multiBarChartConf;
-    //this.multiBarChartConf.isArea = [false];
-    //this.multiBarChartConf.interactive = false;
-    //this.multiBarChartConf.useInteractiveGuideline = true;
     this.multiBarChartConf.color = ["#06d6a0"," #ef476f","#0303b5"];
-    //this.multiBarChartConf.legendPosition = "right";
     this.multiBarChartConf.xAxis = "dia";
     this.multiBarChartConf.xDataType = "time";
-    this.multiBarChartConf.yAxis = ["volume_in","volume_out","balance"];
+    this.multiBarChartConf.yAxis = ["volume_in" ,"volume_out","balance"];
     this.multiBarChartConf.yLabel = "Volume (m3)";
     this.multiBarChartConf.xLabel = "Date";
   
@@ -107,46 +95,8 @@ export class TravelsBalanceComponent  {
     this.multiBarChart.setDataArray(dataAdapt);
     this.multiBarChart.setChartConfiguration(this.multiBarChartConf);
     
-    /*
-    this.gaugeDashboardConf = new GaugeDashboardChartConfiguration();
-    this.gaugeDashboardConf.title = data[0].y.toFixed(2) + "%";
-    this.gaugeDashboardConf.yAxis = ['y'];
-    this.gaugeDashboardConf.color = ['#17A589', 'white'];
-
-    */
 
   }
-  private _configureLineChart(data): void {
-    this.lineChartConf = new LineChartConfiguration();
-    this.lineChartConf;
-    this.lineChartConf.isArea = [false];
-    this.lineChartConf.interactive = false;
-    this.lineChartConf.useInteractiveGuideline = true;
-    this.lineChartConf.color = ["#06d6a0"," #ef476f","#0303b5"];
-    this.lineChartConf.legendPosition = "right";
-    this.lineChartConf.xAxis = "dia";
-    this.lineChartConf.xDataType = "time";
-    this.lineChartConf.yAxis = ["volume_in","volume_out","balance"];
-    this.lineChartConf.yLabel = "Volume (m3)";
-    this.lineChartConf.xLabel = "Date";
-  
-    
-    let adapter = DataAdapterUtils.createDataAdapter(this.lineChartConf);
-    let dataAdapt = adapter.adaptResult(data);
-    
-    this.lineChart.setDataArray(dataAdapt);
-    this.lineChart.setChartConfiguration(this.lineChartConf);
-    
-    /*
-    this.gaugeDashboardConf = new GaugeDashboardChartConfiguration();
-    this.gaugeDashboardConf.title = data[0].y.toFixed(2) + "%";
-    this.gaugeDashboardConf.yAxis = ['y'];
-    this.gaugeDashboardConf.color = ['#17A589', 'white'];
-
-    */
-
-  }
-
   createFilters(values: Array<{attr: string,value: any[]}>): Expression{
     let filters = [];
     values.forEach(fila => {
