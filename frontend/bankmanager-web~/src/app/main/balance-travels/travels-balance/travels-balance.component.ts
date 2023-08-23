@@ -42,7 +42,7 @@ export class TravelsBalanceComponent  {
 
   onDataLoaded(event){
     this.data = event.map(item => {
-      item.volume_out *= 1
+      item.volume_out *= -1
       return item;
     });
   
@@ -59,12 +59,12 @@ export class TravelsBalanceComponent  {
     },
     {
       x: "out",
-      y: data.reduce((a,movement) =>( a += movement.volume_out), 0 )
+      y: data.reduce((a,movement) =>( a += movement.volume_out), 0 ) * -1
     }
     ];
     this.values = {
       volume_in : this.movements[0].y.toFixed(2),
-      volume_out : this.movements[1].y.toFixed(2)
+      volume_out : (this.movements[1].y  * -1).toFixed(2)
     }
     this.donutChartConf = new DonutChartConfiguration();
     this.donutChartConf.color = ["#06d6a0"," #ef476f","#0303b5"];
@@ -88,6 +88,8 @@ export class TravelsBalanceComponent  {
     this.multiBarChartConf.yAxis = ["volume_in" ,"volume_out","balance"];
     this.multiBarChartConf.yLabel = "Volume (m3)";
     this.multiBarChartConf.xLabel = "Date";
+    this.multiBarChartConf.stacked = false;
+    this.multiBarChartConf.showControls = false;
   
     
     let adapter = DataAdapterUtils.createDataAdapter(this.multiBarChartConf);

@@ -7,7 +7,7 @@
 .stock-section{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 .stock-card{
     width: 30%;

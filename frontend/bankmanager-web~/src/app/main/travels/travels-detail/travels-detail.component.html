@@ -130,41 +130,41 @@
       {{ "TRAVEL_INFO" | oTranslate }}
     </legend>
     <div class="wrapper">
-      <div class="container">
+      <div class="detail-container">
         <mat-icon class="material-symbols-outlined">local_shipping</mat-icon>
         <span class="num travel">{{ this.data["travel_info"]["delivery_name"] }}</span>
         <span class="text">{{ "delivery_name" | oTranslate }}</span>
       </div>
   
-      <div class="container">
+      <div class="detail-container">
         <mat-icon class="icon">12mp</mat-icon>
         <span class="num travel">{{ this.data["travel_info"]["plate_number"] }}</span>
         <span class="text">{{ "plate_number" | oTranslate }}</span>
       </div>
   
-      <div class="container">
+      <div class="detail-container">
         <mat-icon class="icon">input</mat-icon>
         <span class="num travel">{{ this.data["travel_info"]["datetime_in"] }}</span>
         <span class="text">{{ "datetime_in" | oTranslate }}</span>
       </div>
   
-      <div class="container">
+      <div class="detail-container">
         <mat-icon class="icon">output</mat-icon>
         <span class="num travel">{{ this.data["travel_info"]["datetime_out"] }}</span>
         <span class="text"> {{ "datetime_out" | oTranslate }}</span>
       </div>
   
-      <div class="container">
+      <div class="detail-container">
         <mat-icon class="icon">23mp</mat-icon>
         <span class="num travel">{{ this.data["travel_info"]["trailer_plate_number"] }}</span>
         <span class="text"> {{ "trailer_plate_number" | oTranslate }}</span>
       </div>
-      <div class="container">
+      <div class="detail-container">
         <mat-icon class="icon">timer</mat-icon>
         <span class="num travel">{{ this.data["travel_info"]["duration"] }}</span>
         <span class="text"> {{ "duration" | oTranslate }}</span>
       </div>
-      <div class="container">
+      <div class="detail-container">
         <mat-icon class="icon">inventory_2</mat-icon>
         <span class="num travel">{{ this.data["travel_info"]["occupation"] }} %</span>
         <span class="text"> {{ "occupation" | oTranslate }}</span>
@@ -176,13 +176,13 @@
       {{ "MEASURE_INFO" | oTranslate }}
     </legend>
     <div class="wrapper">
-      <div class="container">
+      <div class="detail-container">
         <mat-icon class="icon">sensors</mat-icon>
         <span #num class="num m3" data-val="scan_volume_in">000</span>
         <span class="text"> {{ "scan_volume_in2" | oTranslate }}</span>
       </div>
   
-      <div class="container">
+      <div class="detail-container">
         <mat-icon class="icon">sensors</mat-icon>
         <div>
           <span #num [ngClass]="{'num':true, 'm3': allData}" data-val="scan_volume_out">000</span>
@@ -190,35 +190,35 @@
         <span class="text">{{ "scan_volume_out2" | oTranslate }}</span>
       </div>
   
-      <div class="container">
+      <div class="detail-container">
         <mat-icon class="icon">calculate</mat-icon>
         <span #num  [ngClass]="{'num':true, 'm3': allData}" data-val="calculated_volume">0</span>
         <span class="text">{{ "calculated_volume2" | oTranslate }}</span>
       </div>
   
-      <div class="container">
+      <div class="detail-container">
         <mat-icon class="icon">straighten</mat-icon>
         <span #num class="num m" data-val="length">0</span>
         <span class="text">{{ "length" | oTranslate }}</span>
       </div>
   
-      <div class="container">
+      <div class="detail-container">
         <mat-icon class="icon">straighten</mat-icon>
         <span #num class="num m" data-val="width">0</span>
         <span class="text">{{ "width" | oTranslate }}</span>
       </div>
   
-      <div class="container">
+      <div class="detail-container">
         <mat-icon class="icon">straighten</mat-icon>
         <span #num class="num m" data-val="height">0</span>
         <span class="text">{{ "height" | oTranslate }}</span>
       </div>
-      <div class="container">
+      <div class="detail-container">
         <mat-icon class="icon">difference</mat-icon>
         <span [ngClass]="{'num':true, 'travel': true, 'percent': allData}">{{ this.data["measure_info"]["difference"] }}</span>
         <span class="text"> {{ "difference" | oTranslate }}</span>
       </div>  
-      <div class="container">
+      <div class="detail-container">
         <mat-icon class="icon">warning</mat-icon>
         <span [ngClass]="{'num':true, 'travel': true, 'percent': allData}">{{ this.data["measure_info"]["error"] }}</span>
         <span class="text"> {{ "error" | oTranslate }}</span>

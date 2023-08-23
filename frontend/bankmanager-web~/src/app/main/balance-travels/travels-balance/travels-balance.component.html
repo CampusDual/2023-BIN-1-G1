@@ -8,20 +8,20 @@
         fxFlex="100 1"
       >
         <div id="movements-filters">
-          <o-time-input 
+          <o-date-input 
             date-locale="es"
             attr="startInit"
             label="INIT"
             read-only="no"
             required="no"
-          ></o-time-input>
-          <o-time-input 
+          ></o-date-input>
+          <o-date-input 
             date-locale="es"
             attr="endInit"
             label="END"
             read-only="no"
             required="no"
-          ></o-time-input>
+          ></o-date-input>
   
         </div>
         <div id="filter-buttons">
@@ -75,24 +75,24 @@
     <p>{{"balance" | oTranslate }}</p>
 </div>
 <div class="donut-section">
-  <div *ngIf="values" class="card-box volume-card">
+  <div *ngIf="values" class="card-box volume-card max-height">
     <h2>{{'volume_in' | oTranslate}}</h2>
     <div class="values">
       <span>{{values.volume_in}} m3</span>
     </div>
   </div>
-  <div *ngIf="values" class="card-box volume-card">
+  <div *ngIf="values" class="card-box volume-card max-height">
     <h2>{{'volume_out' | oTranslate}}</h2>
     <div class="values">
-      <span>{{values.volume_out}} m3</span>
+      <span>{{values.volume_out *(-1)}} m3</span>
     </div>
   </div>
-  <div class="card-box">
+  <div class="card-box max-height ">
     <h2>{{ 'INvsOUT' | oTranslate}}</h2>
-    <o-chart type="donutChart" #donutChart attr="movements" chart-height="250"></o-chart>
+    <o-chart class="graphic-donut" type="donutChart" #donutChart attr="movements" chart-height="225"></o-chart>
   </div>
 </div>
-<div class="card-box">
+<div class="graphic-box">
   <h2>{{ 'day_movements' | oTranslate}}</h2>
   <div class="full-width">
     <o-chart title="{{ 'travels_balance' | oTranslate }}" #multiBarChart type="multiBar" attr="data" x-label="{{ 'out' | oTranslate}}"></o-chart>
