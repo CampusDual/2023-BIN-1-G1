@@ -9,9 +9,9 @@
         (onDataLoaded)="ondataloaded($event)">
     </o-table>
 </div>
-<div class="container">
-    <div class="donut-section">
-        <div *ngIf="table_data" class="card-box volume-card">
+<div class="container-stock">
+    <div class="stock-section">
+        <div *ngIf="table_data" class="card-box stock-card">
             <div class="icon-container">
                 <div class="circle background-green">
                     <mat-icon class="icon">inventory 2</mat-icon>
@@ -22,7 +22,7 @@
                 <p>{{'stock' | oTranslate}}</p>
             </div>
         </div>
-        <div  *ngIf="table_data" class="card-box volume-card">
+        <div  *ngIf="table_data" class="card-box stock-card">
             <div class="icon-container">
                 <div class="circle background-oranged-yellow">
                     <mat-icon class="icon">inventory 2</mat-icon>
@@ -33,7 +33,7 @@
                 <p>{{'max_stock' | oTranslate}}</p>
             </div>
         </div>
-        <div *ngIf="table_data" class="card-box volume-card">
+        <div *ngIf="table_data" class="card-box stock-card">
             <div class="icon-container">
                 <div class="circle background-red">
                     <mat-icon class="icon">percentage</mat-icon>
@@ -45,7 +45,7 @@
             </div>
         </div>
     </div>
-    <div class="card-box">
+    <div class="card-box graphic-box">
         <h2>{{"occupation_percent" | oTranslate}}</h2>
         <o-chart type="gaugeDashboardChart"
         #gaugeDashboard

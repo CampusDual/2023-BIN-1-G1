@@ -1,15 +1,16 @@
-.container{
+.container-stock{
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 100%;
 }
-.donut-section{
+.stock-section{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
-.volume-card{
-    min-width: 400px;
+.stock-card{
+    width: 30%;
     height: 80px;
     display: flex;
     flex-direction: row;
@@ -63,6 +64,9 @@ p{
     box-shadow: 2px 2px 10px rgb(182, 181, 181);
 }
 
+.graphic-box{
+    width: 100%;
+}
 
 .card-box > h2 {
     margin-left: 20px;
