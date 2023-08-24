@@ -46,9 +46,7 @@ export class TravelsDetailComponent implements OnInit {
     return Object.keys(this.data);
   }
 
-  getData(event){
-    console.log(event);
-    
+  getData(event){   
     this.setData(event.hasOwnProperty("datetime_out"), event);
       
     console.log(this.data.travel_info.duration);
@@ -153,7 +151,6 @@ export class TravelsDetailComponent implements OnInit {
   
     this.numElements.forEach((elementRef: ElementRef) => {
       const element = elementRef.nativeElement;
-      console.log(element.getAttribute("data-val"));
       const startValue = 0;
       const endValue = this.data['measure_info'][element.getAttribute("data-val")];
       const steps = 100; // Número de pasos para la animación
