@@ -51,7 +51,8 @@
   "MEASURE_INFO": "Información de Medida",
   "duration": "Duración",
   "occupation": "Ocupación",
-  "error": "Error",
+  "error": "Error (%)",
+  "error_value": "Error",
   "difference": "Diferencia",
   "LEGEND": "Leyenda",
   "travels_balance": "Balance de Viajes",
@@ -67,5 +68,8 @@
   "occupation_percent": "Porcentaje de Ocupación",
   "fail_measures": "Error en la medida.",
   "fail_truck": "El camión no ha salido.",
-  "fail_download": "La descarga ha tardado demasiado."
+  "fail_download": "La descarga ha tardado demasiado.",
+  "error_types": "Tipos de error",
+  "other": "Libre",
+  "occupied": "Ocupado"
 }

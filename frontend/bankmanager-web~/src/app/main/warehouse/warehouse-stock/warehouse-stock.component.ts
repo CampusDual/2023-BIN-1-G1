@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { OTranslateService } from 'ontimize-web-ngx';
 import {
   OChartComponent, DataAdapterUtils, GaugeDashboardChartConfiguration } from 'ontimize-web-ngx-charts';
 
@@ -31,14 +32,20 @@ export class WarehouseStockComponent implements OnInit {
   ]
     
   constructor(
-    
+      private translateService: OTranslateService
     ) {
       //const d3Locale = this.d3LocaleService.getD3LocaleConfiguration();
      }
 
   ngOnInit() {
+    this.translateService.onLanguageChanged.subscribe( () => {
+      this.translate();
+    })
   }
   
+  translate(){
+    this._configureGaugeChart(this.table_data)
+  }
   
   ondataloaded(event){
     console.log(event);
@@ -46,10 +53,11 @@ export class WarehouseStockComponent implements OnInit {
     this.table_data[0].max_stock = event[1].stock;
     this.table_data[0].percentage = (event[0].stock/event[1].stock)*100;
     console.log(JSON.stringify(this.table_data));
-    this._configureGaugeChart([{ 'x': 'ocupado', 'y': this.table_data[0].percentage }]);
+    this._configureGaugeChart(this.table_data);
   }
   
-  private _configureGaugeChart(data): void {
+  private _configureGaugeChart(rawData): void {
+    let data = [{ 'x': "occupied", 'y': rawData[0].percentage }]
     this.gaugeDashboardConf = new GaugeDashboardChartConfiguration();
     this.gaugeDashboardConf.title = data[0].y.toFixed(2) + "%";
     this.gaugeDashboardConf.yAxis = ['y'];
@@ -57,6 +65,9 @@ export class WarehouseStockComponent implements OnInit {
     this.gaugeDashboardConf.showLegend;
     let adapter = DataAdapterUtils.createDataAdapter(this.gaugeDashboardConf);
     let dataAdapt = adapter.adaptResult(data);
+    (<any[]>dataAdapt).forEach((item) => {
+      item.x = this.translateService.get(item.x);
+    });
     this.gaugeDashboard.setDataArray(dataAdapt);
     this.gaugeDashboard.setChartConfiguration(this.gaugeDashboardConf);
   }

@@ -67,39 +67,4 @@ export class TravelsTableComponent implements OnInit {
     }
   }
 
-  checkAnomalies(rowData, rowIndex){
-    
-    const classes = {
-      RED : "background-red",
-      ORANGE: "background-orange",
-      YELLOW: "background-yellow"
-    };
-
-    const checkDuration = (duration) =>{
-      let duracion = duration.split(':');
-      return (parseInt(duracion[0])>=1)? true: false;
-    }
-
-
-    
-    if(rowData.hasOwnProperty('datetime_out')){
-      if(rowData.error > 10.0){
-        return classes.RED;        
-      }
-      if(checkDuration(rowData.duration)){
-        return classes.YELLOW
-      } 
-      
-    }else{
-      return classes.ORANGE;
-    }
-    
-  }
-
-  checkError(value){
-      
-  }
-  
-  
-
 }

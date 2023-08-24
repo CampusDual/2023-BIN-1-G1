@@ -215,13 +215,13 @@
       </div>
       <div class="detail-container">
         <mat-icon class="icon">difference</mat-icon>
-        <span [ngClass]="{'num':true, 'travel': true, 'percent': allData}">{{ this.data["measure_info"]["difference"] }}</span>
+        <span [ngClass]="{'num':true, 'travel': true, 'm3': allData}">{{ this.data["measure_info"]["difference"] }}</span>
         <span class="text"> {{ "difference" | oTranslate }}</span>
       </div>  
       <div class="detail-container">
         <mat-icon class="icon">warning</mat-icon>
         <span [ngClass]="{'num':true, 'travel': true, 'percent': allData}">{{ this.data["measure_info"]["error"] }}</span>
-        <span class="text"> {{ "error" | oTranslate }}</span>
+        <span class="text"> {{ "error_value" | oTranslate }}</span>
       </div>    
     </div>
   </fieldset>

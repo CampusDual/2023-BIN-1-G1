@@ -18,10 +18,13 @@
     display: flex;
     gap:10px;
     justify-content: flex-end;
+    flex-direction: row-reverse;
 }
 
+
 fieldset{
-    width: 20%;
+    border: none;
+    width: 97%;
 }
 .legend-title {
     display:flex;
@@ -42,6 +45,16 @@ fieldset{
 
 .data-info{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: flex-start;
+    gap: 10px;
+}
+
+.percent::after{
+    content: '%';
+    font-size: 0.5em;
+  }
+
+.tabla {
+    height: 67vh;
 }

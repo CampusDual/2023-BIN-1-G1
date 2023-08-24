@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Expression, FilterExpressionUtils } from 'ontimize-web-ngx';
+import { Expression, FilterExpressionUtils,OTranslateService, } from 'ontimize-web-ngx';
 import { DataAdapterUtils, DonutChartConfiguration, LineChartConfiguration, MultiBarChartConfiguration, OChartComponent } from 'ontimize-web-ngx-charts';
 
 @Component({
@@ -19,15 +19,18 @@ export class TrucksViewComponent implements OnInit {
   multiBarChartConf: MultiBarChartConfiguration;
   multiChartBasic: any;
   
-  constructor() {
+  constructor(private translateService: OTranslateService) {
    
   }
-  ngOnInit(){}
 
-  ngAfterViewInit() {
-    
-
+  ngOnInit(){
+    this.translateService.onLanguageChanged.subscribe(() => {
+      this.translate();
+    });
   }
+
+
+  ngAfterViewInit() {}
 
   onDataLoaded(event){
     this.data = event;
@@ -36,7 +39,9 @@ export class TrucksViewComponent implements OnInit {
 
   }
 
- 
+  translate(){
+    this._configureMultiBarChart(this.data);
+  } 
 
   private _configureMultiBarChart(data): void {
     this.multiBarChartConf = new MultiBarChartConfiguration();
@@ -45,10 +50,16 @@ export class TrucksViewComponent implements OnInit {
     this.multiBarChartConf.xAxis = "dia";
     this.multiBarChartConf.xDataType = "time";
     this.multiBarChartConf.yAxis = ["trucks"];
-    this.multiBarChartConf.yLabel = "Volume (m3)";
+    this.multiBarChartConf.yLabel = "Volume (m³)";
     this.multiBarChartConf.xLabel = "Date";
+    this.multiBarChartConf.stacked = false;
+    this.multiBarChartConf.showControls = false;
+    
     let adapter = DataAdapterUtils.createDataAdapter(this.multiBarChartConf);
     let dataAdapt = adapter.adaptResult(data);
+    (<any[]>dataAdapt).forEach((item) => {
+      item.key = this.translateService.get(item.key);
+    });
     this.multiBarChart.setDataArray(dataAdapt);
     this.multiBarChart.setChartConfiguration(this.multiBarChartConf);
 
