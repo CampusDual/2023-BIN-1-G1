@@ -1,0 +1,12 @@
+<div class="detail-container" [style.border-right-color]="iconBackground">
+    <div class="detail-icon-container">
+      <div class="detail-circle" [style.background-color]="iconBackground">
+        <mat-icon class="material-symbols-outlined">{{iconName}}</mat-icon>
+      </div>
+    </div>
+    <div class="detail-values-container">
+      <span *ngIf="animate" [ngClass]="{num:true ,travel:true, m3:isCubics && data, m:isMeters && data, percent:isPercent && data}">{{ valueToShow | number: '.1-2' }}</span>
+      <span *ngIf="!animate" [ngClass]="{num:true ,travel:true, m3:isCubics && data, m:isMeters && data, percent:isPercent && data}">{{ data }}</span>
+      <span class="text">{{ content | oTranslate}}</span>
+    </div>
+</div>

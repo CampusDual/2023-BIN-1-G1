@@ -3,6 +3,7 @@
         "cellvalue",
         "datetime",
         "duracion",
+        "milisegundos",
         "ontimize",
         "oranged",
         "rowvalue",

@@ -7,6 +7,7 @@ import { TravelsDetailComponent } from './travels-detail/travels-detail.componen
 
 import { OChartModule } from 'ontimize-web-ngx-charts';
 import { TravelsErrorsRenderComponent } from './travels-table/travels-errors-render/travels-errors-render.component';
+import { CardComponent } from './card/card.component';
 
 
 
@@ -15,6 +16,7 @@ import { TravelsErrorsRenderComponent } from './travels-table/travels-errors-ren
     TravelsTableComponent,
     TravelsDetailComponent,
     TravelsErrorsRenderComponent,
+    CardComponent,
   ],
   imports: [
     CommonModule,

@@ -71,5 +71,10 @@
   "fail_download": "Download took too long.",
   "error_types": "Error Types",
   "other": "Free",
-  "occupied": "Occupied"
+  "occupied": "Occupied",
+  "delivery_info": "Delivery Information",
+  "times_info": "Time Information",
+  "measures": "Measures",
+  "dimensions": "Dimensions",
+  "calcs": "Calculations"
 }

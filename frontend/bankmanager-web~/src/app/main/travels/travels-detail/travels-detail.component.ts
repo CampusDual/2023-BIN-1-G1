@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
-
+import { CardComponent } from '../card/card.component';
 @Component({
   selector: 'app-travels-detail',
   templateUrl: './travels-detail.component.html',
@@ -8,6 +8,8 @@ import { ChangeDetectorRef, Component, ElementRef, OnInit, QueryList, ViewChildr
 export class TravelsDetailComponent implements OnInit {
 
   @ViewChildren('num') numElements: QueryList<ElementRef>;
+  
+  plateNumber = "home";
   
   allData: boolean;
   data = {
@@ -32,9 +34,7 @@ export class TravelsDetailComponent implements OnInit {
         "error": null
       }
   };
-  travel_info_keys = [];
-  measure_info_keys = [];
-
+  
   constructor() { }
 
   ngOnInit() {
@@ -48,11 +48,7 @@ export class TravelsDetailComponent implements OnInit {
 
   getData(event){   
     this.setData(event.hasOwnProperty("datetime_out"), event);
-      
-    console.log(this.data.travel_info.duration);
-    console.log(typeof event.duration);
-    this.measure_info_keys = Object.keys(this.data.measure_info);
-    this.travel_info_keys = Object.keys(this.data.travel_info);
+    
     this.animateCounterNumbers(event.hasOwnProperty("datetime_out"));
   }
   
@@ -168,7 +164,8 @@ export class TravelsDetailComponent implements OnInit {
         }else {
           element.textContent = currentValue.toFixed(2);
         }
-  
+
+     
         stepCounter++;
         if (stepCounter >= steps || currentValue >= endValue) {
           clearInterval(counter);

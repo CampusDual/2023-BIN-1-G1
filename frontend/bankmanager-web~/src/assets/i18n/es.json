@@ -71,5 +71,10 @@
   "fail_download": "La descarga ha tardado demasiado.",
   "error_types": "Tipos de error",
   "other": "Libre",
-  "occupied": "Ocupado"
+  "occupied": "Ocupado",
+  "delivery_info": "Información de Envío",
+  "times_info": "Información de Tiempos",
+  "measures": "Medidas",
+  "dimensions": "Dimensiones",
+  "calcs": "Cálculos"
 }

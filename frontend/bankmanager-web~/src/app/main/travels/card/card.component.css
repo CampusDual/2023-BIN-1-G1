@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Press+Start+2P&display=swap');
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.class-background{
+    background-color: var(--orange);
+}
+
+.detail-container {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 16px;
+    border-radius: 0.5em;
+    /*background-color: #21242b;*/
+    background-color: rgba(236, 156, 35, 0.1);
+    /*border-bottom: 10px solid #18f98f;*/
+    border-right: 10px solid #e85d04;
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards; 
+    box-shadow: 1px 0px 0px #f7cc94;
+}
+
+.detail-circle{
+    margin: 0 10%;
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.detail-values-container{
+    width: 70%;
+}
+
+.detail-icon-container{
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+mat-icon {
+    width: 100%;
+    height: 2.5rem;
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-size: 2.5em;
+    text-align: center;
+    transform: scale(0.8);
+}
+  
+span.num {
+    color: #333333;
+    display: flex;
+    flex-direction: row;
+    font-family: 'Poppins', sans-serif;
+    place-items: center;
+    font-weight: 600;
+    font-size: 2em;
+}
+  
+span.num.travel {
+    color: #333333;
+    display: flex;
+    flex-direction: row;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.7em;
+    text-align: flex-start;
+}
+  
+span.text {
+    /*color: #e0e0e0;*/
+    color: #292929;
+    font-size: 1rem;
+    text-align: center;
+    pad: 0.7em 0;
+    font-weight: 400;
+    line-height: 0;
+}
+  
+span.m::after{
+    content: 'm';
+    font-size: 1em;
+}
+
+span.percent::after{
+    content: '%';
+    font-size: 1em;
+}
+  
+span.m3::after{
+    content: "m³";
+    font-size: 1em;
+}

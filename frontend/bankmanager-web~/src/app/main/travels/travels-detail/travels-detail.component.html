@@ -106,204 +106,184 @@
     ></o-text-input>
   </o-form>
 </div>
+
 <div class="main-section">
   <fieldset class="detail-section">
-    <legend class="h2-expand"> 
+    <legend class="h2-expand">
       {{ "TRAVEL_INFO" | oTranslate }}
     </legend>
-    <div class="wrapper">
-      
-      <div class="detail-container">
-        <div class="detail-icon-container">
-          <div class="detail-circle class-background">
-            <mat-icon class="material-symbols-outlined">local_shipping</mat-icon>
-          </div>
-        </div>
-        <div class="detail-values-container">
-          <span class="num travel">{{ this.data["travel_info"]["delivery_name"] }}</span>
-          <span class="text">{{ "delivery_name" | oTranslate }}</span>
-        </div>
-      </div>
-      
-      <div class="detail-container">
-        <div class="detail-icon-container">
-          <div class="detail-circle class-background">
-            <mat-icon class="icon">12mp</mat-icon>
-          </div>
-        </div>
-        <div class="detail-values-container">
-          <span class="num travel">{{ this.data["travel_info"]["plate_number"] }}</span>
-          <span class="text">{{ "plate_number" | oTranslate }}</span>
-        </div>  
-      </div>
-  
-      <div class="detail-container">
-        <div class="detail-icon-container">
-          <div class="detail-circle class-background">
-            <mat-icon class="icon">input</mat-icon>          
-          </div>
-        </div>
-        <div class="detail-values-container">
-          <span class="num travel">{{ this.data["travel_info"]["datetime_in"] }}</span>
-          <span class="text">{{ "datetime_in" | oTranslate }}</span>
-        </div>        
-      </div>
-  
-      <div class="detail-container">
-        <div class="detail-icon-container">
-          <div class="detail-circle class-background">
-            <mat-icon class="icon">output</mat-icon>
-          </div>
-        </div>
-        <div class="detail-values-container">
-          <span class="num travel">{{ this.data["travel_info"]["datetime_out"] }}</span>
-          <span class="text"> {{ "datetime_out" | oTranslate }}</span>  
+    <div class="wrapper_travel">
+      <div class="info-section">
+        <h3 class="section-title">{{ "delivery_info" | oTranslate }}</h3>
+        <div class="info_values">
+          <card
+            iconName="local_shipping"
+            iconBackground="#e85d04"
+            [data]="this.data['travel_info']['delivery_name']"
+            content="delivery_name"
+          >
+          </card>
+          <card
+            iconName="12mp"
+            iconBackground="#e85d04"
+            [data]="this.data['travel_info']['plate_number']"
+            content="plate_number"
+          >
+          </card>
+          <card
+            iconName="23mp"
+            iconBackground="#e85d04"
+            [data]="this.data['travel_info']['trailer_plate_number']"
+            content="trailer_plate_number"
+          >
+          </card>
         </div>
       </div>
-  
-      <div class="detail-container">
-        <div class="detail-icon-container">
-          <div class="detail-circle class-background">
-            <mat-icon class="icon">23mp</mat-icon>
-          </div>
-        </div>
-        <div class="detail-values-container">
-          <span class="num travel">{{ this.data["travel_info"]["trailer_plate_number"] }}</span>
-          <span class="text"> {{ "trailer_plate_number" | oTranslate }}</span>
-        </div>
-      </div>
+      <div class="info-section">
+        <h3 class="section-title">{{ "times_info" | oTranslate }}</h3>
+        <div class="info_values">
+          <card
+            iconName="input"
+            iconBackground="#e85d04"
+            [data]="this.data['travel_info']['datetime_in']"
+            content="datetime_in"
+          >
+          </card>
 
-      <div class="detail-container">
-        <div class="detail-icon-container">
-          <div class="detail-circle class-background">
-            <mat-icon class="icon">timer</mat-icon>
-          </div>
-        </div>
-        <div class="detail-values-container">
-          <span class="num travel">{{ this.data["travel_info"]["duration"] }}</span>
-          <span class="text"> {{ "duration" | oTranslate }}</span>          
+          <card
+            iconName="output"
+            iconBackground="#e85d04"
+            [data]="this.data['travel_info']['datetime_out']"
+            content="datetime_out"
+          >
+          </card>
+
+          <card
+            iconName="timer"
+            iconBackground="#e85d04"
+            [data]="this.data['travel_info']['duration']"
+            content="duration"
+          >
+          </card>
         </div>
       </div>
-
-      <div class="detail-container">
-        <div class="detail-icon-container">
-          <div class="detail-circle class-background">
-            <mat-icon class="icon">inventory_2</mat-icon>
-          </div>          
-        </div>
-        <div class="detail-values-container">
-          <span class="num travel">{{ this.data["travel_info"]["occupation"] }} %</span>
-          <span class="text"> {{ "occupation" | oTranslate }}</span>
-        </div>
-      </div>      
     </div>
   </fieldset>
-  
+
   <fieldset class="detail-section">
     <legend class="h2-expand">
       {{ "MEASURE_INFO" | oTranslate }}
     </legend>
     <div class="wrapper">
-      <div class="detail-container">
-        <div class="detail-icon-container">
-          <div class="detail-circle class-background">   
-            <mat-icon class="icon">sensors</mat-icon>
-          </div>
-        </div>
-        <div class="detail-values-container">  
-          <span #num class="num m3" data-val="scan_volume_in">000</span>
-          <span class="text"> {{ "scan_volume_in2" | oTranslate }}</span>
-        </div>
-      </div>
-  
-      <div class="detail-container">
-        <div class="detail-icon-container">
-          <div class="detail-circle class-background">
-            <mat-icon class="icon">sensors</mat-icon>
-          </div>
-        </div>
-        <div class="detail-values-container">  
-          <span #num [ngClass]="{'num':true, 'm3': allData}" data-val="scan_volume_out">000</span>
-          <span class="text">{{ "scan_volume_out2" | oTranslate }}</span>
-        </div>  
-      </div>
-  
-      <div class="detail-container">
-        <div class="detail-icon-container">
-          <div class="detail-circle class-background">
-            <mat-icon class="icon">calculate</mat-icon>
-          </div>
-        </div>
-        <div class="detail-values-container">
-          <span #num  [ngClass]="{'num':true, 'm3': allData}" data-val="calculated_volume">0</span>
-          <span class="text">{{ "calculated_volume2" | oTranslate }}</span>
-        </div>
-      </div>
-  
-      <div class="detail-container">
-        <div class="detail-icon-container">
-          <div class="detail-circle class-background">
-            <mat-icon class="icon">straighten</mat-icon>
-          </div>
-        </div>
-        <div class="detail-values-container">
-          <span #num class="num m" data-val="length">0</span>
-          <span class="text">{{ "length" | oTranslate }}</span>
-        </div>
-      </div>   
-  
-      <div class="detail-container">
-        <div class="detail-icon-container">
-          <div class="detail-circle class-background">
-            <mat-icon class="icon">straighten</mat-icon>
-          </div>
-        </div>
-        <div class="detail-values-container">
-          <span #num class="num m" data-val="width">0</span>
-          <span class="text">{{ "width" | oTranslate }}</span>
+      <div class="info-section">
+        <h3 class="section-title">{{ "measures" | oTranslate }}</h3>
+        <div class="info_values">
+          <card
+            iconName="sensors"
+            iconBackground="#e85d04"
+            [data]="this.data['measure_info']['scan_volume_in']"
+            content="scan_volume_in2"
+            [animate]="true"
+            [isCubics]="true"
+          >
+          </card>
+
+          <card
+            iconName="sensors"
+            iconBackground="#e85d04"
+            [data]="this.data['measure_info']['scan_volume_out']"
+            content="scan_volume_out2"
+            [animate]="true"
+            [isCubics]="true"     
+          > 
+          </card>
+
+          <card
+            iconName="calculate"
+            iconBackground="#e85d04"
+            [data]="this.data['measure_info']['calculated_volume']"
+            content="calculated_volume2"
+            [animate]="true"
+            [isCubics]="true"            
+          >
+          </card>
         </div>
       </div>
-  
-      <div class="detail-container">
-        <div class="detail-icon-container">
-          <div class="detail-circle class-background">
-            <mat-icon class="icon">straighten</mat-icon>
-          </div>
+      <div class="info-section">
+        <h3 class="section-title">{{'dimensions' | oTranslate}}</h3>
+        <div class="info_values">
+          <card
+            iconName="straighten"
+            iconBackground="#e85d04"
+            [data]="this.data['measure_info']['width']"
+            content="width"
+            [animate]="true"
+            [isMeters]="true"
+          >
+          </card>
+    
+          <card
+            iconName="straighten"
+            iconBackground="#e85d04"
+            [data]="this.data['measure_info']['length']"
+            content="length"
+            [animate]="true"
+            [isMeters]="true"
+          >
+          </card>
+    
+          <card
+            iconName="straighten"
+            iconBackground="#e85d04"
+            [data]="this.data['measure_info']['height']"
+            content="height"
+            [animate]="true"
+            [isMeters]="true"           
+          >
+          </card>
+
         </div>
-        <div class="detail-values-container">
-            <span #num class="num m" data-val="height">0</span>
-            <span class="text">{{ "height" | oTranslate }}</span>
+      </div>
+      <div class="info-section full-width-grid">
+        <h3 class="section-title">{{ "calcs" | oTranslate }}</h3>
+        <div class="info_values">
+          <card
+            iconName="difference"
+            iconBackground="#e85d04"
+            [data]="this.data['measure_info']['difference']"
+            content="difference"
+            [isCubics]="true"
+          >
+          </card>
+    
+          <card
+            iconName="warning"
+            iconBackground="#e85d04"
+            [data]="this.data['measure_info']['error']"
+            content="error_value"
+            [animate]="true"
+            [isPercent]="true"
+          >
+          </card>
+    
+          <card
+            iconName="inventory_2"
+            iconBackground="#e85d04"
+            [data]="this.data['travel_info']['occupation']"
+            content="occupation"
+            [animate]="true"
+            [isPercent]="true"
+          >
+          </card>
         </div>
       </div>
 
-      <div class="detail-container">
-        <div class="detail-icon-container">
-          <div class="detail-circle class-background">
-            <mat-icon class="icon">difference</mat-icon>
-          </div>
-        </div>
-        <div class="detail-values-container">
-            <span [ngClass]="{'num':true, 'm3': allData}">{{ this.data["measure_info"]["difference"] }}</span>
-            <span class="text"> {{ "difference" | oTranslate }}</span>
-        </div>
-      </div>  
-
-      <div class="detail-container">
-        <div class="detail-icon-container">
-          <div class="detail-circle class-background">
-            <mat-icon class="icon">warning</mat-icon>
-          </div>
-        </div>
-        <div class="detail-values-container">
-          <span [ngClass]="{'num':true,  'percent': allData}">{{ this.data["measure_info"]["error"] }}</span>
-          <span class="text"> {{ "error_value" | oTranslate }}</span>
-        </div>
-      </div>
-    </div>    
+    </div>
   </fieldset>
 </div>
 
 <!--
+  {{ "delivery_name" | oTranslate }}
    <div  *ngIf="table_data" class="card-box stock-card">
             <div class="icon-container">
                 <div class="circle background-oranged-yellow">
