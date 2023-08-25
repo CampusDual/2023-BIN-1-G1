@@ -27,8 +27,6 @@ export class CardComponent implements OnInit, OnChanges{
     if(this.animate){
       if(this.data){
         this.animateCounterNumbers(this.allData);
-      }else{
-                
       }
     }
   }
