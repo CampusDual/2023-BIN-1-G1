@@ -11,7 +11,8 @@ export class CardComponent implements OnInit, OnChanges{
   @Input() content: string = '';           // Contenido del componente
   @Input() animate: boolean = false;       // Indicador de animaciÓn
   @Input() data;                      // Datos que recibe el componente
-  @Input() iconBackground : string = '';   // Color de fondo de los iconos
+  /*@Input() iconBackground : string = "#e85d04";   // Color de fondo de los iconos*/
+  @Input() iconBackground : string = "#FEE2D8";
   @Input() allData: boolean = true;        // Clase de la unidad de medida (m, m3, %)
   @Input() isMeters: boolean = false;
   @Input() isPercent: boolean = false;

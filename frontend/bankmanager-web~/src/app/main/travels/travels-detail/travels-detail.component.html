@@ -108,178 +108,158 @@
 </div>
 
 <div class="main-section">
-  <fieldset class="detail-section">
-    <legend class="h2-expand">
-      {{ "TRAVEL_INFO" | oTranslate }}
-    </legend>
-    <div class="wrapper_travel">
-      <div class="info-section">
-        <h3 class="section-title">{{ "delivery_info" | oTranslate }}</h3>
-        <div class="info_values">
-          <card
-            iconName="local_shipping"
-            iconBackground="#e85d04"
-            [data]="this.data['travel_info']['delivery_name']"
-            content="delivery_name"
-          >
-          </card>
-          <card
-            iconName="12mp"
-            iconBackground="#e85d04"
-            [data]="this.data['travel_info']['plate_number']"
-            content="plate_number"
-          >
-          </card>
-          <card
-            iconName="23mp"
-            iconBackground="#e85d04"
-            [data]="this.data['travel_info']['trailer_plate_number']"
-            content="trailer_plate_number"
-          >
-          </card>
-        </div>
-      </div>
-      <div class="info-section">
-        <h3 class="section-title">{{ "times_info" | oTranslate }}</h3>
-        <div class="info_values">
-          <card
-            iconName="input"
-            iconBackground="#e85d04"
-            [data]="this.data['travel_info']['datetime_in']"
-            content="datetime_in"
-          >
-          </card>
-
-          <card
-            iconName="output"
-            iconBackground="#e85d04"
-            [data]="this.data['travel_info']['datetime_out']"
-            content="datetime_out"
-          >
-          </card>
-
-          <card
-            iconName="timer"
-            iconBackground="#e85d04"
-            [data]="this.data['travel_info']['duration']"
-            content="duration"
-          >
-          </card>
-        </div>
-      </div>
+  <div id="delivery_section" class="info-section">
+    <h3 class="section-title">{{ "delivery_info" | oTranslate }}</h3>
+    <div id="delivery">
+      <card
+        id="delivery_card"
+        iconName="local_shipping"
+        [data]="this.data['travel_info']['delivery_name']"
+        content="delivery_name"
+      >
+      </card>
+      <card
+        id="plate_card"
+        iconName="12mp"
+        [data]="this.data['travel_info']['plate_number']"
+        content="plate_number"
+      >
+      </card>
+      <card
+        id="trailer_card"
+        iconName="23mp"
+        [data]="this.data['travel_info']['trailer_plate_number']"
+        content="trailer_plate_number"
+      >
+      </card>
     </div>
-  </fieldset>
+  </div>
+  <div id="times_section" class="info-section">
+    <h3 class="section-title">{{ "times_info" | oTranslate }}</h3>
+    <div id="times">
+      <card
+        id="date_in_card"
+        iconName="input"
+        [data]="this.data['travel_info']['datetime_in']"
+        content="datetime_in"
+      >
+      </card>
 
-  <fieldset class="detail-section">
-    <legend class="h2-expand">
-      {{ "MEASURE_INFO" | oTranslate }}
-    </legend>
-    <div class="wrapper">
-      <div class="info-section">
-        <h3 class="section-title">{{ "measures" | oTranslate }}</h3>
-        <div class="info_values">
-          <card
-            iconName="sensors"
-            iconBackground="#e85d04"
-            [data]="this.data['measure_info']['scan_volume_in']"
-            content="scan_volume_in2"
-            [animate]="true"
-            [isCubics]="true"
-          >
-          </card>
+      <card
+        id="date_out_card"
+        iconName="output"
+        [data]="this.data['travel_info']['datetime_out']"
+        content="datetime_out"
+      >
+      </card>
 
-          <card
-            iconName="sensors"
-            iconBackground="#e85d04"
-            [data]="this.data['measure_info']['scan_volume_out']"
-            content="scan_volume_out2"
-            [animate]="true"
-            [isCubics]="true"     
-          > 
-          </card>
-
-          <card
-            iconName="calculate"
-            iconBackground="#e85d04"
-            [data]="this.data['measure_info']['calculated_volume']"
-            content="calculated_volume2"
-            [animate]="true"
-            [isCubics]="true"            
-          >
-          </card>
-        </div>
-      </div>
-      <div class="info-section">
-        <h3 class="section-title">{{'dimensions' | oTranslate}}</h3>
-        <div class="info_values">
-          <card
-            iconName="straighten"
-            iconBackground="#e85d04"
-            [data]="this.data['measure_info']['width']"
-            content="width"
-            [animate]="true"
-            [isMeters]="true"
-          >
-          </card>
-    
-          <card
-            iconName="straighten"
-            iconBackground="#e85d04"
-            [data]="this.data['measure_info']['length']"
-            content="length"
-            [animate]="true"
-            [isMeters]="true"
-          >
-          </card>
-    
-          <card
-            iconName="straighten"
-            iconBackground="#e85d04"
-            [data]="this.data['measure_info']['height']"
-            content="height"
-            [animate]="true"
-            [isMeters]="true"           
-          >
-          </card>
-
-        </div>
-      </div>
-      <div class="info-section full-width-grid">
-        <h3 class="section-title">{{ "calcs" | oTranslate }}</h3>
-        <div class="info_values">
-          <card
-            iconName="difference"
-            iconBackground="#e85d04"
-            [data]="this.data['measure_info']['difference']"
-            content="difference"
-            [isCubics]="true"
-          >
-          </card>
-    
-          <card
-            iconName="warning"
-            iconBackground="#e85d04"
-            [data]="this.data['measure_info']['error']"
-            content="error_value"
-            [animate]="true"
-            [isPercent]="true"
-          >
-          </card>
-    
-          <card
-            iconName="inventory_2"
-            iconBackground="#e85d04"
-            [data]="this.data['travel_info']['occupation']"
-            content="occupation"
-            [animate]="true"
-            [isPercent]="true"
-          >
-          </card>
-        </div>
-      </div>
-
+      <card
+        id="duration_card"
+        iconName="timer"
+        [data]="this.data['travel_info']['duration']"
+        content="duration"
+      >
+      </card>
     </div>
-  </fieldset>
+  </div>
+
+  <div id="measures_section" class="info-section">
+    <h3 class="section-title">{{ "measures" | oTranslate }}</h3>
+    <div id="measures">
+      <card
+        id="scan_in_card"
+        iconName="sensors"
+        [data]="this.data['measure_info']['scan_volume_in']"
+        content="scan_volume_in2"
+        [animate]="true"
+        [isCubics]="true"
+      >
+      </card>
+
+      <card
+        id="scan_out_card"
+        iconName="sensors"
+        [data]="this.data['measure_info']['scan_volume_out']"
+        content="scan_volume_out2"
+        [animate]="true"
+        [isCubics]="true"
+      >
+      </card>
+
+      <card
+        id="calc_volume_card"
+        iconName="calculate"
+        [data]="this.data['measure_info']['calculated_volume']"
+        content="calculated_volume2"
+        [animate]="true"
+        [isCubics]="true"
+      >
+      </card>
+
+      <card
+        id="calc_dif_card"
+        iconName="difference"
+        [data]="this.data['measure_info']['difference']"
+        content="difference"
+        [isCubics]="true"
+      >
+      </card>
+
+      <card
+        id="error_card"
+        iconName="warning"
+        [data]="this.data['measure_info']['error']"
+        content="error_value"
+        [animate]="true"
+        [isPercent]="true"
+      >
+      </card>
+    </div>
+  </div>
+  <div id="dimensions_section" class="info-section">
+    <h3 class="section-title">{{ "dimensions" | oTranslate }}</h3>
+    <div id="dimensions">
+      <card
+        id="width_card"
+        iconName="straighten"
+        [data]="this.data['measure_info']['width']"
+        content="width"
+        [animate]="true"
+        [isMeters]="true"
+      >
+      </card>
+
+      <card
+        id="length_card"
+        iconName="straighten"
+        [data]="this.data['measure_info']['length']"
+        content="length"
+        [animate]="true"
+        [isMeters]="true"
+      >
+      </card>
+
+      <card
+        id="height_card"
+        iconName="straighten"
+        [data]="this.data['measure_info']['height']"
+        content="height"
+        [animate]="true"
+        [isMeters]="true"
+      >
+      </card>
+
+      <card
+        id="occupation_card"
+        iconName="inventory_2"
+        [data]="this.data['travel_info']['occupation']"
+        content="occupation"
+        [animate]="true"
+        [isPercent]="true"
+      >
+      </card>
+    </div>
+  </div>
 </div>
 
 <!--
