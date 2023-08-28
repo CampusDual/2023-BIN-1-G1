@@ -1,0 +1,34 @@
+<o-form layout-direction="column" header-actions="R;U;D" after-insert-mode="detail">
+  <div class="grid-new-company">
+    <div class="company-data">
+      <h2 class="header">Company data</h2>
+      <o-text-input attr="companyName" label="Company Name" read-only="no" required="yes" clear-button="yes">
+        <mat-icon oMatSuffix>sentiment_very_satisfied</mat-icon>
+      </o-text-input>
+      <o-date-input attr="FirstDate" label="First Work Date" read-only="no" format="LL" required="yes"
+        min="01/01/1980" text-input-enabled="no">
+      </o-date-input>
+    </div>
+    <div class="image-data">
+      <o-image attr="companyLogo" class="customer-picture" empty-image="./assets/images/no-image.png" read-only="no" label="Logo"></o-image>
+    </div>
+    <div class="contact-information">
+      <h2 id="contactHeader" class="header">Contact information</h2>
+      <o-text-input id="companyStreet" attr="companyStreet" label="Street" read-only="no" required="yes" ></o-text-input>
+      <o-text-input id="companyCip" attr="companyCip" label="Postal Code" read-only="no" required="yes" ></o-text-input>
+      <o-text-input id="companyCity" attr="companyCity" label="City" read-only="no" required="yes" ></o-text-input>
+      <o-text-input id="companyCountry" attr="companyCountry" label="Country" read-only="no" required="yes" ></o-text-input>
+      <o-email-input id="companyEmail" attr="companyEmail" label="Email" read-only="no" required="yes"></o-email-input>
+      <o-phone-input id="companyPhone" attr="companyPhone" label="Phone" read-only="no"required="yes"></o-phone-input>
+    </div>
+  </div>    
+</o-form>
+<!--
+    <o-form fxFill #form (onFormModeChange)="forceInsertMode($event)" (onInsert)="closeDialog($event)" service="branches"
+      entity="account" header-actions="I" show-header-navigation="no">
+      <o-combo attr="OFFICEID" label="OFFICEID" service="branches" entity="branch" value-column="OFFICEID"
+        columns="OFFICEID;NAME" visible-columns="NAME" read-only="no" required="yes"></o-combo>
+      <o-integer-input oHidden attr="CUSTOMERID"></o-integer-input>
+      <o-date-input attr="STARTDATE"></o-date-input>
+    </o-form>
+-->

@@ -7,9 +7,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompaniesNewComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(
+ 
+  ) { }
+
+  public forceInsertMode(event: any) {
+    alert("Buenos dias señora");/*
+    if (event != OFormComponent.Mode().INSERT) {
+      this.form.setInsertMode();
+      this.form.setFieldValues(this.data)
+    }*/
+  }
+
+  public closeDialog(event: any) {
+    alert("Adolf mir");
+    /*
+    this.dialogRef.close();*/
+  }
 
   ngOnInit() {
   }
+
 
 }

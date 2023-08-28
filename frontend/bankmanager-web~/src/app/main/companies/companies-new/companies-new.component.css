@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+.grid-new-company {
+    display: grid;
+    max-height: 90%;
+    gap: 10px;
+    grid-template-areas:
+      "company-data image-data"
+      "contact-information contact-information";
+  }
+
+.company-data {
+    grid-area: company-data;
+
+}
+
+.image-data {
+    grid-area: image-data;
+    width: 80%;
+}
+
+.contact-information {
+    grid-area: contact-information;
+    display: grid;
+    gap: 10px;
+    height: 100%;
+    grid-template-areas:
+      "header header header header"
+      "street cp city country"
+      "email email email email"
+      "phone phone phone phone";
+}
+
+#companyStreet {
+    grid-area: street;
+}
+
+#companyCip {
+    grid-area: cp;
+}
+
+#companyCity {
+    grid-area: city;
+}
+
+#companyCountry {
+    grid-area: country;
+}
+
+#companyEmail {
+    grid-area: email;
+}
+
+#companyPhone {
+    grid-area: phone;
+}
+
+#contactHeader{
+    grid-area: header;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .header h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 5px;
+  }
