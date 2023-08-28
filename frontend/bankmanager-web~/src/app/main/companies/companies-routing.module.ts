@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CompaniesListComponent } from './companies-list/companies-list.component';
 import { CompaniesDetailComponent } from './companies-detail/companies-detail.component';
 import { CompaniesNewComponent } from './companies-new/companies-new.component';
-
+import { CompaniesTrucksNewComponent } from './companies-trucks-new/companies-trucks-new.component';
 
 const routes: Routes = [
   {
@@ -17,6 +17,10 @@ const routes: Routes = [
   {
     path: "new",
     component: CompaniesNewComponent
+  },
+  {
+    path: "/:id_company/new",
+    component: CompaniesTrucksNewComponent
   },
 ];
 

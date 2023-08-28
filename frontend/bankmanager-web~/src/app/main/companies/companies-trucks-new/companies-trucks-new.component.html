@@ -1,0 +1,63 @@
+<o-form-layout-manager
+mode="dialog"
+title="{{ 'company_trucks' | oTranslate }}"
+separator=" "
+label-columns="company_name"
+>
+    <div id="select_plate">
+        <o-form show-header="no">
+            <o-combo 
+            attr="combo-searchable"
+            label="SELECT_PLATE"
+            entity="plate"
+            service="plates"
+            value-column="plate_number"
+            searchable="yes"
+            columns="id_plate;plate_number"
+            visible-columns="plate_number"
+            multiple="yes"
+            >
+            </o-combo>
+            <div id="filter-buttons">
+                <o-button
+                attr="add"
+                [oFilterBuilderQuery]="filterBuilder"
+                type="RAISED"
+                label="ADD"
+                class="add-button"
+                icon="add"
+                color="accent"
+                ></o-button>
+                <o-button
+                attr="clear"
+                [oFilterBuilderClear]="filterBuilder"
+                type="RAISED"
+                  label="CLEAR"
+                  class="clear-button"
+                  icon="refresh"
+                ></o-button>
+            </div>
+        </o-form>
+    </div>
+</o-form-layout-manager>
+<div fxLayout="column" fxLayoutAlign="start">   
+    <o-table
+      #companiesTrucksTable
+      attr="companiesTrucks"
+      service="companiesTrucks"
+      entity="companyTrucks"
+      keys="id_company"
+      columns="plate_number"
+      visible-columns="plate_number"
+      delete-button="no"
+      insert-button="no"
+      query-rows="15"
+      virtual-scroll="no"
+    >
+      <o-table-column
+        attr="plate_number"
+        searchable="no"
+        content-align="center"
+      ></o-table-column>
+    </o-table>
+</div>

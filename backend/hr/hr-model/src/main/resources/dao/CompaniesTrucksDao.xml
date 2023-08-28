@@ -24,13 +24,11 @@
             </Sentence>
         </Query>
         <Query id="get_not_owned_plates">
-            <![CDATA[
-               SELECT
-                    plate_number
-               FROM plates as p
-               INNER JOIN companies_plates as cp on cp.plate_id = p.plate_id
-               WHERE cp.id_company <>
-            ]]>
+            <Sentence>
+                <![CDATA[
+                    select * from plates
+                ]]>
+            </Sentence>
         </Query>
     </Queries>
 </JdbcEntitySetup>
