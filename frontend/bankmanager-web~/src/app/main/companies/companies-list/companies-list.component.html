@@ -4,7 +4,7 @@
     separator=" "
     label-columns="company_name"
 >
- <h1>hola</h1>
+ <h1>{{ 'companies_list' | oTranslate }}</h1>
  <o-table 
  attr="companies" 
  service="companies" 
@@ -12,7 +12,7 @@
  columns="id_company;company_name"
  visible-columns="id_company;company_name"
  query-rows="20"
+ virtual-scroll="no"
  >
 </o-table>
- <app-companies-new></app-companies-new>
 </o-form-layout-manager>

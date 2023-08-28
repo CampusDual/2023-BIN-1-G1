@@ -21,5 +21,13 @@
                 ]]>
             </Sentence>
         </Query>
+        <Query id="insert_company_trucks">
+            <Sentence>
+                <![CDATA[
+                    INSERT INTO companies_plates(id_company, id_plate) values
+                    #WHERE#
+                ]]>
+            </Sentence>
+        </Query>
     </Queries>
 </JdbcEntitySetup>

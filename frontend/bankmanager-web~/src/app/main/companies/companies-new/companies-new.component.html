@@ -1,27 +1,101 @@
-<o-form layout-direction="column" header-actions="R;U;D" after-insert-mode="detail">
+<o-form
+  layout-direction="column"
+  header-actions="R;U;D"
+  after-insert-mode="detail"
+  service="companies"
+  entity="company"
+>
   <div class="grid-new-company">
-    <div class="company-data">
-      <h2 class="header">Company data</h2>
-      <o-text-input attr="companyName" label="Company Name" read-only="no" required="yes" clear-button="yes">
-        <mat-icon oMatSuffix>sentiment_very_satisfied</mat-icon>
-      </o-text-input>
-      <o-date-input attr="FirstDate" label="First Work Date" read-only="no" format="LL" required="yes"
-        min="01/01/1980" text-input-enabled="no">
-      </o-date-input>
+    <div class="info">
+      <div class="section-company-info">
+        <h2 class="header">Company data</h2>
+        <div class="company-data">
+          <o-text-input
+            attr="company_name"
+            label="Company Name"
+            read-only="no"
+            required="yes"
+            clear-button="yes"
+          >
+          </o-text-input>
+          <o-date-input
+            attr="company_start_date"
+            label="First Work Date"
+            read-only="no"
+            format="LL"
+            required="yes"
+            min="01/01/1980"
+            text-input-enabled="no"
+          >
+          </o-date-input>
+        </div>
+      </div>
+      <div class="section-company-info">
+        <h2 id="contactHeader" class="header">Contact information</h2>
+        <div class="contact-information">
+          <o-text-input
+            id="companyStreet"
+            attr="company_direction_street"
+            label="Street"
+            read-only="no"
+            required="yes"
+          ></o-text-input>
+          <o-text-input
+            id="companyCip"
+            attr="company_direction_cip"
+            label="Postal Code"
+            read-only="no"
+            required="yes"
+          ></o-text-input>
+          <o-text-input
+            id="companyCity"
+            attr="company_direction_city"
+            label="City"
+            read-only="no"
+            required="yes"
+          ></o-text-input>
+          <o-combo
+            id="companyCountry"
+            attr="company_direction_country"
+            label="Country"
+            data="Spain"
+            [static-data]="countries"
+            value-column="name"
+            columns="id;name"
+            visible-columns="name"
+            read-only="no"
+            required="yes"
+          ></o-combo>
+          <o-phone-input
+            id="companyPhone"
+            attr="company_phone"
+            label="Phone"
+            read-only="no"
+            required="yes"
+          >
+          </o-phone-input>
+          <o-email-input
+            id="companyEmail"
+            attr="company_email"
+            label="Email"
+            read-only="no"
+            required="yes"
+          ></o-email-input>
+        </div>
+      </div>
     </div>
-    <div class="image-data">
-      <o-image attr="companyLogo" class="customer-picture" empty-image="./assets/images/no-image.png" read-only="no" label="Logo"></o-image>
+    <div class="company-logo">
+      <o-image
+        attr="company_logo"
+        class="customer-picture"
+        empty-image="./assets/images/no-image.png"
+        read-only="no"
+        label="Logo"
+        height="500px"
+        width="500px"
+      ></o-image>
     </div>
-    <div class="contact-information">
-      <h2 id="contactHeader" class="header">Contact information</h2>
-      <o-text-input id="companyStreet" attr="companyStreet" label="Street" read-only="no" required="yes" ></o-text-input>
-      <o-text-input id="companyCip" attr="companyCip" label="Postal Code" read-only="no" required="yes" ></o-text-input>
-      <o-text-input id="companyCity" attr="companyCity" label="City" read-only="no" required="yes" ></o-text-input>
-      <o-text-input id="companyCountry" attr="companyCountry" label="Country" read-only="no" required="yes" ></o-text-input>
-      <o-email-input id="companyEmail" attr="companyEmail" label="Email" read-only="no" required="yes"></o-email-input>
-      <o-phone-input id="companyPhone" attr="companyPhone" label="Phone" read-only="no"required="yes"></o-phone-input>
-    </div>
-  </div>    
+  </div>
 </o-form>
 <!--
     <o-form fxFill #form (onFormModeChange)="forceInsertMode($event)" (onInsert)="closeDialog($event)" service="branches"

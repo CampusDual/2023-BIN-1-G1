@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OTranslateService } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'app-companies-new',
@@ -6,28 +7,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./companies-new.component.css']
 })
 export class CompaniesNewComponent implements OnInit {
-
+  countries: any[] = [
+    {id: 1, name:"Spain"},
+    {id: 2, name:"Portugal"},
+    {id: 3, name:"France"},
+    {id: 4, name:"United States"},
+    {id: 5, name:"United Kingdom"},
+    {id: 6, name:"Germany"}
+  ];
 
   constructor(
- 
+    private translateService: OTranslateService
   ) { }
 
-  public forceInsertMode(event: any) {
-    alert("Buenos dias señora");/*
-    if (event != OFormComponent.Mode().INSERT) {
-      this.form.setInsertMode();
-      this.form.setFieldValues(this.data)
-    }*/
+  ngOnInit(){
+    this.translateService.onLanguageChanged.subscribe(() => {
+      this.translateCountries();
+    });
   }
 
-  public closeDialog(event: any) {
-    alert("Adolf mir");
-    /*
-    this.dialogRef.close();*/
+  translateCountries(){
+    this.countries.forEach( c =>{
+      return {...c, name: this.translateService.get(c.name)};
+    }); 
   }
-
-  ngOnInit() {
-  }
-
 
 }
