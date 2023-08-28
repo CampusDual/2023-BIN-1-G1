@@ -12,4 +12,14 @@
         <Column>id_company</Column>
     </UpdateKeys>
     <GeneratedKey>id_company</GeneratedKey>
+    <Queries>
+        <Query id="default">
+            <Sentence>
+                <![CDATA[
+                    SELECT #COLUMNS# FROM companies
+                    #WHERE#
+                ]]>
+            </Sentence>
+        </Query>
+    </Queries>
 </JdbcEntitySetup>

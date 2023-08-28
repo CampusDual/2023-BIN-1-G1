@@ -4,5 +4,8 @@ export const SERVICE_CONFIG: Object = {
   },
   'plates':{
     'path': '/plates'
+  },
+  'companies': {
+    'path': '/companies'
   }
 };
