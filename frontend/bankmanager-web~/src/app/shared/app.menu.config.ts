@@ -15,19 +15,20 @@ export const MENU_CONFIG: MenuRootItem[] = [
       id: 'travels-balance', 
       name:'travels_balance', 
       //tooltip:'TRAVELS_BALANCE_CONTENT', 
-        route:'/main/balance-travels', 
-        icon: 'balance'
-      },
+      route:'/main/balance-travels', 
+      icon: 'balance'
+    },
       { 
-        id: 'trucks', 
-        name:'trucks', 
+      id: 'trucks', 
+      name:'trucks', 
         //tooltip:'TRUCKS_CONTENT', 
-        route:'/main/trucks', 
-        icon: 'local_shipping'
+      route:'/main/trucks', 
+       icon: 'local_shipping'
       }
     ]
     
   },
   { id: 'warehouse', name: 'WAREHOUSE', icon: 'warehouse', route: '/main/warehouse'},
+  { id: 'companies', name: 'COMPANIES', icon: 'factory', route: '/main/companies'},
   { id: 'logout', name: 'LOGOUT', route: '/login', icon: 'power_settings_new', confirm: 'yes' }
 ];
