@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JdbcEntitySetup
+        xmlns="http://www.ontimize.com/schema/jdbc"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ontimize.com/schema/jdbc http://www.ontimize.com/schema/jdbc/ontimize-jdbc-dao.xsd"
+        catalog="" schema="${mainschema}" table="companies_plates"
+        datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
+    <DeleteKeys>
+        <Column>id_companies_plates</Column>
+    </DeleteKeys>
+    <UpdateKeys>
+        <Column>id_companies_plates</Column>
+    </UpdateKeys>
+    <GeneratedKey>id_companies_plates</GeneratedKey>
+    <Queries>
+        <Query id="default">
+            <Sentence>
+                <![CDATA[
+                SELECT
+                    #COLUMNS#
+                FROM companies_plates
+                #WHERE#
+                ]]>
+            </Sentence>
+        </Query>
+        <Query id="get_not_owned_plates">
+            <Sentence>
+                <![CDATA[
+                    select * from plates
+                ]]>
+            </Sentence>
+        </Query>
+    </Queries>
+</JdbcEntitySetup>
