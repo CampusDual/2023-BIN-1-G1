@@ -1,9 +1,12 @@
-<o-form-layout-manager
-    mode="tab"
-    title="{{ 'companies_list' | oTranslate }}"
-    separator=" "
-    label-columns="company_name"
->
- <h1>hola</h1>
- <app-companies-new></app-companies-new>
+<o-form-layout-manager mode="tab" title="{{ 'companies_list' | oTranslate }}" separator=" "
+    label-columns="company_name">
+    <o-table 
+        attr="companies" 
+        service="companies" 
+        entity="company" 
+        columns="id_company;company_name"
+        visible-columns="id_company;company_name" 
+        query-rows="20" 
+        virtual-scroll="no"
+    ></o-table>
 </o-form-layout-manager>
