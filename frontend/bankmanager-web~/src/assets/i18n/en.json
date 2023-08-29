@@ -74,5 +74,12 @@
   "times_info": "Time Information",
   "measures": "Measures",
   "dimensions": "Dimensions",
-  "calcs": "Calculations"
+  "calcs": "Calculations",
+  "companies_list": "Companies List",
+  "id_company": "id_company",
+  "company_name": "company name",
+  "company_direction_street": "direction",
+  "company_direction_cip": "cip code",
+  "company_direction-city": "city",
+  "company_direction-country": "country"
 }
