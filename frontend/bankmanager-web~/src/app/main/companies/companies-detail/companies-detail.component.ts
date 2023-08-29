@@ -12,4 +12,7 @@ export class CompaniesDetailComponent implements OnInit {
   ngOnInit() {
   }
 
+  onDataLoaded(event){
+    console.log(event);
+  }
 }

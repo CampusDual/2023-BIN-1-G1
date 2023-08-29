@@ -11,7 +11,7 @@ const routes: Routes = [
     component: CompaniesListComponent
   },
   {
-    path: "/:id_company",
+    path: ":id_company",
     component: CompaniesDetailComponent
   },
   {
@@ -19,7 +19,7 @@ const routes: Routes = [
     component: CompaniesNewComponent
   },
   {
-    path: "/:id_company/new",
+    path: ":id_company/new",
     component: CompaniesTrucksNewComponent
   },
 ];

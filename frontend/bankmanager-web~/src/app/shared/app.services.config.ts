@@ -7,5 +7,5 @@ export const SERVICE_CONFIG: Object = {
   },
   'companies': {
     'path': '/companies'
-  }
+  },
 };

@@ -18,6 +18,9 @@ export class MainComponent {
       localStorage.removeItem('foo') 
     }
   }*/
-  
+
+  myAction() {
+    alert('Sor Rita Adolf mir');
+  }
 
 }

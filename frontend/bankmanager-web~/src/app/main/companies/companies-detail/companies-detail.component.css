@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+.grid-new-company {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    height: 70vh;
+    /*"company-data image-data"
+      "contact-information contact-information";*/
+  }
+
+.section-company-info{
+
+}
+.company-data {
+    grid-column: 1/1;
+}
+
+.company-logo{
+    grid-column: 2/3;
+    grid-row: 1/3;
+    width: 80%;
+    display: grid;
+    place-content: start flex-end;
+}
+
+.contact-information {
+    grid-column: 1/2;
+    /*grid-area: contact-information;*/
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(4,1fr);
+    gap: 10px;
+}
+
+#companyStreet {
+    grid-row: 1/2;
+    grid-column: 1/4;
+}
+
+#companyCip {
+    grid-row: 1/2;
+    grid-column: 4/5;
+}
+
+#companyCity {
+    grid-row: 2/3;
+    grid-column: 1/3;
+    
+}
+
+#companyCountry {
+    grid-row: 2/3;
+    grid-column: 3/5;
+    
+}
+
+#companyEmail {
+    grid-row: 3/4;
+    grid-column: 1/5;
+}
+
+#companyPhone {
+    grid-row: 4/5;
+    grid-column: 1/5;
+}
+
+#contactHeader{
+    
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .header h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 5px;
+  }
