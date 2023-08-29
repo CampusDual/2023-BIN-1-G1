@@ -1,12 +1,57 @@
-<o-form-layout-manager mode="tab" title="{{ 'companies_list' | oTranslate }}" separator=" "
-    label-columns="company_name">
-    <o-table 
-        attr="companies" 
-        service="companies" 
-        entity="company" 
-        columns="id_company;company_name"
-        visible-columns="id_company;company_name" 
-        query-rows="20" 
-        virtual-scroll="no"
-    ></o-table>
+<o-form-layout-manager
+  mode="tab"
+  title="{{ 'companies_list' | oTranslate }}"
+  separator=" "
+  label-columns="company_name"
+>
+  <o-table
+    attr="companies"
+    service="companies"
+    entity="company"
+    keys="id_company"
+    columns="id_company;company_name;num_travels;company_phone;company_email;company_logo"
+    visible-columns="company_logo;company_name;num_travels;company_phone;company_email"
+    query-rows="20"
+    virtual-scroll="no"
+  >
+    <o-table-column
+      async-load="true"
+      width="48px"
+      attr="company_logo"
+      orderable="no"
+      searchable="no"
+      type="image"
+      image-type="base64"
+      empty-image="./assets/images/no-image.png"
+      avatar="yes"
+    ></o-table-column>
+    <o-table-column
+      attr="company_name"
+      orderable="yes"
+      searchable="yes"
+      type="string"
+      content-align="center" 
+    ></o-table-column>
+    <o-table-column
+      attr="num_travels"
+      orderable="yes"
+      searchable="no"
+      type="integer"
+      content-align="center" 
+    ></o-table-column>
+    <o-table-column
+      attr="company_phone"
+      orderable="no"
+      searchable="no"
+      type="string"
+      content-align="center" 
+    ></o-table-column>
+    <o-table-column
+      attr="company_email"
+      orderable="no"
+      searchable="no"
+      type="string"
+      content-align="center" 
+    ></o-table-column>
+  </o-table>
 </o-form-layout-manager>
