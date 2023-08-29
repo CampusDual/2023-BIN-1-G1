@@ -16,8 +16,24 @@
         <Query id="default">
             <Sentence>
                 <![CDATA[
-                    SELECT #COLUMNS# FROM companies
-                    #WHERE#
+                    SELECT
+                        c.*,
+                        COALESCE(tc.num_travels, 0) AS num_travels
+                    FROM
+                        companies c
+                    LEFT JOIN (
+                        SELECT
+                            cp.id_company,
+                            COUNT(t.id_travel) AS num_travels
+                        FROM
+                            companies_plates cp
+                        JOIN
+                            travels t ON cp.id_plate = t.id_plate
+                        GROUP BY
+                            cp.id_company
+                    ) tc ON c.id_company = tc.id_company
+                    ORDER BY
+                      num_travels DESC;
                 ]]>
             </Sentence>
         </Query>
