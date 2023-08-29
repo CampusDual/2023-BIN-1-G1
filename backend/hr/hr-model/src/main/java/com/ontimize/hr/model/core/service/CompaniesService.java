@@ -19,6 +19,16 @@ public class CompaniesService implements ICompaniesService {
     @Autowired private CompaniesDao companiesDao;
     @Autowired private DefaultOntimizeDaoHelper daoHelper;
 
+    public EntityResult companyGetWithNumTravelsQuery(Map<String, Object> keyMap, List<String> attrList)
+            throws OntimizeJEERuntimeException {
+        return this.daoHelper.query(this.companiesDao, keyMap, attrList, CompaniesDao.QUERY_GET_WITH_NUM_TRAVELS);
+    }
+
+    public EntityResult companyGetPlatesCompanyQuery(Map<String, Object> keyMap, List<String> attrList)
+            throws OntimizeJEERuntimeException {
+        return this.daoHelper.query(this.companiesDao, keyMap, attrList, CompaniesDao.QUERY_GET_PLATES_COMPANY);
+    }
+
     @Override
     public EntityResult companyQuery(Map<String, Object> keyMap, List<String> attrList)
             throws OntimizeJEERuntimeException {

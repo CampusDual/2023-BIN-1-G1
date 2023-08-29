@@ -13,7 +13,10 @@
     </UpdateKeys>
     <GeneratedKey>id_company</GeneratedKey>
     <Queries>
-        <Query id="default">
+        <Query id="get_with_num_travels">
+            <AmbiguousColumns>
+                <AmbiguousColumn name="id_company" prefix="c" />
+            </AmbiguousColumns>
             <Sentence>
                 <![CDATA[
                     SELECT
@@ -32,17 +35,20 @@
                         GROUP BY
                             cp.id_company
                     ) tc ON c.id_company = tc.id_company
+                    #WHERE#
                     ORDER BY
-                      num_travels DESC;
+                      num_travels DESC
+
                 ]]>
             </Sentence>
         </Query>
-        <Query id="insert_company_trucks">
+        <Query id="get_Plates_Company">
             <Sentence>
-                <![CDATA[
-                    INSERT INTO companies_plates(id_company, id_plate) values
-                    #WHERE#
-                ]]>
+                SELECT
+                    #COLUMNS#
+                FROM plates p
+                INNER JOIN companies_plates cp ON p.id_plate = cp.id_plate
+                #WHERE#
             </Sentence>
         </Query>
     </Queries>

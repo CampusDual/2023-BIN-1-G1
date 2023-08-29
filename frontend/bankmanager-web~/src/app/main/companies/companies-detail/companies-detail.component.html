@@ -1,2 +1,117 @@
-<p>companies-detail works!</p>
-<companies-trucks-new></companies-trucks-new>
+<o-form
+  layout-direction="column"
+  header-actions="R;U;D"
+  after-insert-mode="detail"
+  service="companies"
+  entity="company"
+  keys="id_company"
+  parent-keys="id_company"
+  keys-sql-types="INTEGER"
+  (onDataLoaded)="onDataLoaded($event)"
+>
+  <div class="grid-new-company">
+    <div class="info">
+      <div class="section-company-info">
+        <h2 class="header">{{'company_data' | oTranslate }}</h2>
+        <div class="company-data">
+          <o-text-input
+            attr="company_name"
+            label="{{ 'company_name_detail' | oTranslate }}"
+            read-only="no"
+            required="yes"
+            clear-button="yes"
+          >
+          </o-text-input>
+          <o-date-input
+            attr="company_start_date"
+            label=" {{ 'company_start_date_detail' | oTranslate }}"
+            read-only="no"
+            format="LL"
+            required="yes"
+            min="01/01/1980"
+            text-input-enabled="no"
+          >
+          </o-date-input>
+        </div>
+      </div>
+      <div class="section-company-info">
+        <h2 id="contactHeader" class="header">{{'contact_information' | oTranslate }}</h2>
+        <div class="contact-information">
+          
+          <o-integer-input
+            id="idCompany"
+            attr="id_company"
+            hidden
+          ></o-integer-input>  
+          <o-text-input
+            id="companyStreet"
+            attr="company_direction_street"
+            label=" {{ 'company_direction_street_detail' | oTranslate }}"
+            read-only="no"
+            required="yes"
+          ></o-text-input>
+          <o-text-input
+            id="companyCip"
+            attr="company_direction_cip"
+            label=" {{ 'company_direction_cip_detail' | oTranslate}}"
+            read-only="no"
+            required="yes"
+          ></o-text-input>
+          <o-text-input
+            id="companyCity"
+            attr="company_direction_city"
+            label="{{ 'company_direction_city_detail' | oTranslate}}"
+            read-only="no"
+            required="yes"
+          ></o-text-input>
+          <o-text-input
+            id="companyCountry"
+            attr="company_direction_country"
+            label="{{ 'company_direction_country_detail' | oTranslate}}"
+            read-only="yes"
+            required="yes"
+          ></o-text-input>
+          <o-phone-input
+            id="companyPhone"
+            attr="company_phone"
+            label="{{ 'company_phone_detail' | oTranslate}}"
+            read-only="no"
+            required="yes"
+          >
+          </o-phone-input>
+          <o-email-input
+            id="companyEmail"
+            attr="company_email"
+            label="{{ 'company_email_detail' | oTranslate}}"
+            read-only="no"
+            required="yes"
+          ></o-email-input>
+        </div>
+      </div>
+    </div>
+    <div class="company-logo">
+      <o-image
+        attr="company_logo"
+        class="customer-picture"
+        empty-image="./assets/images/no-image.png"
+        read-only="no"
+        label="{{ 'company_logo_detail' | oTranslate}}"
+        height="500px"
+        width="500px"
+      ></o-image>
+    </div> 
+</div>
+<div>
+  <o-table
+  keys="id_company"
+  parent-keys="id_company"
+  keys-sql-types="INTEGER"
+  service="companies"
+  entity="companyGetPlatesCompany"
+  columns="plate_number"
+  visible-columns="plate_number"
+  >
+  </o-table>
+</div>  
+</o-form>
+
