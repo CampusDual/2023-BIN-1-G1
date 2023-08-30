@@ -91,7 +91,8 @@
   "company_direction_cip_detail": "ZIP Code",
   "company_direction_city_detail": "City",
   "company_direction_country_detail": "Country",
-  "company_start_date_detail": "Start Date",
+  "company_start_date_detail": "Discharge Date",
+  "company_end_date_detail": "Termination Date",
   "company_logo_detail": "Logo",
   "company_phone_detail": "Phone",
   "company_email_detail": "Email",
@@ -99,5 +100,6 @@
   "num_travels": "Travels Number",
   "contact_information": "Contact Information",
   "company_data": "Company Data",
-  "PROFILE": "Profile"
+  "PROFILE": "Profile",
+  "vinculated_trucks": "Vinculated Truck"
 }

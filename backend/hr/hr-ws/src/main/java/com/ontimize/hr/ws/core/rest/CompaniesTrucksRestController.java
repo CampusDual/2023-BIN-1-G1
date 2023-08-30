@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/companyTrucks")
+@RequestMapping("/companiesTrucks")
 public class CompaniesTrucksRestController extends ORestController<ICompaniesTrucksService> {
 
     @Autowired

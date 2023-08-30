@@ -1,33 +1,42 @@
-<o-form>
+<o-form class="vinculate-trucks-form"
+  parent-keys="id_company"
+  keys="id_company"
+  service="companiesTrucks"
+  entity="companyTrucks"  
+>
   <o-combo
-    attr="combo-searchable"
+    attr="id_plate"
     label="SELECT_PLATE"
-    entity="plate"
-    service="plates"
-    value-column="plate_number"
+    entity="companyTrucksGetNotOwnedPlates"
+    service="companiesTrucks"
+    value-column="id_plate"
     searchable="yes"
     columns="id_plate;plate_number"
     visible-columns="plate_number"
-    multiple="yes"
+    multiple="no"
   >
   </o-combo>
-  <div id="filter-buttons">
-    <o-button
-      attr="add"
-      [oFilterBuilderQuery]="filterBuilder"
-      type="RAISED"
-      label="ADD"
-      class="add-button"
-      icon="add"
-      color="accent"
-    ></o-button>
-    <o-button
-      attr="clear"
-      [oFilterBuilderClear]="filterBuilder"
-      type="RAISED"
-      label="CLEAR"
-      class="clear-button"
-      icon="refresh"
-    ></o-button>
-  </div>
+  <o-date-input
+    id="companyStartDate"
+    attr="start_date"
+    label=" {{ 'company_start_date_detail' | oTranslate }}"
+    read-only="no"
+    format="LL"
+    required="yes"
+    min="01/01/1980"
+    text-input-enabled="no"
+  >
+  </o-date-input>
+  <o-date-input
+    id="companyEndDate"
+    attr="end_date"
+    label=" {{ 'company_end_date_detail' | oTranslate }}"
+    read-only="no"
+    format="LL"
+    required="no"
+    min="01/01/1980"
+    text-input-enabled="no"
+  >
+  </o-date-input>
+
 </o-form>

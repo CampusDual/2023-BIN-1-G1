@@ -16,20 +16,12 @@ export class CompaniesNewComponent implements OnInit {
     {id: 6, name:"Germany"}
   ];
 
-  constructor(
-    private translateService: OTranslateService
-  ) { }
+  countries_translated: any[];
 
-  ngOnInit(){
-    this.translateService.onLanguageChanged.subscribe(() => {
-      this.translateCountries();
-    });
-  }
+  constructor(){}
 
-  translateCountries(){
-    this.countries.forEach( c =>{
-      return {...c, name: this.translateService.get(c.name)};
-    }); 
-  }
+  ngOnInit(){}
+
+  
 
 }

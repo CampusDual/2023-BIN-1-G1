@@ -8,15 +8,16 @@ import { CompaniesTrucksNewComponent } from './companies-trucks-new/companies-tr
 const routes: Routes = [
   {
     path: "", 
-    component: CompaniesListComponent
-  },
-  {
-    path: ":id_company",
-    component: CompaniesDetailComponent
+    component: CompaniesListComponent,
+    data: { oAppHeaderTitle:'Companies'}
   },
   {
     path: "new",
     component: CompaniesNewComponent
+  },
+  {
+    path: ":id_company",
+    component: CompaniesDetailComponent
   },
   {
     path: ":id_company/new",

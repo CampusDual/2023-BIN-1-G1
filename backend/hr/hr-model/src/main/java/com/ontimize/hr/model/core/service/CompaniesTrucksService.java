@@ -26,6 +26,11 @@ public class CompaniesTrucksService implements ICompaniesTrucksService {
             return this.daoHelper.query(this.companiesTrucksDao, keyMap, attrList);
     }
 
+    public EntityResult companyTrucksGetNotOwnedPlatesQuery(Map<String, Object> keyMap, List<String> attrList)
+            throws OntimizeJEERuntimeException{
+        return this.daoHelper.query(this.companiesTrucksDao, keyMap, attrList, CompaniesTrucksDao.QUERY_GET_NOT_OWNED_PLATES);
+    }
+
     @Override
     public EntityResult companyTrucksInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException {
         return this.daoHelper.insert(this.companiesTrucksDao, attrMap);

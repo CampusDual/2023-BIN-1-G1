@@ -1,64 +1,86 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
-    --orange: #e85d04;
-    --yellow: #ffeb3b;
-    --red: #ef476f;
-    --green: #06d6a0;
-    --blue: #118ab2;
-    --dark-blue: #0b4988;
-    --oranged-yellow:#fdb75c;
-    --fluorescent-yellow: #fffc3b;
-    --grey: #b4b4b4;
-    --black: #1d1d1d;
-    --error-blue: #0074ba;
-    --error-red: #f8312f ;
-    --error-yellow: #fcd53f ;
+  --orange: #e85d04;
+  --yellow: #ffeb3b;
+  --red: #ef476f;
+  --green: #06d6a0;
+  --blue: #118ab2;
+  --dark-blue: #0b4988;
+  --oranged-yellow: #fdb75c;
+  --fluorescent-yellow: #fffc3b;
+  --grey: #b4b4b4;
+  --black: #1d1d1d;
+  --error-blue: #0074ba;
+  --error-red: #f8312f;
+  --error-yellow: #fcd53f;
 }
-.o-table .mat-table .mat-row .mat-cell{
-    color: rgba(0,0,0,1);
+.o-table .mat-table .mat-row .mat-cell {
+  color: rgba(0, 0, 0, 1);
 }
-.mat-drawer-container{
-    color: var(--black);
-    background-color: rgb(241, 215, 194);
+.mat-drawer-container {
+  color: var(--black);
+  background-color: rgb(241, 215, 194);
 }
-.o-app-header{
-    background-color: #f7efee;
-}
-
-.background-orange{
-    background-color: var(--oranged-yellow);
+.o-app-header {
+  background-color: #f7efee;
 }
 
-.background-yellow{
-    background-color: var(--fluorescent-yellow);
+.background-orange {
+  background-color: var(--oranged-yellow);
 }
 
-.background-red{
-    background-color: var(--red);
+.background-yellow {
+  background-color: var(--fluorescent-yellow);
 }
 
-.background-blue{
-    background-color: var(--blue);
-}
-.background-dark-blue{
-    background-color: var(--dark-blue);
-}
-.background-oranged-yellow{
-    background-color: var(--oranged-yellow);
-}
-.background-green{
-    background-color: var(--green);
-}
-.background-error-red{
-    background-color: var(--error-red);
-}
-.background-error-blue{
-    background-color: var(--error-blue);
-}
-.background-error-yellow{
-    background-color: var(--error-yellow);
+.background-red {
+  background-color: var(--red);
 }
 
-img.o-app-sidenav-image{
-    height: 5rem;
+.background-blue {
+  background-color: var(--blue);
 }
+.background-dark-blue {
+  background-color: var(--dark-blue);
+}
+.background-oranged-yellow {
+  background-color: var(--oranged-yellow);
+}
+.background-green {
+  background-color: var(--green);
+}
+.background-error-red {
+  background-color: var(--error-red);
+}
+.background-error-blue {
+  background-color: var(--error-blue);
+}
+.background-error-yellow {
+  background-color: var(--error-yellow);
+}
+
+img.o-app-sidenav-image {
+  height: 5rem;
+}
+
+.o-dialog-class .mat-dialog-container .mat-dialog-title .mat-icon,
+.o-form-layout-dialog-overlay .mat-dialog-container .mat-dialog-title .mat-icon,
+.o-list-picker-dialog .mat-dialog-container .mat-dialog-title .mat-icon {
+  color: var(--orange);
+}
+
+
+.o-form-layout-dialog-overlay{
+    width: 30vw;
+    height: 30vh;
+}
+
+.o-form-layout-dialog-overlay .mat-dialog-container .o-form-layout-dialog o-form-toolbar .mat-toolbar {
+    padding: 0px 16px 0 4px !important;
+    
+}
+
+.o-form-toolbar .mat-toolbar {
+    background-color: white;
+}
+

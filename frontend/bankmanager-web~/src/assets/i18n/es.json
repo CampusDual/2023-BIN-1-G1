@@ -91,7 +91,8 @@
   "company_direction_city": "Ciudad",
   "company_direction_country": "País",
   "company_logo": "",
-  "company_start_date_detail": "Fecha de Inicio",
+  "company_start_date_detail": "Fecha de Alta",
+  "company_end_date_detail": "Fecha de Baja",
   "company_email_detail": "Email",
   "company_phone_detail": "Teléfono",
   "company_name_detail": "Nombre",
@@ -104,5 +105,6 @@
   "num_travels": "Número de Viajes",
   "contact_information": "Información de Contacto",
   "company_data": "Datos de la Compañía",
-  "PROFILE": "Perfil"
+  "PROFILE": "Perfil",
+  "vinculated_trucks": "Camiones Vinculados"
 }

@@ -19,8 +19,6 @@ export class MainComponent {
     }
   }*/
 
-  myAction() {
-    alert('Sor Rita Adolf mir');
-  }
+
 
 }

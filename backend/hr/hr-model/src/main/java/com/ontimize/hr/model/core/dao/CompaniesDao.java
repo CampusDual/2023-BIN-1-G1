@@ -23,7 +23,7 @@ public class CompaniesDao extends OntimizeJdbcDaoSupport {
     public static final String ATTR_COMPANY_START_DATE = "company_start_date";
     public static final String ATTR_COMPANY_LOGO = "company_logo";
     public static final String QUERY_GET_WITH_NUM_TRAVELS = "get_with_num_travels";
-    public static final String QUERY_GET_PLATES_COMPANY = "get_Plates_Company";
+    public static final String QUERY_GET_PLATES_COMPANY = "get_plates_company";
 
     public static final List<String> ALL_COLUMNS = Arrays.asList(
            CompaniesDao.ATTR_ID_COMPANY,

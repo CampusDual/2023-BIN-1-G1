@@ -32,23 +32,30 @@
                             companies_plates cp
                         JOIN
                             travels t ON cp.id_plate = t.id_plate
+                        WHERE
+                            cp.start_date < CURRENT_DATE
                         GROUP BY
                             cp.id_company
                     ) tc ON c.id_company = tc.id_company
                     #WHERE#
                     ORDER BY
                       num_travels DESC
-
                 ]]>
             </Sentence>
         </Query>
-        <Query id="get_Plates_Company">
+        <Query id="get_plates_company">
             <Sentence>
-                SELECT
-                    #COLUMNS#
-                FROM plates p
-                INNER JOIN companies_plates cp ON p.id_plate = cp.id_plate
+                <![CDATA[
+                with t as (
+                        SELECT
+                             cp.*,
+                             plate_number AS vinculated_trucks
+                        FROM plates p
+                        INNER JOIN companies_plates cp ON p.id_plate = cp.id_plate
+                        WHERE (cp.end_date IS NULL) OR (cp.end_date > CURRENT_DATE)
+                ) SELECT #COLUMNS# FROM t
                 #WHERE#
+                ]]>
             </Sentence>
         </Query>
     </Queries>

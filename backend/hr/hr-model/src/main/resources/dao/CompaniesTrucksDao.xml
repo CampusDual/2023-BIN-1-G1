@@ -26,9 +26,22 @@
         <Query id="get_not_owned_plates">
             <Sentence>
                 <![CDATA[
-                    select * from plates
+                   WITH t AS(
+                       SELECT
+                           p.id_plate ,
+                           plate_number
+                       FROM plates p
+                       LEFT JOIN
+                           companies_plates cp
+                       ON p.id_plate = cp.id_plate
+                       WHERE
+	                       (id_company IS NULL ) OR end_date < current_date
+	               )
+	               select #COLUMNS# from t
+                    #WHERE#
                 ]]>
             </Sentence>
         </Query>
+
     </Queries>
 </JdbcEntitySetup>

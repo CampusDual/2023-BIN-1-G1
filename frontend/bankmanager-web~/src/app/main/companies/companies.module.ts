@@ -8,7 +8,7 @@ import { CompaniesNewComponent } from './companies-new/companies-new.component';
 import { OntimizeWebModule } from 'ontimize-web-ngx';
 import { CompaniesTrucksNewComponent } from './companies-trucks-new/companies-trucks-new.component';
 
-
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +18,7 @@ import { CompaniesTrucksNewComponent } from './companies-trucks-new/companies-tr
     CompaniesTrucksNewComponent
   ],
   imports: [
+    SharedModule,
     CommonModule,
     CompaniesRoutingModule,
     OntimizeWebModule
