@@ -1,0 +1,45 @@
+.main-companies-balance{
+    height: 80%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.char-donut-container{
+    grid-column: 1/2;
+    height: 100%;
+    width: 100%;
+}
+
+.chart-container{
+    border-radius: 15px;
+    box-shadow: 2px 2px 10px rgb(182, 181, 181);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: white;
+}
+
+.ranking-container {
+    grid-column: 2/3;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    gap:20px
+}
+
+.ranking {
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 10px rgb(182, 181, 181);
+    background-color: white;
+}
+
+.target-ranking-leader {
+    background-color: var(--oranged-yellow);
+    filter: opacity(30%);
+    box-shadow: 1px 1px 10px var(--oranged-yellow);
+    
+}

@@ -7,7 +7,6 @@ import { CompaniesDetailComponent } from './companies-detail/companies-detail.co
 import { CompaniesNewComponent } from './companies-new/companies-new.component';
 import { OntimizeWebModule } from 'ontimize-web-ngx';
 import { CompaniesTrucksNewComponent } from './companies-trucks-new/companies-trucks-new.component';
-
 import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
@@ -15,7 +14,7 @@ import { SharedModule } from '../../shared/shared.module';
     CompaniesListComponent, 
     CompaniesDetailComponent, 
     CompaniesNewComponent, 
-    CompaniesTrucksNewComponent
+    CompaniesTrucksNewComponent,
   ],
   imports: [
     SharedModule,

@@ -42,6 +42,58 @@
                 ]]>
             </Sentence>
         </Query>
+        <Query id="get_best_buyers">
+            <Sentence>
+                <![CDATA[
+                   WITH tc AS (
+                        SELECT
+                           c.company_name,
+                           c.company_logo,
+                           SUM(CASE WHEN t.scan_volume_out > t.scan_volume_in THEN t.scan_volume_out ELSE 0 END) AS total_out_volume
+                        FROM
+                            companies c
+                        JOIN
+                            companies_plates cp ON c.id_company = cp.id_company
+                        JOIN
+                            plates p ON cp.id_plate = p.id_plate
+                        LEFT JOIN
+                            travels t ON (t.id_plate = p.id_plate) AND t.scan_volume_out > t.scan_volume_in
+                        GROUP BY
+                            c.company_name,
+                            c.company_logo
+                        ORDER BY
+                            total_out_volume DESC
+                        LIMIT 3
+                    )SELECT #COLUMNS# from tc
+                ]]>
+            </Sentence>
+        </Query>
+        <Query id="get_best_sellers">
+            <Sentence>
+                <![CDATA[
+                   WITH tc AS (
+                       SELECT
+                           c.company_name,
+                           c.company_logo,
+                           SUM(CASE WHEN t.scan_volume_in > t.scan_volume_out THEN t.scan_volume_in ELSE 0 END) AS total_in_volume
+                       FROM
+                           companies c
+                       JOIN
+                           companies_plates cp ON c.id_company = cp.id_company
+                       JOIN
+                           plates p ON cp.id_plate = p.id_plate
+                       LEFT JOIN
+                           travels t ON (t.id_plate = p.id_plate ) AND t.scan_volume_in > t.scan_volume_out
+                       GROUP BY
+                           c.company_name,
+                           c.company_logo
+                       ORDER BY
+                           total_in_volume DESC
+                       LIMIT 3
+                   ) SELECT #COLUMNS# FROM tc;
+                ]]>
+            </Sentence>
+        </Query>
 
     </Queries>
 </JdbcEntitySetup>

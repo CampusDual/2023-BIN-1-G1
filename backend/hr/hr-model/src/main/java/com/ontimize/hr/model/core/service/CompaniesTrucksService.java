@@ -30,6 +30,14 @@ public class CompaniesTrucksService implements ICompaniesTrucksService {
             throws OntimizeJEERuntimeException{
         return this.daoHelper.query(this.companiesTrucksDao, keyMap, attrList, CompaniesTrucksDao.QUERY_GET_NOT_OWNED_PLATES);
     }
+    public EntityResult companyTrucksGetBestBuyersQuery(Map<String, Object> keyMap, List<String> attrList)
+            throws OntimizeJEERuntimeException{
+        return this.daoHelper.query(this.companiesTrucksDao, keyMap, attrList, CompaniesTrucksDao.QUERY_GET_BEST_BUYERS);
+    }
+    public EntityResult companyTrucksGetBestSellersQuery(Map<String, Object> keyMap, List<String> attrList)
+            throws OntimizeJEERuntimeException{
+        return this.daoHelper.query(this.companiesTrucksDao, keyMap, attrList, CompaniesTrucksDao.QUERY_GET_BEST_SELLERS);
+    }
 
     @Override
     public EntityResult companyTrucksInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException {

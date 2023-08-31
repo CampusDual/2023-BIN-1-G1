@@ -1,0 +1,144 @@
+<div style="display: none">
+  <o-table
+    attr="companies"
+    service="companies"
+    entity="companyGetWithNumTravels"
+    keys="id_company"
+    columns="id_company;company_name;num_travels;company_phone;company_email;company_logo"
+    visible-columns="company_logo;company_name;num_travels;company_phone;company_email"
+    query-rows="20"
+    virtual-scroll="no"
+    delete-button="no"
+    (onDataLoaded)="onDataLoaded($event)"
+  >
+  </o-table>
+  <o-table
+    attr="companies"
+    service="companiesTrucks"
+    entity="companyTrucksGetBestBuyers"
+    keys="company_name"
+    columns="company_name;company_logo;total_out_volume"
+    visible-columns="company_logo;company_name;total_out_volume"
+    query-rows="20"
+    virtual-scroll="no"
+    delete-button="no"
+    (onDataLoaded)="onDataLoadedBuyers($event)"
+  >
+  </o-table>
+  <o-table
+  attr="companies"
+  service="companiesTrucks"
+  entity="companyTrucksGetBestSellers"
+  keys="company_name"
+  columns="company_name;company_logo;total_in_volume"
+  visible-columns="company_name;company_logo;total_in_volume"
+  query-rows="20"
+  virtual-scroll="no"
+  delete-button="no"
+  (onDataLoaded)="onDataLoadedSellers($event)"
+  >
+  </o-table>
+</div>
+<div class="main-companies-balance">
+  <div class="char-donut-container">
+    <div class="chart-container">
+      <h2>{{ "companies_movements" | oTranslate }}</h2>
+      <canvas style="width: 100%" id="numTravelsChart">{{ chart }}</canvas>
+    </div>
+  </div>
+  <div class="ranking-container">
+    <div *ngIf="bestBuyers" class="ranking">
+      <o-list
+        #list
+        [static-data]="bestBuyers"
+        keys="company_name"
+        columns="company_name;company_logo;total_out_volume"
+        title="{{ 'list_best_buyers' | oTranslate }}"
+        quick-filter="false"
+        refresh-button="false"
+        insert-button="false"
+        delete-button="false"
+        selectable="false"
+        dense="false"
+        detail-button-in-row="false"
+        detail-button-in-row-icon="chevron_right"
+        edit-button-in-row="false"
+        edit-button-in-row-icon="edit"
+        detail-mode="none"
+      >
+        <o-list-item *ngFor="let row of list.dataArray">
+          <o-list-item-avatar
+            #item
+            title="{{row.company_name}}"
+            avatar="{{row.company_logo}}"
+            secondary-text="{{ row.total_out_volume.toFixed(0)}} m³"
+          >
+          </o-list-item-avatar>   
+        </o-list-item>
+      </o-list>
+    </div>
+    <div *ngIf="bestSellers" class="ranking">
+        <o-list
+        #list
+        [static-data]="bestSellers"
+        keys="company_name"
+        columns="company_name;company_logo;total_in_volume"
+        title="{{ 'list_best_sellers' | oTranslate }}"
+        quick-filter="false"
+        refresh-button="false"
+        insert-button="false"
+        delete-button="false"
+        selectable="false"
+        dense="false"
+        detail-button-in-row="false"
+        detail-button-in-row-icon="chevron_right"
+        edit-button-in-row="false"
+        edit-button-in-row-icon="edit"
+        detail-mode="none"
+      >
+        <o-list-item *ngFor="let row of list.dataArray">
+          <o-list-item-avatar
+            #item
+            title="{{row.company_name}}"
+            avatar = "{{row.company_logo}}"
+            secondary-text="{{ row.total_in_volume.toFixed(0)}} m³"
+          >
+          </o-list-item-avatar>   
+        </o-list-item>
+      </o-list>
+    </div>
+  </div>
+</div>
+<!--
+<o-list 
+    #list 
+    keys="company_name" 
+    columns="company_name;company_logo;total_out_volume" 
+    [static-data]="getUsers()"  
+    title="List" 
+    quick-filter="false" 
+    refresh-button="false" 
+    insert-button="false" 
+    delete-button="false"
+    selectable="false" 
+    dense="false" 
+    detail-button-in-row="false"
+    detail-button-in-row-icon="chevron_right" 
+    edit-button-in-row="false"
+    edit-button-in-row-icon="edit" 
+    detail-mode="none"
+>
+  <o-list-item *ngFor="let row of list.dataArray">
+    <o-list-item-avatar 
+      #tem  
+      avatar="{{ row.thumbnailUrl }}" 
+      title="{{ row.username }}" 
+      primary-text="{{ row.name }}"
+      secondary-text="{{ row.email }}" 
+      (icon-action)="addToFavorites(row, item)"
+    >
+    </o-list-item-avatar>
+  </o-list-item>
+
+</o-list>
+-->

@@ -58,8 +58,9 @@
   "volume_out": "Volume Output",
   "balance": "Balance",
   "INvsOUT": "Volume Input/Output",
-  "MOVEMENT_FILTERS": "Movement Filters",
-  "day_movements": "Day Movement",
+  "MOVEMENT_FILTERS": "Movements Filters",
+  "day_movements": "Daily Movements",
+  "num_day_movements": "Number of Movements per Day",
   "out": "Output",
   "in": "Input",
   "trucks": "Trucks",
@@ -101,5 +102,9 @@
   "contact_information": "Contact Information",
   "company_data": "Company Data",
   "PROFILE": "Profile",
-  "vinculated_trucks": "Vinculated Truck"
+  "vinculated_trucks": "Vinculated Truck",
+  "movements": "Movements",
+  "companies_movements": "Companies Movements",
+  "list_best_buyers": "Top Buyers",
+  "list_best_sellers": "Top Sellers"
 }

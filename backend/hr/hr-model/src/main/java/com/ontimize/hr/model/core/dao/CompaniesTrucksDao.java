@@ -17,6 +17,8 @@ public class CompaniesTrucksDao extends OntimizeJdbcDaoSupport {
     public static final String ATTR_ID_PLATE = "id_plate";
 
     public static final String QUERY_GET_NOT_OWNED_PLATES = "get_not_owned_plates";
+    public static final String QUERY_GET_BEST_BUYERS = "get_best_buyers";
+    public static final String QUERY_GET_BEST_SELLERS = "get_best_sellers";
 
     public static final List<String> ALL_COLUMNS = Arrays.asList(
             CompaniesTrucksDao.ATTR_ID_COMPANY,
