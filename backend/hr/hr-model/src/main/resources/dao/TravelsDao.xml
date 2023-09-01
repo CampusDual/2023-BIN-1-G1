@@ -25,9 +25,15 @@
                         TP.trailer_plate_number,
                         DN.delivery_name,
                         t.scan_volume_in - t.scan_volume_out as difference,
-                        TO_CHAR((t.datetime_out  - t.datetime_in), 'HH24:MI:SS' ) AS duration,
-                        (t.calculated_volume/(t.length*t.width*t.height))*100 as occupation,
-                        (abs(abs(t.scan_volume_in - t.scan_volume_out) - t.calculated_volume)/t.calculated_volume)*100 as error                        
+                        TO_CHAR((t.datetime_out - t.datetime_in), 'HH24:MI:SS' ) AS duration,
+                        CASE
+                            WHEN t.length = 0 OR t.width = 0 OR t.height = 0 THEN NULL  -- Evita la división por cero
+                            ELSE (t.calculated_volume / (t.length * t.width * t.height)) * 100
+                        END as occupation,
+                        CASE
+                            WHEN t.calculated_volume = 0 THEN NULL  -- Evita la división por cero
+                            ELSE ((ABS(t.scan_volume_in - t.scan_volume_out) - t.calculated_volume) / t.calculated_volume) * 100
+                        END as error
                     FROM PUBLIC.travels T
                     LEFT JOIN PUBLIC.delivery_notes DN ON
                         T.id_delivery_note = DN.id_delivery_note
@@ -35,9 +41,9 @@
                         T.id_dev_in = DV1.id_dev
                     LEFT JOIN PUBLIC.devices DV2 ON
                         T.id_dev_out = DV2.id_dev
-                    LEFT JOIN PUBLIC.plates P on
+                    LEFT JOIN PUBLIC.plates P ON
                         T.id_plate = P.id_plate
-                    LEFT JOIN PUBLIC.trailer_plates TP on
+                    LEFT JOIN PUBLIC.trailer_plates TP ON
                         T.id_trailer_plate = TP.id_trailer_plate
                 )
                 SELECT #COLUMNS# FROM t
@@ -48,9 +54,16 @@
         <Query id="query_get_stock">
             <Sentence>
                 <![CDATA[
-                    SELECT (sum(scan_volume_in) - sum(scan_volume_out)) AS stock FROM travels
-                    UNION
-                    SELECT max_stock FROM warehouse;
+                   WITH tr AS (
+                        SELECT SUM(scan_volume_in - scan_volume_out) AS travel_stock
+                        FROM travels
+                    ),
+                    max_stock AS (
+                        SELECT max_stock
+                        FROM warehouse
+                    )
+                    SELECT tr.travel_stock AS stock, max_stock
+                    FROM tr, max_stock;
                 ]]>
             </Sentence>
         </Query>

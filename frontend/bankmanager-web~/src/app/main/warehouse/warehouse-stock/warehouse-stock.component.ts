@@ -50,8 +50,8 @@ export class WarehouseStockComponent implements OnInit {
   ondataloaded(event){
     console.log(event);
     this.table_data[0].stock = event[0].stock;
-    this.table_data[0].max_stock = event[1].stock;
-    this.table_data[0].percentage = (event[0].stock/event[1].stock)*100;
+    this.table_data[0].max_stock = event[0].max_stock;
+    this.table_data[0].percentage = (event[0].stock/event[0].max_stock)*100;
     console.log(JSON.stringify(this.table_data));
     this._configureGaugeChart(this.table_data);
   }

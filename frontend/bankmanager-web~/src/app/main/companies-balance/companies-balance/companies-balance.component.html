@@ -66,7 +66,8 @@
         edit-button-in-row-icon="edit"
         detail-mode="none"
       >
-        <o-list-item *ngFor="let row of list.dataArray">
+        <o-list-item *ngFor="let row of list.dataArray; let i=index">
+          <h2>{{i+1}}. </h2>
           <o-list-item-avatar
             #item
             title="{{row.company_name}}"
@@ -96,7 +97,8 @@
         edit-button-in-row-icon="edit"
         detail-mode="none"
       >
-        <o-list-item *ngFor="let row of list.dataArray">
+        <o-list-item *ngFor="let row of list.dataArray; let i = index">
+          <h2>{{i+1}}. </h2>
           <o-list-item-avatar
             #item
             title="{{row.company_name}}"
@@ -109,36 +111,3 @@
     </div>
   </div>
 </div>
-<!--
-<o-list 
-    #list 
-    keys="company_name" 
-    columns="company_name;company_logo;total_out_volume" 
-    [static-data]="getUsers()"  
-    title="List" 
-    quick-filter="false" 
-    refresh-button="false" 
-    insert-button="false" 
-    delete-button="false"
-    selectable="false" 
-    dense="false" 
-    detail-button-in-row="false"
-    detail-button-in-row-icon="chevron_right" 
-    edit-button-in-row="false"
-    edit-button-in-row-icon="edit" 
-    detail-mode="none"
->
-  <o-list-item *ngFor="let row of list.dataArray">
-    <o-list-item-avatar 
-      #tem  
-      avatar="{{ row.thumbnailUrl }}" 
-      title="{{ row.username }}" 
-      primary-text="{{ row.name }}"
-      secondary-text="{{ row.email }}" 
-      (icon-action)="addToFavorites(row, item)"
-    >
-    </o-list-item-avatar>
-  </o-list-item>
-
-</o-list>
--->
