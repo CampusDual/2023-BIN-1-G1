@@ -84,8 +84,8 @@ export class CompaniesBalanceComponent implements OnInit {
   };
   
   generarColoresHex(numeroColores) {
-    const tonoInicial = [239, 71, 111];  // Tono rojo pastel fuerte
-    const tonoFinal = [255, 235, 59];    // Tono amarillo pastel fuerte
+    const tonoInicial = [239, 71, 111];  // Tono rojo pastel fuerte RGB
+    const tonoFinal = [255, 235, 59];    // Tono amarillo pastel fuerte RGB
     
     const colores = [];
     for (let i = 0; i < numeroColores; i++) {

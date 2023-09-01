@@ -34,7 +34,7 @@
     "chart.js": "^2.7.3",
     "core-js": "^3.6.4",
     "ngx-material-timepicker": "5.4.3",
-    "ontimize-web-ngx": "8.11.1",
+    "ontimize-web-ngx": "^8.11.1",
     "ontimize-web-ngx-charts": "^8.2.0",
     "ontimize-web-ngx-report": "8.1.1",
     "ontimize-web-ngx-theming": "8.5.1",
