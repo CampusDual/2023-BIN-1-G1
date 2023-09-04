@@ -9,19 +9,22 @@ const routes: Routes = [
   {
     path: "", 
     component: CompaniesListComponent,
-    data: { oAppHeaderTitle:'Companies'}
+    /*data: { oAppHeaderTitle: 'Companies'}*/
   },
   {
     path: "new",
-    component: CompaniesNewComponent
+    component: CompaniesNewComponent,
+    /*data: { oAppHeaderTitle: 'Companies'}*/
   },
   {
     path: ":id_company",
-    component: CompaniesDetailComponent
+    component: CompaniesDetailComponent,
+    /*data: { oAppHeaderTitle: 'Companies'}*/
   },
   {
     path: ":id_company/new",
-    component: CompaniesTrucksNewComponent
+    component: CompaniesTrucksNewComponent,
+    /*data: { oAppHeaderTitle: 'Companies'}*/
   },
 ];
 
