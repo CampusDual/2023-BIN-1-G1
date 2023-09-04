@@ -56,9 +56,10 @@ export class TravelsBalanceComponent {
 
   ngAfterViewInit() {}
 
-  onDataLoaded(event) {
+  onDataLoaded(event) {    
     this.data = event.map((item) => {
-      return { ...item, volume_out: item.volume_out * -1 };
+      return isNaN(item.volume_out) ? { ...item, volume_out: 0} : { ...item, volume_out: item.volume_out * -1 };
+            
     });
     this._configureMultiBarChart(this.data);
     this._configureDonutChart(this.data);
