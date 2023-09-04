@@ -80,6 +80,13 @@ public class TravelsRestController extends ORestController<ITravelsService> {
         return datetime;
     }
 
+    @RequestMapping( value="/driverTruckAllowedPlates", method = RequestMethod.POST)
+    public ResponseEntity<String> getTravelsForAllowedPlates(@RequestBody Map<String,Object> body) throws ParseException{
+        //1. llamar al metodo de allowedPlates (Matricula) --> matricula.
+        //2. coger la matricula , consulta de los viajes
+        //3. return entity de los viajes para esa matricula
+        return null;
+    }
 
     public Map<String, Object> manageData(Map<String, Object> body){
         Map <String, Object> data = new HashMap<>(body);

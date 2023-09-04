@@ -12,5 +12,6 @@ public interface IPlatesService {
     public EntityResult plateInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException;
     public EntityResult plateUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
     public EntityResult plateDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
+    public EntityResult userPlatesQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
 
 }

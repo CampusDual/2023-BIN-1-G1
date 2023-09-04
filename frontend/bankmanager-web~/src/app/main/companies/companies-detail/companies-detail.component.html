@@ -1,4 +1,5 @@
 <o-form
+  #formDetailCompanies
   layout-direction="column"
   header-actions="R;U;D"
   after-insert-mode="detail"
@@ -7,7 +8,6 @@
   keys="id_company"
   parent-keys="id_company"
   keys-sql-types="INTEGER"
-  (onDataLoaded)="onDataLoaded($event)"
 >
   <div class="grid-new-company companies-section-box">
     <div class="info">
@@ -93,7 +93,7 @@
             attr="company_phone"
             label="{{ 'company_phone_detail' | oTranslate }}"
             read-only="no"
-            required="yes"
+            required="yes"            
           >
           </o-phone-input>
           <o-email-input

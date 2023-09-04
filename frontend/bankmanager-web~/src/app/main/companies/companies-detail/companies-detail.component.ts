@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { OFormComponent } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'app-companies-detail',
@@ -6,13 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./companies-detail.component.css']
 })
 export class CompaniesDetailComponent implements OnInit {
-
+  @ViewChild('formDetailCompanies', {static:false})
+  protected formDetailCompanies: OFormComponent;
   constructor() { }
 
   ngOnInit() {
   }
 
-  onDataLoaded(event){
-    console.log(event);
-  }
+  
 }

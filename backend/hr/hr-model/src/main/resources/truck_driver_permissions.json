@@ -1,0 +1,33 @@
+{
+    "menu":[
+        {
+            "attr": "travels-data",
+            "visible": false,
+            "enable": false
+        },
+        {
+            "attr": "warehouse",
+            "visible": false,
+            "enable": false
+        },
+        {
+            "attr": "companies", 
+            "visible": false,
+            "enable": false
+        }
+    ],
+    "routes": [
+        {
+            "permissionId": "travels-table-route",
+            "enabled": false
+        },
+        {
+            "permissionId": "companies-table-route",
+            "enabled": false
+        },
+        {
+            "permissionId": "warehouse-table-route",
+            "enabled": false
+        }
+    ]
+}

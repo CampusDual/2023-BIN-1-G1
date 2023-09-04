@@ -11,4 +11,6 @@ public interface ICompaniesService {
     public EntityResult companyInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException;
     public EntityResult companyUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
     public EntityResult companyDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
+    public EntityResult companyGetWithNumTravelsQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
+    public EntityResult companyGetPlatesCompanyQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
 }

@@ -12,4 +12,22 @@
         <Column>id_plate</Column>
     </UpdateKeys>
     <GeneratedKey>id_plate</GeneratedKey>
+    <Queries>
+        <Query id="get_user_plates">
+            <Sentence>
+                <![CDATA[
+                    WITH t AS (
+	                    SELECT
+	                        *
+ 	                    FROM
+ 		                    users_plates up
+ 	                    LEFT JOIN
+ 		                    plates p on p.id_plate = up.id_plate
+                    )SELECT #COLUMNS# FROM t
+                    #WHERE#
+                 ]]>
+            </Sentence>
+        </Query>
+
+    </Queries>
 </JdbcEntitySetup>

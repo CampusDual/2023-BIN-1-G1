@@ -11,4 +11,7 @@ export const SERVICE_CONFIG: Object = {
   'companiesTrucks': {
     'path': '/companiesTrucks'
   },
+  'permissions': {
+    'path': '/permissions/permission'
+  }
 };

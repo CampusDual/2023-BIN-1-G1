@@ -12,5 +12,9 @@ public interface ITravelsService {
     public EntityResult travelInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException;
     public EntityResult travelUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
     public EntityResult travelDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
-
+    public EntityResult travelFullQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
+    public EntityResult travelGetBalanceQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
+    public EntityResult travelGetStockQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
+    public EntityResult travelGetTrucksQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
+    public EntityResult travelGetTravelsTruckQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
 }

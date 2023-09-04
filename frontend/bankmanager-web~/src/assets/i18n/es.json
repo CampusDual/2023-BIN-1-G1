@@ -34,7 +34,7 @@
   "END": "Fin",
   "CLEAR": "Limpiar",
   "SEARCH_DELIVERY_NAME": "Buscar Nota de Envío",
-  "travels_list": "Lista de Viajes",
+  "travels_list": "Lista",
   "TRABEL_DETAIL": "Detalles del Viaje",
   "scan_volume_in": "Volumen Entrada (m3)",
   "scan_volume_out": "Volumen Salida (m3)",
@@ -53,7 +53,7 @@
   "error_value": "Error",
   "difference": "Volumen diferencial",
   "LEGEND": "Leyenda",
-  "travels_balance": "Balance de Viajes",
+  "travels_balance": "Balance",
   "volume_in": "Volumen Entrada",
   "volume_out": "Volumen Salida",
   "balance": "Balance",
@@ -82,7 +82,7 @@
   "United States": "Estados Unidos",
   "United Kingdom": "Reino Unido",
   "Germany": "Alemania",
-  "companies_list": "Listado de Compañias",
+  "companies_list": "Lista",
   "company_start_date": "Fecha de Inicio",
   "company_email": "Email",
   "company_phone": "Teléfono",
@@ -111,5 +111,6 @@
   "movements": "Movimientos",
   "companies_movements" : "Movimientos de las Compañías",
   "list_best_buyers" : "Top Clientes",
-  "list_best_sellers" : "Top Vendedores"
+  "list_best_sellers" : "Top Vendedores",
+  "companies_balance": "Balance"
 }

@@ -34,7 +34,7 @@
   "END": "End",
   "CLEAR": "Clear",
   "SEARCH_DELIVERY_NAME": "Search Delivery Note",
-  "travels_list": "Travels List",
+  "travels_list": "List",
   "TRAVEL_DETAIL": "Travel Detail",
   "scan_volume_in": "Scan Volume In (m3)",
   "scan_volume_out": "Scan Volume Out (m3)",
@@ -53,7 +53,7 @@
   "error_value": "Error",
   "difference": " Diferential Volume",
   "LEGEND": "Legend",
-  "travels_balance": "Travels Balance",
+  "travels_balance": "Balance",
   "volume_in": "Volume Input",
   "volume_out": "Volume Output",
   "balance": "Balance",
@@ -76,7 +76,7 @@
   "measures": "Measures",
   "dimensions": "Dimensions",
   "calcs": "Calculations",
-  "companies_list": "Companies List",
+  "companies_list": "List",
   "id_company": "ID Company",
   "company_name": "Company Name",
   "company_direction_street": "Direction",
@@ -106,5 +106,6 @@
   "movements": "Movements",
   "companies_movements": "Companies Movements",
   "list_best_buyers": "Top Buyers",
-  "list_best_sellers": "Top Sellers"
+  "list_best_sellers": "Top Sellers",
+  "companies_balance": "Balance"
 }

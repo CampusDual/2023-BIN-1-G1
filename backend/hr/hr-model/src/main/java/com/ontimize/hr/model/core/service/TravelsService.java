@@ -16,6 +16,8 @@ import com.ontimize.jee.common.dto.EntityResult;
 import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
 import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 import org.springframework.transaction.annotation.Transactional;
+import com.ontimize.jee.common.security.PermissionsProviderSecured;
+import org.springframework.security.access.annotation.Secured;
 
 @Service("TravelsService")
 @Lazy
@@ -28,30 +30,49 @@ public class TravelsService implements ITravelsService {
     @Autowired private DefaultOntimizeDaoHelper daoHelper;
 
 
-
+    @Override
+    @Secured({ PermissionsProviderSecured.SECURED })
     public EntityResult travelFullQuery(Map<String, Object> keyMap, List<String> attrList)
             throws OntimizeJEERuntimeException {
         return this.daoHelper.query(this.travelsDao, keyMap, attrList);
     }
+    @Override
+    @Secured({ PermissionsProviderSecured.SECURED })
     public EntityResult travelGetBalanceQuery(Map<String, Object> keyMap, List<String> attrList)
             throws OntimizeJEERuntimeException {
         return this.daoHelper.query(this.travelsDao, keyMap, attrList, TravelsDao.QUERY_GET_BALANCE);
     }
+    @Override
+    @Secured({ PermissionsProviderSecured.SECURED })
     public EntityResult travelGetStockQuery(Map<String, Object> keyMap, List<String> attrList)
             throws OntimizeJEERuntimeException {
         return this.daoHelper.query(this.travelsDao, keyMap, attrList, TravelsDao.QUERY_GET_STOCK);
     }
+    @Override
+    @Secured({ PermissionsProviderSecured.SECURED })
     public EntityResult travelGetTrucksQuery(Map<String, Object> keyMap, List<String> attrList)
             throws OntimizeJEERuntimeException {
         return this.daoHelper.query(this.travelsDao, keyMap, attrList, TravelsDao.QUERY_GET_TRUCKS);
     }
+
     @Override
+    @Secured({ PermissionsProviderSecured.SECURED })
+    public EntityResult travelGetTravelsTruckQuery(Map<String, Object> keyMap, List<String> attrList)
+            throws OntimizeJEERuntimeException{
+        return this.daoHelper.query(this.travelsDao, keyMap, attrList, TravelsDao.QUERY_GET_TRAVELS_TRUCK);
+    }
+
+
+
+    @Override
+    @Secured({ PermissionsProviderSecured.SECURED })
     public EntityResult travelQuery(Map<String, Object> keyMap, List<String> attrList)
             throws OntimizeJEERuntimeException {
         return this.daoHelper.query(this.travelsDao, keyMap, attrList);
     }
 
     @Override
+    @Secured({ PermissionsProviderSecured.SECURED })
     public EntityResult travelUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap)
             throws OntimizeJEERuntimeException {
         Map <String, Object> nonTravelData = obtainNonRelatedData(attrMap,
@@ -66,11 +87,13 @@ public class TravelsService implements ITravelsService {
     }
 
     @Override
+    @Secured({ PermissionsProviderSecured.SECURED })
     public EntityResult travelDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException {
         return this.daoHelper.delete(this.travelsDao, keyMap);
     }
 
     @Override
+    @Secured({ PermissionsProviderSecured.SECURED })
     @Transactional(rollbackFor = Exception.class)
     public EntityResult travelInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException {
         Map <String, Object> nonTravelData = obtainNonRelatedData(attrMap,

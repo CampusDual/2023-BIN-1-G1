@@ -16,6 +16,8 @@ public class PlatesDao extends OntimizeJdbcDaoSupport {
     public static final String ATTR_ID_PLATE = "id_plate";
     public static final String ATTR_PLATE_NUMBER = "plate_number";
 
+    public static final String GET_USER_PLATES = "get_user_plates";
+
     public static final List<String> ALL_COLUMNS = Arrays.asList(
             PlatesDao.ATTR_ID_PLATE,
             PlatesDao.ATTR_PLATE_NUMBER

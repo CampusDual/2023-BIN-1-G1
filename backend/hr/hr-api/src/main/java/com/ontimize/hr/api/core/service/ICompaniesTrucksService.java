@@ -11,5 +11,11 @@ public interface ICompaniesTrucksService {
         public EntityResult companyTrucksInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException;
         public EntityResult companyTrucksUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
         public EntityResult companyTrucksDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
+        public EntityResult companyTrucksGetNotOwnedPlatesQuery(Map<String, Object> keyMap, List<String> attrList)
+                throws OntimizeJEERuntimeException;
+        public EntityResult companyTrucksGetBestBuyersQuery(Map<String, Object> keyMap, List<String> attrList)
+                throws OntimizeJEERuntimeException;
+        public EntityResult companyTrucksGetBestSellersQuery(Map<String, Object> keyMap, List<String> attrList)
+                throws OntimizeJEERuntimeException;
 
 }
