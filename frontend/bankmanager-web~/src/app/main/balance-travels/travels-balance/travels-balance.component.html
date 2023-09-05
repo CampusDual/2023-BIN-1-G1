@@ -1,4 +1,3 @@
-<h1>{{ 'travels_balance' | oTranslate }}</h1>
 <div class="card-box full-width">
   <o-form show-header="no">
     <o-column-collapsible title="{{ 'MOVEMENT_FILTERS' | oTranslate }}" expanded="no">
@@ -77,12 +76,14 @@
     <div class="values">
       <span>{{values.volume_in}} m³</span>
     </div>
+    <div class="water background-green"></div>
   </div>
   <div *ngIf="values" class="card-box volume-card max-height">
     <h2>{{'volume_out' | oTranslate}}</h2>
     <div class="values">
       <span>{{values.volume_out *(-1)}} m³</span>
     </div>
+    <div class="water background-red"></div>
   </div>
   <div class="card-box max-height ">
     <h2>{{ 'INvsOUT' | oTranslate}}</h2>
