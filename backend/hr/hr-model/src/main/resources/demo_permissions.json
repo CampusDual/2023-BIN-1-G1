@@ -11,7 +11,7 @@
             "enabled": true
         },
         {
-            "attr": "companies",
+            "attr": "companies-data",
             "visible": true,
             "enabled": true
         },

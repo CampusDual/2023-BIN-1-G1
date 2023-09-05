@@ -26,7 +26,7 @@ export const MENU_CONFIG: MenuRootItem[] = [
     
   },
   { id: 'warehouse', name: 'WAREHOUSE', icon: 'warehouse', route: '/main/warehouse'},
-  { id: 'companies', name: 'COMPANIES', icon: 'factory', 
+  { id: 'companies-data', name: 'COMPANIES', icon: 'factory', 
   items: [
     {
       id:'companies-list',
