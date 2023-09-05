@@ -5,8 +5,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.ontimize.jee.common.db.SQLStatementBuilder;
+import com.ontimize.jee.common.db.SQLStatementBuilder.BasicExpression;
+import com.ontimize.jee.common.db.SQLStatementBuilder.BasicField;
+import com.ontimize.jee.common.db.SQLStatementBuilder.BasicOperator;
+
+import com.ontimize.jee.common.services.user.UserInformation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.ontimize.hr.api.core.service.ITravelsService;
@@ -57,12 +66,52 @@ public class TravelsService implements ITravelsService {
 
     @Override
     @Secured({ PermissionsProviderSecured.SECURED })
-    public EntityResult travelGetTravelsTruckQuery(Map<String, Object> keyMap, List<String> attrList)
+    public EntityResult restrictedTravelsByUserQuery(Map<String, Object> keyMap, List<String> attrList)
             throws OntimizeJEERuntimeException{
-        return this.daoHelper.query(this.travelsDao, keyMap, attrList, TravelsDao.QUERY_GET_TRAVELS_TRUCK);
+        /*
+        0. Hacer el servicio
+        1. Obtener las matrículas con el Authorization.
+        2. Hacer el basicExpression con OR para cada matrícula.
+        3. Reemplazar el KeyMap con el BasicExpression.
+        4. Hacer la consulta y retornarla.
+        */
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        ResponseEntity<String> re = null;
+        keyMap.clear();
+        List<String> attr = new ArrayList<>();
+        keyMap.put("user_", ((UserInformation)authentication.getPrincipal()).getUsername());
+        attr.add(PlatesDao.ATTR_PLATE_NUMBER);
+
+        EntityResult et = platesService.userPlatesQuery(keyMap, attr);
+        int num_plates = et.calculateRecordNumber();
+        ArrayList<String> plates = new ArrayList<String>();
+        BasicExpression exp = null;
+        Map<String, Object> keys = new HashMap<String, Object>();
+        if(num_plates > 0){
+            for(int i = 0 ; i< num_plates ; i ++){
+                plates.add((String) et.getRecordValues(i).get(PlatesDao.ATTR_PLATE_NUMBER));
+            }
+
+
+            if(plates.size() > 1){
+                BasicField field = new BasicField(PlatesDao.ATTR_PLATE_NUMBER);
+
+                for(int i = 0 ; i < num_plates; i ++){
+                    if(i == 0){
+                        exp = new BasicExpression(field, BasicOperator.EQUAL_OP, plates.get(i));
+                    }else {
+                        BasicExpression bexp1 = new BasicExpression(field, BasicOperator.EQUAL_OP, plates.get(i));
+                        exp = new BasicExpression(exp, BasicOperator.OR_OP, bexp1);
+                    }
+                }
+            }else{
+                keys.put(PlatesDao.ATTR_PLATE_NUMBER,plates.get(0));
+            }
+        }
+
+        keys.put(SQLStatementBuilder.ExtendedSQLConditionValuesProcessor.EXPRESSION_KEY, exp);
+        return this.daoHelper.query(this.travelsDao, keys, attrList, TravelsDao.QUERY_GET_TRAVELS_TRUCK);
     }
-
-
 
     @Override
     @Secured({ PermissionsProviderSecured.SECURED })
@@ -234,8 +283,3 @@ public class TravelsService implements ITravelsService {
         return attrMap;
     }
 }
-
-/*  Measurements-Delivery Measurements-Delivery
-*   1 mID_In mID_Out
-*
-* */

@@ -27,6 +27,7 @@ public class PlatesService implements IPlatesService {
     @Secured({ PermissionsProviderSecured.SECURED })
     public EntityResult userPlatesQuery(Map<String, Object> keyMap, List<String> attrList)
             throws OntimizeJEERuntimeException {
+
         return this.daoHelper.query(this.platesDao, keyMap, attrList, platesDao.GET_USER_PLATES);
     }
 

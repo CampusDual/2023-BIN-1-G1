@@ -18,7 +18,8 @@ export const routes: Routes = [
       { path: 'warehouse', loadChildren: () => import('./warehouse/warehouse.module').then(m => m.WarehouseModule)},
       { path: 'trucks', loadChildren: () => import('./trucks-movements/trucks-movements.module').then(m => m.TrucksMovementsModule)},
       { path: 'companies', loadChildren: () => import('./companies/companies.module').then(m => m.CompaniesModule)},
-      { path: 'companies-balance', loadChildren: () => import('./companies-balance/companies-balance.module').then(m => m.CompaniesBalanceModule)}
+      { path: 'companies-balance', loadChildren: () => import('./companies-balance/companies-balance.module').then(m => m.CompaniesBalanceModule)},
+      { path: 'travels-by-user', loadChildren: () => import('./travels-by-user/travels-by-user.module').then(m => m.TravelsByUserModule)}
     ]
   }
 ];

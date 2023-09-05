@@ -3,17 +3,22 @@
         {
             "attr": "travels-data",
             "visible": true,
-            "enable": true
+            "enabled": true
         },
         {
             "attr": "warehouse",
             "visible": true,
-            "enable": true
+            "enabled": true
         },
         {
             "attr": "companies",
             "visible": true,
-            "enable": true
+            "enabled": true
+        },
+        {
+            "attr": "travelsByUser",
+            "visible": false,
+            "enabled": false
         }
     ],
 

@@ -3,9 +3,12 @@ package com.ontimize.hr.ws.core.rest;
 
 
 import com.ontimize.hr.api.core.service.ITravelsService;
+import com.ontimize.hr.model.core.dao.*;
 import com.ontimize.hr.model.core.service.PlatesService;
 import com.ontimize.jee.common.dto.EntityResult;
+import com.ontimize.jee.common.dto.EntityResultMapImpl;
 import com.ontimize.jee.common.services.user.UserInformation;
+import org.apache.el.lang.ExpressionBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -43,19 +46,4 @@ public class PlatesRestController extends ORestController<IPlatesService> {
     public ITravelsService getServiceTravels() {
         return this.travelService;
     }
-
-    @RequestMapping( value="/allowedPlates", method = RequestMethod.POST)
-    public ResponseEntity<String> getAllowedPlates(@RequestBody Map<String,Object> body) throws ParseException {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        ResponseEntity<String> re = null;
-        HashMap<String, Object> keyMap = new HashMap<>();
-        List<String> attr = new ArrayList<>();
-        keyMap.put("user_", ((UserInformation)authentication.getPrincipal()).getUsername());
-        attr.add("plate_number");
-        EntityResult et = plateService.userPlatesQuery(keyMap, attr);
-        System.out.println(et);
-        return null;
-    }
-
-
 }

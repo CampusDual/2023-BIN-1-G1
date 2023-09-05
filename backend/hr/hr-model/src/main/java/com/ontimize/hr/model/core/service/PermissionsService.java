@@ -24,6 +24,7 @@ import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
 public class PermissionsService implements IPermissionService {
     public final String TRUCK_DRIVER_PERMISSION;
     public final String DEMO_PERMISSION;
+    public final String DISTRIBUTOR_PERMISSION;
 
     private String readFromInputStream(String fileName) throws IOException {
         StringBuilder resultStringBuilder = new StringBuilder();
@@ -44,6 +45,7 @@ public class PermissionsService implements IPermissionService {
         try {
             TRUCK_DRIVER_PERMISSION = readFromInputStream("truck_driver_permissions.json");
             DEMO_PERMISSION = readFromInputStream("demo_permissions.json");
+            DISTRIBUTOR_PERMISSION = readFromInputStream("distributor_permissions.json");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -62,6 +64,8 @@ public class PermissionsService implements IPermissionService {
         }
         else if (role.equals("admin")) {
             map.put("permission", DEMO_PERMISSION);
+        } else if (role.equals("distributor")) {
+            map.put("permissions", DISTRIBUTOR_PERMISSION);
         }
         e.addRecord(map);
         return e;

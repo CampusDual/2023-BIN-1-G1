@@ -41,5 +41,6 @@ export const MENU_CONFIG: MenuRootItem[] = [
       icon: 'balance'
     }
   ]},
+  { id: 'travelsByUser', name: 'TRAVELSBYUSER', route: '/main/travels-by-user', icon: 'space_dashboard'},
   { id: 'logout', name: 'LOGOUT', route: '/login', icon: 'power_settings_new', confirm: 'yes' }
 ];

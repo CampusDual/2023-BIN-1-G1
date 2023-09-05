@@ -16,5 +16,6 @@ public interface ITravelsService {
     public EntityResult travelGetBalanceQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
     public EntityResult travelGetStockQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
     public EntityResult travelGetTrucksQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
-    public EntityResult travelGetTravelsTruckQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
+    public EntityResult restrictedTravelsByUserQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
+
 }
