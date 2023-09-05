@@ -6,7 +6,13 @@ import { TrucksViewComponent } from './trucks-view/trucks-view.component';
 const routes: Routes = [
   {
     path: "",
-    component: TrucksViewComponent
+    component: TrucksViewComponent,
+    data: {
+      oPermission: {
+        permissionId: 'trucks-movements-table-route',
+        restrictedPermissionsRedirect: '403'
+      }
+    }
   }
 ];
 

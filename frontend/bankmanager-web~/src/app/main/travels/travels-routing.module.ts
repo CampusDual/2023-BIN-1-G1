@@ -5,12 +5,19 @@ import { TravelsDetailComponent } from './travels-detail/travels-detail.componen
 
 const routes: Routes = [
   {
-    path: 'travels-list',
-    component: TravelsTableComponent
+    path: '',
+    component: TravelsTableComponent,
+    data: {
+      oPermission: {
+        permissionId: 'travels-table-route',
+        restrictedPermissionsRedirect: '403'
+      }
+    }
   },
   {
-    path: "travels-list/:id_travel",
+    path: ":id_travel",
     component: TravelsDetailComponent
+
   }
   
 ];

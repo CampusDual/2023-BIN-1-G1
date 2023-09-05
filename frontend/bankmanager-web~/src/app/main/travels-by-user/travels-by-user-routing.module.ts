@@ -6,7 +6,14 @@ import { TravelsByUserListComponent } from './travels-by-user-list/travels-by-us
 const routes: Routes = [
   {
     path: '',
-    component: TravelsByUserListComponent
+    component: TravelsByUserListComponent,
+    data: {
+      oPermission: {
+        permissionId: 'travels-by-user-table-route',
+        restrictedPermissionsRedirect: '403'
+      }
+    }
+
   }
 
 ];

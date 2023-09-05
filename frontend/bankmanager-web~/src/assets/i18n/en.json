@@ -65,9 +65,9 @@
   "in": "Input",
   "trucks": "Trucks",
   "occupation_percent": "Occupation Percent",
-  "fail_measures": "Measure fail.",
+  "fail_measures": "Measurement failure greater than 10%.",
   "fail_truck": "Truck has not left.",
-  "fail_download": "Download took too long.",
+  "fail_download": "Download took too long, more than 1 hour.",
   "error_types": "Error Types",
   "other": "Free",
   "occupied": "Occupied",
@@ -109,5 +109,7 @@
   "list_best_sellers": "Top Sellers",
   "companies_balance": "Balance",
   "Companies": "Companies",
-  "TRAVELSBYUSER": "Dashboard"
+  "TRAVELSBYUSER": "Dashboard",
+  "start_date": "Start Date",
+  "end_date": "Discharge Date"
 }

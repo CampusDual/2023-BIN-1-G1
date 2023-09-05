@@ -82,8 +82,8 @@ export class TravelsBalanceComponent {
       },
     ];
     this.values = {
-      volume_in: this.movements[0].y.toFixed(2),
-      volume_out: (this.movements[1].y * -1).toFixed(2),
+      volume_in: this.movements[0].y.toFixed(0),
+      volume_out: (this.movements[1].y * -1).toFixed(0),
     };
 
     this.donutChartConf = new DonutChartConfiguration();

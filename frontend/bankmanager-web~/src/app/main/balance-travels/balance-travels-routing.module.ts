@@ -6,7 +6,13 @@ import { TravelsBalanceComponent } from './travels-balance/travels-balance.compo
 const routes: Routes = [
   {
     path: "",
-    component: TravelsBalanceComponent
+    component: TravelsBalanceComponent,
+    data: {
+      oPermission: {
+        permissionId: 'balance-table-route',
+        restrictedPermissionsRedirect: '403'
+      }
+    }
   }
 ];
 

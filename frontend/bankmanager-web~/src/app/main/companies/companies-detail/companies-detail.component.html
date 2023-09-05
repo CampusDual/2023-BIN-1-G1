@@ -116,6 +116,7 @@
         disable-close="false" >
       </o-form-layout-dialog-options>
         <o-table
+          delete-button="no"
           show-configuration-option="no"
           class="plates-table"
           keys="id_company"
@@ -123,14 +124,26 @@
           keys-sql-types="INTEGER"
           service="companies"
           entity="companyGetPlatesCompany"
-          columns="vinculated_trucks"
-          visible-columns="vinculated_trucks"
+          columns="vinculated_trucks;start_date;end_date"
+          visible-columns="vinculated_trucks;start_date;end_date"
           quick-filter="yes"
           show-buttons-text="no"
         >
         <o-table-column
         attr="vinculated_trucks"
         type="string"
+        content-align="center"
+        >
+        </o-table-column>
+        <o-table-column
+        attr="start_date"
+        type="date"
+        content-align="center"
+        >
+        </o-table-column>
+        <o-table-column
+        attr="end_date"
+        type="date"
         content-align="center"
         >
         </o-table-column>

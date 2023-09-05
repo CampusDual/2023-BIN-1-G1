@@ -9,15 +9,9 @@ import { Router } from '@angular/router';
 export class MainComponent {
 
 
-  private reloadDone: boolean = false;
-  /*constructor(){
-    if (!localStorage.getItem('foo')) { 
-      localStorage.setItem('foo', 'no reload') 
-      location.reload() 
-    } else {
-      localStorage.removeItem('foo') 
-    }
-  }*/
+  constructor(){
+    console.log();
+  }
 
 
 

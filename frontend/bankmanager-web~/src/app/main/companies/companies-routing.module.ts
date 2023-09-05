@@ -8,7 +8,13 @@ import { CompaniesTrucksNewComponent } from './companies-trucks-new/companies-tr
 const routes: Routes = [
   {
     path: "", 
-    component: CompaniesListComponent
+    component: CompaniesListComponent,
+    data: {
+      oPermission: {
+        permissionId: 'companies-table-route',
+        restrictedPermissionsRedirect: '403'
+      }
+    }
     /*data: { oAppHeaderTitle: 'Companies'}*/
   },
   {

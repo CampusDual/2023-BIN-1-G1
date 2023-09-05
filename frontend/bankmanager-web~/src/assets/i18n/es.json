@@ -65,9 +65,9 @@
   "in": "Entrada",
   "trucks": "Camiones",
   "occupation_percent": "Porcentaje de Ocupación",
-  "fail_measures": "Error en la medida.",
+  "fail_measures": "Error en la medida mayor que el 10%.",
   "fail_truck": "El camión no ha salido.",
-  "fail_download": "La descarga ha tardado demasiado.",
+  "fail_download": "La descarga ha tardado más de 1 hora.",
   "error_types": "Tipos de error",
   "other": "Libre",
   "occupied": "Ocupado",
@@ -114,5 +114,8 @@
   "list_best_sellers" : "Top Vendedores",
   "companies_balance": "Balance",
   "Companies": "Compañías",
-  "TRAVELSBYUSER": "Panel"
+  "TRAVELSBYUSER": "Panel",
+  "start_date": "Fecha de Alta",
+  "end_date": "Fecha de Baja"
+
 }

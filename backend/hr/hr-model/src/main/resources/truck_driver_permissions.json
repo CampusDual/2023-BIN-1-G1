@@ -31,8 +31,24 @@
             "enabled": false
         },
         {
+            "permissionId": "companies-balance-table-route",
+            "enabled": false
+        },
+        {
             "permissionId": "warehouse-table-route",
             "enabled": false
+        },
+        {
+            "permissionId": "trucks-movements-table-route",
+            "enabled": false
+        },
+        {
+            "permissionId": "balance-table-route",
+            "enabled": false
+        },
+        {
+            "permissionId": "travels-by-user-table-route",
+            "enabled": true
         }
     ]
 }

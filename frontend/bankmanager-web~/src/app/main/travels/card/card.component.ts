@@ -38,7 +38,7 @@ export class CardComponent implements OnInit, OnChanges{
     const animationDuration = [200, 700, 1200];
     const startValue = 0;
     const endValue = this.data;
-    const steps = 100; // Número de pasos para la animación
+    const steps = 10; // Número de pasos para la animación
     const stepValue = (endValue - startValue) / steps; // Valor a incrementar en cada paso
     const index = Math.floor(Math.random() * 3);
     const interval = animationDuration[index] / steps; // Intervalo de tiempo para cada paso

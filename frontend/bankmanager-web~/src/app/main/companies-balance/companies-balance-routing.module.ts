@@ -6,7 +6,13 @@ import { CompaniesBalanceComponent } from './companies-balance/companies-balance
 const routes: Routes = [
   {
     path: "",
-    component: CompaniesBalanceComponent
+    component: CompaniesBalanceComponent,
+    data: {
+      oPermission: {
+        permissionId: 'companies-balance-table-route',
+        restrictedPermissionsRedirect: '403'
+      }
+    }
   }
 ];
 

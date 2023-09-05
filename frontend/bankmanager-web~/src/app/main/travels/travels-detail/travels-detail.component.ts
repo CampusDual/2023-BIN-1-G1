@@ -48,8 +48,7 @@ export class TravelsDetailComponent implements OnInit {
 
   getData(event){   
     this.setData(event.hasOwnProperty("datetime_out"), event);
-    
-    this.animateCounterNumbers(event.hasOwnProperty("datetime_out"));
+  
   }
   
   get travelInfoKeys(){
@@ -139,39 +138,6 @@ export class TravelsDetailComponent implements OnInit {
   
     // Devolvemos los resultados
     return `${hours}:${minutes}:${seconds}`
-  }
-  
-  animateCounterNumbers(isFullMeasures: boolean){
-    const posibleNulls = ['scan_volume_out', 'calculated_volume'];
-    const animationDuration = [200, 700, 1200]; // Duración total de la animación en milisegundos
-  
-    this.numElements.forEach((elementRef: ElementRef) => {
-      const element = elementRef.nativeElement;
-      const startValue = 0;
-      const endValue = this.data['measure_info'][element.getAttribute("data-val")];
-      const steps = 100; // Número de pasos para la animación
-      const stepValue = (endValue - startValue) / steps; // Valor a incrementar en cada paso
-      const index = Math.floor(Math.random() * 3);
-      const interval = animationDuration[index] / steps; // Intervalo de tiempo para cada paso
-  
-      let currentValue = startValue;
-      let stepCounter = 0;
-  
-      const counter = setInterval(() => {
-        currentValue += stepValue;
-        if(!isFullMeasures && posibleNulls.some(clave => element.getAttribute("data-val") == clave)){
-            element.textContent = "";
-        }else {
-          element.textContent = currentValue.toFixed(2);
-        }
+  } 
 
-     
-        stepCounter++;
-        if (stepCounter >= steps || currentValue >= endValue) {
-          clearInterval(counter);
-        }
-      }, interval);
-    });
-
-  }
 }

@@ -67,7 +67,7 @@
         detail-mode="none"
       >
         <o-list-item *ngFor="let row of list.dataArray; let i=index">
-          <h2>{{i+1}}. </h2>
+          <h2 class="index-card">{{i+1}}. </h2>
           <o-list-item-avatar
             #item
             title="{{row.company_name}}"
@@ -98,7 +98,7 @@
         detail-mode="none"
       >
         <o-list-item *ngFor="let row of list.dataArray; let i = index">
-          <h2>{{i+1}}. </h2>
+          <h2 class="index-card">{{i+1}}. </h2>
           <o-list-item-avatar
             #item
             title="{{row.company_name}}"

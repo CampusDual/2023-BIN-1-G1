@@ -1,5 +1,10 @@
 <div fxLayout="row" layout-padding fxLayoutAlign="center center">
-  <p>
-    Ontimize web seed application home component
-  </p>
+  <o-table
+  service="permissions-role"
+  entity="userRole"
+  columns="user_;rolename"
+  visible-columns="user_;rolename"
+  (onDataLoaded)="onDataLoaded($event)"
+  ></o-table>
+
 </div>

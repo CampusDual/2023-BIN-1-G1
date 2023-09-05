@@ -32,7 +32,7 @@
                         END as occupation,
                         CASE
                             WHEN t.calculated_volume = 0 THEN NULL  -- Evita la división por cero
-                            ELSE ((ABS(t.scan_volume_in - t.scan_volume_out) - t.calculated_volume) / t.calculated_volume) * 100
+                            ELSE ABS((ABS(t.scan_volume_in - t.scan_volume_out) - t.calculated_volume) / t.calculated_volume) * 100
                         END as error
                     FROM PUBLIC.travels T
                     LEFT JOIN PUBLIC.delivery_notes DN ON

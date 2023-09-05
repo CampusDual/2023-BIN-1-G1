@@ -7,7 +7,7 @@ export const MENU_CONFIG: MenuRootItem[] = [
     { 
       id:'travels-list', 
       name:'travels_list', 
-      route:'/main/travels/travels-list', 
+      route:'/main/travels', 
       icon:'list'
     },
     { 

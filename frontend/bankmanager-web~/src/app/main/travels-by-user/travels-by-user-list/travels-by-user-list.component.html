@@ -1,9 +1,98 @@
 <o-table
-service="travels"
-entity="restrictedTravelsByUser"
-columns="id_travel;delivery_name;plate_number;company_name;datetime_in;datetime_out;duration;scan_volume_in;scan_volume_out;calculated_volume;trailer_plate_number"
-visible-columns="delivery_name;plate_number;company_name;datetime_in;datetime_out;duration;scan_volume_in;scan_volume_out;calculated_volume;trailer_plate_number"
-virtual-scroll="no"
-query-rows="20"
+  delete-button="no"
+  insert-button="no"
+  service="travels"
+  entity="restrictedTravelsByUser"
+  columns="id_travel;delivery_name;plate_number;company_name;datetime_in;datetime_out;duration;scan_volume_in;scan_volume_out;calculated_volume;trailer_plate_number"
+  visible-columns="delivery_name;plate_number;company_name;datetime_in;datetime_out;duration;scan_volume_in;scan_volume_out;calculated_volume;trailer_plate_number"
+  virtual-scroll="no"
+  query-rows="20"
 >
+  <o-table-column
+    content-align="center"
+    attr="scan_volume_in"
+    orderable="no"
+    searchable="no"
+    type="real"
+    max-decimal-digits="3"
+    decimal-separator=","
+    thousand-separator="."
+  >
+  </o-table-column>
+  <o-table-column
+    content-align="center"
+    attr="scan_volume_out"
+    orderable="no"
+    searchable="no"
+    type="real"
+    max-decimal-digits="3"
+    decimal-separator=","
+    thousand-separator="."
+  >
+  </o-table-column>
+  <o-table-column
+    content-align="center"
+    attr="datetime_in"
+    orderable="yes"
+    searchable="no"
+    type="date"
+    sql-type="timestamp"
+    format="DD/MM/YYYY HH:mm"
+  >
+  </o-table-column>
+  <o-table-column
+    attr="duration"
+    type="string"
+    searchable="no"
+    content-align="center"
+  >
+  </o-table-column>
+  <o-table-column
+    content-align="center"
+    attr="calculated_volume"
+    orderable="no"
+    searchable="no"
+    type="real"
+    max-decimal-digits="3"
+    decimal-separator=","
+    thousand-separator="."
+  >
+  </o-table-column>
+  <o-table-column
+    content-align="center"
+    attr="error"
+    orderable="yes"
+    searchable="no"
+    type="real"
+    max-decimal-digits="3"
+    decimal-separator=","
+    thousand-separator="."
+  >
+  </o-table-column>
+  <o-table-column
+    content-align="center"
+    attr="datetime_out"
+    searchable="yes"
+    type="date"
+    format="DD/MM/YYYY HH:mm"
+  >
+  </o-table-column>
+  <o-table-column
+    attr="delivery_name"
+    content-align="center"
+    serchable="yes"
+  >
+  </o-table-column>
+  <o-table-column
+    attr="plate_number"
+    searchable="no"
+    content-align="center"
+  >
+  </o-table-column>
+  <o-table-column
+    attr="trailer_plate_number"
+    content-align="center"
+    searchable="yes"
+  >
+  </o-table-column>  
 </o-table>

@@ -5,7 +5,13 @@ import { WarehouseStockComponent } from './warehouse-stock/warehouse-stock.compo
 
 const routes: Routes = [{
   path: '',
-  component: WarehouseStockComponent
+  component: WarehouseStockComponent,
+  data: {
+    oPermission: {
+      permissionId: 'warehouse-table-route',
+      restrictedPermissionsRedirect: '403'
+    }
+  }
 }];
 
 @NgModule({

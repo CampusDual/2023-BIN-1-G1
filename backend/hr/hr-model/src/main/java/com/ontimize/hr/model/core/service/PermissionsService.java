@@ -9,8 +9,12 @@ import java.util.Map;
 import java.util.Objects;
 
 import com.ontimize.hr.api.core.service.IPermissionService;
+import com.ontimize.hr.model.core.dao.TravelsDao;
+import com.ontimize.hr.model.core.dao.UserRoleDao;
 import com.ontimize.jee.common.dto.EntityResultMapImpl;
 import com.ontimize.jee.common.services.user.UserInformation;
+import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -22,6 +26,9 @@ import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
 @Service("PermissionsService")
 @Lazy
 public class PermissionsService implements IPermissionService {
+    @Autowired
+    private DefaultOntimizeDaoHelper daoHelper;
+    @Autowired private UserRoleDao userRoleDao;
     public final String TRUCK_DRIVER_PERMISSION;
     public final String DEMO_PERMISSION;
     public final String DISTRIBUTOR_PERMISSION;
@@ -61,13 +68,22 @@ public class PermissionsService implements IPermissionService {
         String role = authentication.getAuthorities().toArray()[0].toString();
         if (role.equals("truck_driver")) {
             map.put("permission", TRUCK_DRIVER_PERMISSION);
+            map.put("role", role);
         }
         else if (role.equals("admin")) {
             map.put("permission", DEMO_PERMISSION);
-        } else if (role.equals("distributor")) {
-            map.put("permissions", DISTRIBUTOR_PERMISSION);
         }
         e.addRecord(map);
         return e;
+    }
+
+    @Override
+    public EntityResult userRoleQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = ((UserInformation)authentication.getPrincipal()).getUsername();
+        keyMap.clear();
+        keyMap.put("user_", username);
+
+        return this.daoHelper.query(this.userRoleDao, keyMap, attrList, UserRoleDao.QUERY_USER_ROLE);
     }
 }
