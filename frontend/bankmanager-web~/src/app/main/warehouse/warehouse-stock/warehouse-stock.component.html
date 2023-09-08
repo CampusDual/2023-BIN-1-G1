@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="values">
-                <span class="value">{{table_data[0].stock.toFixed(0)}} m³</span>
+                <span class="value">{{table_data[0].stock | number:'1.2-2'}} m³</span>
                 <p>{{'stock' | oTranslate}}</p>
             </div>
         </div>
@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="values">
-                <span class="value">{{table_data[0].max_stock.toFixed(0)}} m³</span>
+                <span class="value">{{table_data[0].max_stock | number:'1.2-2'}} m³</span>
                 <p>{{'max_stock' | oTranslate}}</p>
             </div>
         </div>
