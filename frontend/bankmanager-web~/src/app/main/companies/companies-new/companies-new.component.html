@@ -8,7 +8,7 @@
   <div class="grid-new-company">
     <div class="info">
       <div class="section-company-info">
-        <h2 class="header">Company data</h2>
+        <h2 class="header">{{'company_data' | oTranslate }}</h2>
         <div class="company-data">
           <o-text-input
             attr="company_name"
@@ -29,7 +29,7 @@
         </div>
       </div>
       <div class="section-company-info">
-        <h2 id="contactHeader" class="header">Contact information</h2>
+        <h2 id="contactHeader" class="header">{{ 'contact_information' | oTranslate }}</h2>
         <div class="contact-information">
           <o-text-input
             id="companyStreet"
@@ -80,7 +80,7 @@
     </div>
     <div class="company-logo">
       <o-image
-        attr="company_logo"
+        attr="company_logo_detail"
         class="customer-picture"
         empty-image="./assets/images/no-image.png"
         read-only="no"

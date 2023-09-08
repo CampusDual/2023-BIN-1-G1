@@ -41,7 +41,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+}
+.volume-card-red{
+  background-image: url('^assets/images/background-waves-red.svg');
+  background-size: cover;
+}
+.volume-card-green{
+  background-image: url('^assets/images/background-waves-green.svg');
+  background-size: cover;
 }
 .graphic-donut{
   transform: translateY(-20px) translateX(-10px);

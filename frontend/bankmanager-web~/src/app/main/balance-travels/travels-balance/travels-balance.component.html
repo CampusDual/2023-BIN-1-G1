@@ -71,17 +71,17 @@
     </o-table>
 </div>
 <div class="donut-section">
-  <div *ngIf="values" class="card-box volume-card max-height">
+  <div *ngIf="values" class="card-box volume-card-green max-height">
     <h2>{{'volume_in' | oTranslate}}</h2>
     <div class="values">
-      <span>{{values.volume_in}} m³</span>
+      <span>{{values.volume_in | number: '1.2-2'}} m³</span>
     </div>
     <div class="water background-green"></div>
   </div>
-  <div *ngIf="values" class="card-box volume-card max-height">
+  <div *ngIf="values" class="card-box volume-card-red max-height">
     <h2>{{'volume_out' | oTranslate}}</h2>
     <div class="values">
-      <span>{{values.volume_out *(-1)}} m³</span>
+      <span>{{values.volume_out *(-1) | number: '1.2-2'}} m³</span>
     </div>
     <div class="water background-red"></div>
   </div>
