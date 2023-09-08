@@ -16,6 +16,8 @@ export class CompaniesNewComponent implements OnInit {
     {id: 6, name:"Germany"}
   ];
 
+  phoneCountries: String[] = ['Spain', 'Portugal', 'France', 'UnitedKingdom','UnitedStates', 'Germany'];
+
   countries_translated: any[];
 
   constructor(){}

@@ -61,6 +61,7 @@ export const routes: Routes = [
       },
       { path: 'companies-balance', loadChildren: () => import('./companies-balance/companies-balance.module').then(m => m.CompaniesBalanceModule),
         data: {
+          oAppHeaderTitle:  "COMPANIES",
           oPermission: {
             restrictedPermissionsRedirect: '403'
           }

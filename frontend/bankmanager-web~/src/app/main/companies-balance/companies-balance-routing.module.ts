@@ -8,7 +8,7 @@ const routes: Routes = [
     path: "",
     component: CompaniesBalanceComponent,
     data: {
-      oAppHeaderTitle: 'Companies',
+      
       oPermission: {
         permissionId: 'companies-balance-table-route',
         restrictedPermissionsRedirect: '403'
