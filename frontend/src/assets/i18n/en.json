@@ -78,7 +78,7 @@
   "calcs": "Calculations",
   "companies_list": "List",
   "id_company": "ID Company",
-  "company_name": "Company Name",
+  "company_name": "Company",
   "company_direction_street": "Direction",
   "company_direction_cip": "ZIP Code",
   "company_direction_city": "City",
@@ -107,7 +107,7 @@
   "companies_movements": "Companies Number of Movements",
   "list_best_buyers": "Top Buyers",
   "list_best_sellers": "Top Sellers",
-  "companies_balance": "Companies Balance",
+  "companies_balance": "Balance",
   "TRAVELSBYUSER": "Dashboard",
   "start_date": "Start Date",
   "end_date": "Discharge Date"
