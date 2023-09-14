@@ -115,5 +115,6 @@
   "companies_balance": "Balance",
   "TRAVELSBYUSER": "Panel",
   "start_date": "Fecha de Alta",
-  "end_date": "Fecha de Baja"
+  "end_date": "Fecha de Baja",
+  "company_logo": "Logo"
 }

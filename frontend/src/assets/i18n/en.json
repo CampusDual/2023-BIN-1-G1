@@ -110,5 +110,6 @@
   "companies_balance": "Balance",
   "TRAVELSBYUSER": "Dashboard",
   "start_date": "Start Date",
-  "end_date": "Discharge Date"
+  "end_date": "Discharge Date",
+  "company_logo": "Logo"
 }
